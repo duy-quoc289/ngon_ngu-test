@@ -1,0 +1,213 @@
+{
+  "topic": "numbers",
+  "title": "Số đếm",
+  "titleKo": "숫자",
+  "subtitle": "2 hệ thống dùng song song",
+  "intro": "Tiếng Hàn có HAI hệ thống số: Hán-Hàn (gốc Hán) và Thuần Hàn (gốc bản địa). Phải nhớ dùng hệ nào trong tình huống nào.",
+  "lessons": [
+    {
+      "id": "han-han-basic",
+      "title": "Hán-Hàn 0-10",
+      "icon": "1",
+      "type": "tile-grid",
+      "hint": "Hệ Hán-Hàn (한자어 숫자) gốc từ tiếng Hán. Người biết Hán-Việt sẽ thấy quen lắm.",
+      "tiles": [
+        { "char": "영", "rom": "yeong", "vi": "0 — linh / không",  "syllable": "0", "audio": "hh_0" },
+        { "char": "일", "rom": "il",    "vi": "1 — nhất",            "syllable": "1", "audio": "hh_1" },
+        { "char": "이", "rom": "i",     "vi": "2 — nhị",             "syllable": "2", "audio": "hh_2" },
+        { "char": "삼", "rom": "sam",   "vi": "3 — tam",             "syllable": "3", "audio": "hh_3" },
+        { "char": "사", "rom": "sa",    "vi": "4 — tứ",              "syllable": "4", "audio": "hh_4" },
+        { "char": "오", "rom": "o",     "vi": "5 — ngũ",             "syllable": "5", "audio": "hh_5" },
+        { "char": "육", "rom": "yuk",   "vi": "6 — lục",             "syllable": "6", "audio": "hh_6" },
+        { "char": "칠", "rom": "chil",  "vi": "7 — thất",            "syllable": "7", "audio": "hh_7" },
+        { "char": "팔", "rom": "pal",   "vi": "8 — bát",             "syllable": "8", "audio": "hh_8" },
+        { "char": "구", "rom": "gu",    "vi": "9 — cửu",             "syllable": "9", "audio": "hh_9" },
+        { "char": "십", "rom": "sip",   "vi": "10 — thập",           "syllable": "10","audio": "hh_10" }
+      ]
+    },
+    {
+      "id": "han-han-large",
+      "title": "Hàng trăm/nghìn/vạn",
+      "icon": "百",
+      "type": "tile-grid",
+      "hint": "Ghép số giống tiếng Việt: 25 = 이십오 (2×10+5). 2026 = 이천이십육.",
+      "tiles": [
+        { "char": "백", "rom": "baek",  "vi": "100 — bách",  "syllable": "100",   "audio": "hh_100" },
+        { "char": "천", "rom": "cheon", "vi": "1.000 — thiên","syllable": "1.000", "audio": "hh_1000" },
+        { "char": "만", "rom": "man",   "vi": "10.000 — vạn","syllable": "10.000","audio": "hh_10000" },
+        { "char": "이천이십육", "rom": "i-cheon-i-sip-yuk", "vi": "2026 — ví dụ ghép", "syllable": "2026", "audio": "hh_2026" }
+      ]
+    },
+    {
+      "id": "han-han-usage",
+      "title": "Khi nào dùng Hán-Hàn",
+      "icon": "📍",
+      "type": "explainer",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Hệ Hán-Hàn dùng cho hầu hết các con số 'kỹ thuật' trong đời sống: ngày tháng, tiền, số đo, số điện thoại."
+        },
+        {
+          "kind": "rules",
+          "title": "Tình huống dùng Hán-Hàn",
+          "items": [
+            { "label": "Ngày tháng năm", "rule": "**2026년 4월 29일**", "examples": ["năm", "tháng", "ngày"] },
+            { "label": "Tiền", "rule": "**5000원** = 오천 원", "examples": ["원 (won)"] },
+            { "label": "Số điện thoại, địa chỉ", "rule": "Đọc từng chữ số bằng Hán-Hàn", "examples": [] },
+            { "label": "Phút, giây", "rule": "(KHÔNG phải giờ) — 3시 **30분** = 3 giờ 30 phút", "examples": ["분", "초"] },
+            { "label": "Số đo", "rule": "cm, kg, km — đọc bằng Hán-Hàn", "examples": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thuan-han-basic",
+      "title": "Thuần Hàn 1-10",
+      "icon": "한",
+      "type": "tile-grid",
+      "hint": "Hệ Thuần Hàn (고유어 숫자) là từ gốc bản địa. Bắt buộc dùng để đếm đồ vật, người, tuổi và **số giờ**.",
+      "tiles": [
+        { "char": "하나",   "rom": "ha-na",   "vi": "1 (rút gọn: **한**)",   "syllable": "1",  "audio": "th_1" },
+        { "char": "둘",     "rom": "dul",     "vi": "2 (rút gọn: **두**)",   "syllable": "2",  "audio": "th_2" },
+        { "char": "셋",     "rom": "set",     "vi": "3 (rút gọn: **세**)",   "syllable": "3",  "audio": "th_3" },
+        { "char": "넷",     "rom": "net",     "vi": "4 (rút gọn: **네**)",   "syllable": "4",  "audio": "th_4" },
+        { "char": "다섯",   "rom": "da-seot", "vi": "5",                      "syllable": "5",  "audio": "th_5" },
+        { "char": "여섯",   "rom": "yeo-seot","vi": "6",                      "syllable": "6",  "audio": "th_6" },
+        { "char": "일곱",   "rom": "il-gop",  "vi": "7",                      "syllable": "7",  "audio": "th_7" },
+        { "char": "여덟",   "rom": "yeo-deol","vi": "8",                      "syllable": "8",  "audio": "th_8" },
+        { "char": "아홉",   "rom": "a-hop",   "vi": "9",                      "syllable": "9",  "audio": "th_9" },
+        { "char": "열",     "rom": "yeol",    "vi": "10",                     "syllable": "10", "audio": "th_10" }
+      ]
+    },
+    {
+      "id": "thuan-han-tens",
+      "title": "Hàng chục thuần Hàn",
+      "icon": "20",
+      "type": "tile-grid",
+      "hint": "Mỗi hàng chục có **từ riêng** — không có quy luật, phải nhớ thuộc lòng. Hệ thuần Hàn chỉ tới 99; từ 100 trở lên buộc dùng Hán-Hàn.",
+      "tiles": [
+        { "char": "스물", "rom": "seu-mul",  "vi": "20 (rút gọn: **스무**)", "syllable": "20", "audio": "th_20" },
+        { "char": "서른", "rom": "seo-reun", "vi": "30",                      "syllable": "30", "audio": "th_30" },
+        { "char": "마흔", "rom": "ma-heun",  "vi": "40",                      "syllable": "40", "audio": "th_40" },
+        { "char": "쉰",   "rom": "swin",     "vi": "50",                      "syllable": "50", "audio": "th_50" },
+        { "char": "예순", "rom": "ye-sun",   "vi": "60",                      "syllable": "60", "audio": "th_60" },
+        { "char": "일흔", "rom": "il-heun",  "vi": "70",                      "syllable": "70", "audio": "th_70" },
+        { "char": "여든", "rom": "yeo-deun", "vi": "80",                      "syllable": "80", "audio": "th_80" },
+        { "char": "아흔", "rom": "a-heun",   "vi": "90",                      "syllable": "90", "audio": "th_90" },
+        { "char": "스물다섯", "rom": "seu-mul-da-seot", "vi": "25 — ví dụ ghép", "syllable": "25", "audio": "th_25" }
+      ]
+    },
+    {
+      "id": "shorten",
+      "title": "5 dạng rút gọn",
+      "icon": "⚡",
+      "type": "comparison",
+      "hint": "Khi đứng **trước đơn vị đếm**, các số 1, 2, 3, 4, 20 phải đổi sang dạng rút gọn. Ví dụ: 1 quyển sách = 책 **한** 권 (KHÔNG phải 하나 권).",
+      "groups": [
+        {
+          "name": "1-4: rút gọn",
+          "color": "blue",
+          "description": "Bỏ chữ cuối khi đếm",
+          "items": [
+            { "char": "한", "syllable": "← 하나" },
+            { "char": "두", "syllable": "← 둘" },
+            { "char": "세", "syllable": "← 셋" },
+            { "char": "네", "syllable": "← 넷" }
+          ]
+        },
+        {
+          "name": "20: trường hợp đặc biệt",
+          "color": "rose",
+          "description": "Chỉ 20 đổi, từ 21 trở đi giữ 스물",
+          "items": [
+            { "char": "스무", "syllable": "← 스물 (20)" },
+            { "char": "스물한", "syllable": "21 (giữ 스물)" }
+          ]
+        },
+        {
+          "name": "Còn lại: giữ nguyên",
+          "color": "amber",
+          "description": "5-19, 22-29, 30+ không đổi",
+          "items": [
+            { "char": "다섯", "syllable": "5" },
+            { "char": "스물다섯", "syllable": "25" },
+            { "char": "마흔", "syllable": "40" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "counters",
+      "title": "Đơn vị đếm phổ biến",
+      "icon": "📦",
+      "type": "tile-grid",
+      "hint": "Tiếng Hàn (như tiếng Việt) dùng đơn vị đếm khi đếm đồ vật/người/con vật.",
+      "tiles": [
+        { "char": "개",   "rom": "gae",    "vi": "đồ vật chung",          "syllable": "사과 세 개" },
+        { "char": "명",   "rom": "myeong", "vi": "người (lịch sự)",       "syllable": "학생 다섯 명" },
+        { "char": "사람", "rom": "saram",  "vi": "người (thân mật)",      "syllable": "두 사람" },
+        { "char": "분",   "rom": "bun",    "vi": "người (kính ngữ)",      "syllable": "선생님 한 분" },
+        { "char": "마리", "rom": "mari",   "vi": "động vật",              "syllable": "고양이 두 마리" },
+        { "char": "권",   "rom": "gwon",   "vi": "sách",                  "syllable": "책 네 권" },
+        { "char": "잔",   "rom": "jan",    "vi": "ly, cốc",               "syllable": "커피 한 잔" },
+        { "char": "병",   "rom": "byeong", "vi": "chai",                  "syllable": "맥주 두 병" },
+        { "char": "살",   "rom": "sal",    "vi": "tuổi",                  "syllable": "스무 살" },
+        { "char": "시",   "rom": "si",     "vi": "giờ",                   "syllable": "세 시" },
+        { "char": "번",   "rom": "beon",   "vi": "lần",                   "syllable": "한 번" },
+        { "char": "장",   "rom": "jang",   "vi": "tờ, vé",                "syllable": "표 두 장" }
+      ]
+    },
+    {
+      "id": "time-trap",
+      "title": "Bẫy giờ-phút ⏰",
+      "icon": "⏰",
+      "type": "comparison",
+      "hint": "Đây là điểm SAI phổ biến nhất với người mới. **3 giờ 30 phút = 세 시 삼십 분**. Giờ → Thuần Hàn. Phút → Hán-Hàn. KHÔNG được trộn ngược.",
+      "groups": [
+        {
+          "name": "Giờ → Thuần Hàn",
+          "color": "blue",
+          "description": "Dùng 한 / 두 / 세 / 네...",
+          "items": [
+            { "char": "한 시",  "syllable": "1 giờ" },
+            { "char": "두 시",  "syllable": "2 giờ" },
+            { "char": "세 시",  "syllable": "3 giờ" },
+            { "char": "열두 시", "syllable": "12 giờ" }
+          ]
+        },
+        {
+          "name": "Phút → Hán-Hàn",
+          "color": "rose",
+          "description": "Dùng 일 / 이 / 삼...",
+          "items": [
+            { "char": "일 분",  "syllable": "1 phút" },
+            { "char": "오 분",  "syllable": "5 phút" },
+            { "char": "삼십 분", "syllable": "30 phút" },
+            { "char": "오십구 분", "syllable": "59 phút" }
+          ]
+        },
+        {
+          "name": "Câu hoàn chỉnh",
+          "color": "amber",
+          "description": "Trộn cả 2 hệ trong 1 câu",
+          "items": [
+            { "char": "세 시 삼십 분", "syllable": "3:30",  "audio": "ex_3_30" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exercise",
+      "title": "Bài tập tổng hợp",
+      "icon": "✏️",
+      "type": "exercise",
+      "hint": "Click 'Hiện đáp án' sau khi tự đọc thử. Click loa để nghe đáp án chuẩn.",
+      "items": [
+        { "ko": "저는 스물다섯 살이에요.",  "rom": "Jeo-neun seu-mul-da-seot sal-i-e-yo", "vi": "Tôi 25 tuổi.",     "audio": "ex_25_age" },
+        { "ko": "세 시 삼십 분에 만나요.",  "rom": "Se-si sam-sip-bun-e man-na-yo",       "vi": "Gặp nhau 3:30.",   "audio": "ex_3_30" },
+        { "ko": "사과 한 개 주세요.",       "rom": "Sa-gwa han-gae ju-se-yo",            "vi": "Cho tôi 1 quả táo.","audio": "ex_1_apple" }
+      ]
+    }
+  ]
+}

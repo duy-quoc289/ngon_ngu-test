@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Học tiếng Hàn — Reference cá nhân</title>
+<script>
+  // FOUC fix — set dark class trước khi CSS load
+  if (matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  tailwind.config = {
+    darkMode: 'media',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'Noto Sans KR', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          accent: { 50:'#eff6ff', 100:'#dbeafe', 500:'#5b8def', 600:'#2f5fd0', 700:'#1e40af' },
+        },
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans antialiased">
+
+<!-- Navigation -->
+<nav class="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-semibold">
+      <span class="text-xl">🇰🇷</span>
+      <span>Học tiếng Hàn</span>
+    </a>
+    <div class="hidden sm:flex items-center gap-4 text-sm">
+      <a href="pages/hangul.html" class="hover:text-accent-600">Hangul</a>
+      <a href="pages/numbers.html" class="hover:text-accent-600">Số đếm</a>
+      <a href="pages/pronunciation.html" class="hover:text-accent-600">Nối âm</a>
+      <a href="pages/vocab.html" class="hover:text-accent-600">Từ vựng</a>
+      <a href="pages/summary.html" class="hover:text-accent-600">Lộ trình</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-10">
+  <div class="text-center">
+    <p class="text-3xl sm:text-4xl mb-3" lang="ko">안녕하세요</p>
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-accent-600 via-violet-500 to-pink-500 bg-clip-text text-transparent leading-tight">
+      Reference học tiếng Hàn
+    </h1>
+    <p class="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+      Tài liệu cá nhân ngắn gọn cho người mới bắt đầu — đủ cover Stage 1 (Hangul, số đếm, nối âm) trước khi bước vào TOPIK 1.
+    </p>
+  </div>
+</section>
+
+<!-- Progress dashboard placeholder -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-8">
+  <div id="progress-card" class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6 shadow-sm">
+    <div class="flex items-start justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="font-semibold text-lg flex items-center gap-2">
+          <span class="text-accent-500">📊</span>
+          Tiến độ học
+        </h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm mt-1" id="progress-msg">
+          Bạn đang ở Phase 2 — đã có Hangul + Số đếm + Nối âm + 160 từ vựng. Phase 3 (Flashcard SRS) sắp tới.
+        </p>
+      </div>
+      <span class="inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full bg-violet-50 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300">
+        Phase 2/4 — Vocabulary
+      </span>
+    </div>
+    <div class="mt-4 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+      <div class="h-full bg-gradient-to-r from-accent-500 to-violet-500 rounded-full" style="width:50%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section cards -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-12">
+  <h2 class="text-xl font-bold mb-4">Nội dung học</h2>
+  <div class="grid sm:grid-cols-2 gap-4">
+
+    <a href="pages/hangul.html" class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-accent-500 hover:shadow-lg transition-all">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-violet-500 text-white grid place-items-center text-xl font-bold shadow-md shadow-accent-500/30 shrink-0" lang="ko">한</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold group-hover:text-accent-600">Hangul (한글)</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">21 nguyên âm, 14+5 phụ âm. Cấu trúc âm tiết. Bài tập đọc thử.</p>
+          <span class="inline-block mt-2 text-xs text-accent-600 font-medium">Bắt đầu ở đây →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="pages/numbers.html" class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-accent-500 hover:shadow-lg transition-all">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white grid place-items-center text-xl font-bold shadow-md shadow-emerald-500/30 shrink-0">1</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold group-hover:text-accent-600">Số đếm (숫자)</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">2 hệ thống Hán-Hàn vs thuần Hàn. Đơn vị đếm. Bẫy giờ-phút.</p>
+          <span class="inline-block mt-2 text-xs text-accent-600 font-medium">Học tiếp →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="pages/pronunciation.html" class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-accent-500 hover:shadow-lg transition-all">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 text-white grid place-items-center text-xl font-bold shadow-md shadow-pink-500/30 shrink-0" lang="ko">발</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold group-hover:text-accent-600">Quy tắc nối âm</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">7 quy tắc 받침: nối âm, đồng hóa mũi, ㄹ, bật hơi, lược ㅎ, căng âm, vòm hóa.</p>
+          <span class="inline-block mt-2 text-xs text-accent-600 font-medium">Quan trọng →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="pages/summary.html" class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-accent-500 hover:shadow-lg transition-all">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 text-white grid place-items-center text-xl font-bold shadow-md shadow-amber-500/30 shrink-0">★</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold group-hover:text-accent-600">Lộ trình ôn tập</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Kế hoạch 4 tuần đầu + mẹo học hiệu quả.</p>
+          <span class="inline-block mt-2 text-xs text-accent-600 font-medium">Xem lộ trình →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="pages/vocab.html" class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-accent-500 hover:shadow-lg transition-all sm:col-span-2">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 text-white grid place-items-center text-xl font-bold shadow-md shadow-violet-500/30 shrink-0" lang="ko">단</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold group-hover:text-accent-600 flex items-center gap-2">
+            Từ vựng (단어)
+            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">Mới</span>
+          </h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">160 từ theo 4 chủ đề: 👋 chào hỏi (40), 👨‍👩‍👧 gia đình (30), 🍚 ăn uống (45), 🛍️ mua sắm (45). Có search + filter.</p>
+          <span class="inline-block mt-2 text-xs text-accent-600 font-medium">Học từ vựng →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Coming soon: Grammar -->
+    <div class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30 p-5 opacity-70">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-500 grid place-items-center text-xl font-bold shrink-0" lang="ko">문</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold flex items-center gap-2">
+            Ngữ pháp (문법)
+            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Phase 4</span>
+          </h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">10 ngữ pháp cốt lõi: -아/어요, -았/었-, particles, kính ngữ...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coming soon: Flashcards -->
+    <div class="rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30 p-5 opacity-70 sm:col-span-2">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-500 grid place-items-center text-xl font-bold shrink-0">🎴</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-semibold flex items-center gap-2">
+            Flashcards (SRS)
+            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">Phase 3</span>
+          </h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Học từ vựng theo phương pháp Leitner box (5 cấp). Tiến độ lưu trong trình duyệt — không cần đăng ký.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- External resources -->
+<section class="max-w-5xl mx-auto px-4 sm:px-6 pb-16">
+  <h2 class="text-xl font-bold mb-4">Tài nguyên bên ngoài (khuyên dùng)</h2>
+  <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-6">
+    <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Site này tập trung làm reference cá nhân ngắn gọn. Cho học bài bản, hãy combine với:</p>
+    <ul class="space-y-3">
+      <li class="flex gap-3">
+        <span class="text-2xl shrink-0">📺</span>
+        <div>
+          <a href="https://talktomeinkorean.com/" target="_blank" rel="noopener" class="font-semibold text-accent-600 hover:underline">Talk To Me In Korean (TTMIK)</a>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Series Level 1-2 free, người dạy bản xứ, có audio + transcript.</p>
+        </div>
+      </li>
+      <li class="flex gap-3">
+        <span class="text-2xl shrink-0">🎴</span>
+        <div>
+          <a href="https://ankiweb.net/" target="_blank" rel="noopener" class="font-semibold text-accent-600 hover:underline">Anki + Korean Decks</a>
+          <p class="text-sm text-slate-600 dark:text-slate-400">SRS chuẩn industry. Tìm "TOPIK 1 vocabulary" trong shared decks.</p>
+        </div>
+      </li>
+      <li class="flex gap-3">
+        <span class="text-2xl shrink-0">📚</span>
+        <div>
+          <a href="https://www.sejong-korean.org/" target="_blank" rel="noopener" class="font-semibold text-accent-600 hover:underline">Sejong Korean</a>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Giáo trình chính thức của Hàn Quốc. PDF free 1-4.</p>
+        </div>
+      </li>
+      <li class="flex gap-3">
+        <span class="text-2xl shrink-0">🔍</span>
+        <div>
+          <a href="https://dict.naver.com/" target="_blank" rel="noopener" class="font-semibold text-accent-600 hover:underline">Naver Dictionary</a>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Từ điển có audio chuẩn nhất. Cài app trên điện thoại.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer class="max-w-5xl mx-auto px-4 sm:px-6 py-8 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800">
+  <div class="flex flex-wrap gap-4 items-center justify-between">
+    <span>화이팅! 파이팅!</span>
+    <span>Made with ❤️</span>
+  </div>
+</footer>
+
+</body>
+</html>

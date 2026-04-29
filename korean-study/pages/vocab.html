@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Học tiếng Hàn</title>
+<script>
+  // FOUC fix — set dark class trước khi CSS load
+  if (matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.classList.add('dark');
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<script>
+  tailwind.config = {
+    darkMode: 'media',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'Noto Sans KR', 'system-ui', 'sans-serif'],
+          ko: ['Noto Sans KR', 'Apple SD Gothic Neo', 'sans-serif'],
+        },
+        colors: {
+          accent: { 50:'#eff6ff', 100:'#dbeafe', 500:'#5b8def', 600:'#2f5fd0', 700:'#1e40af' },
+        },
+      }
+    }
+  }
+</script>
+<script src="../assets/app.js" defer></script>
+<script src="../assets/vocab-viewer.js" defer></script>
+</head>
+<body data-topic="vocab" class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 font-sans antialiased min-h-screen">
+
+<!-- Top bar -->
+<header class="sticky top-0 z-30 bg-white/85 dark:bg-slate-900/85 backdrop-blur border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+    <a href="../index.html" class="flex items-center gap-2 font-semibold hover:text-accent-600">
+      <span class="text-xl">🇰🇷</span>
+      <span class="hidden sm:inline">Học tiếng Hàn</span>
+    </a>
+    <span class="text-slate-400">/</span>
+    <span class="font-semibold"><span data-bind="title">Từ vựng</span> <span data-bind="titleKo" class="text-slate-400 font-normal" lang="ko">단어</span></span>
+    <div class="ml-auto flex items-center gap-3">
+      <span id="ks-count-text" class="text-sm text-slate-500 dark:text-slate-400 tabular-nums">0/0</span>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 py-6 lg:py-8">
+
+  <!-- Hero -->
+  <section class="ks-hero mb-6">
+    <div class="ks-hero-icon" lang="ko">단</div>
+    <div class="flex-1 min-w-0">
+      <div class="ks-hero-step">Phase 2 · Vocabulary</div>
+      <h1 class="ks-hero-title">Từ vựng cơ bản</h1>
+      <p class="ks-hero-hint">~160 từ thực dụng theo 4 chủ đề. Click thẻ để nghe, dùng filter và search để tìm nhanh.</p>
+    </div>
+  </section>
+
+  <!-- Category filter chips -->
+  <div id="ks-vocab-cats" class="flex flex-wrap gap-2 mb-3"></div>
+
+  <!-- Search -->
+  <div class="ks-vocab-search-wrap">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ks-vocab-search-icon">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="M21 21l-4.3-4.3"/>
+    </svg>
+    <input type="search" id="ks-vocab-search" placeholder="Tìm theo Hàn / phiên âm / nghĩa Việt…"
+           class="ks-vocab-search" aria-label="Tìm từ">
+    <button type="button" id="ks-vocab-search-clear" class="ks-vocab-search-clear" hidden aria-label="Xóa">×</button>
+  </div>
+
+  <!-- Word list -->
+  <div id="ks-vocab-list" class="ks-vocab-list mt-5"></div>
+
+  <!-- Empty state -->
+  <div id="ks-vocab-empty" class="text-center py-16 text-slate-400 hidden">
+    <div class="text-5xl mb-3">🔍</div>
+    <p>Không tìm thấy từ nào khớp.</p>
+  </div>
+
+</main>
+
+</body>
+</html>
