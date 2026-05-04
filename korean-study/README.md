@@ -89,8 +89,9 @@ npx serve out  # smoke test local
 
 - ✅ **Phase 1** — Foundation: Hangul / Số đếm / Nối âm / Lộ trình
 - ✅ **Phase 2** — Vocabulary: 160 từ × 4 chủ đề
-- ⏳ **Phase 3** — Flashcard SRS (Leitner box)
-- ⏳ **Phase 4** — Grammar (10 ngữ pháp cốt lõi TOPIK 1)
+- 📋 **Phase 3** — Flashcard SRS (Leitner box) — see [docs/phase-3-srs.md](docs/phase-3-srs.md)
+- 📋 **Phase 4** — Grammar (10 ngữ pháp cốt lõi TOPIK 1) — see [docs/phase-4-grammar.md](docs/phase-4-grammar.md)
+- 📋 **Phase Dictation** — Nghe chép chính tả từ voice + video (받아쓰기) — see [docs/dictation-phase.md](docs/dictation-phase.md)
 
 ## Notes
 

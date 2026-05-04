@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { ExplainerLesson as ExplainerLessonType } from "@/lib/types";
 import { renderInlineMarkdown } from "../layout/Hero";
 
@@ -24,14 +25,14 @@ export function ExplainerLesson({ lesson }: Props) {
                   <div key={j} className="ks-diagram-row">
                     <div className="ks-diagram-parts">
                       {ex.parts.map((p, k) => (
-                        <span key={k}>
+                        <Fragment key={k}>
                           <span className="ks-diagram-part" lang="ko">
                             {p}
                           </span>
                           {k < ex.parts.length - 1 && (
                             <span className="ks-diagram-plus">+</span>
                           )}
-                        </span>
+                        </Fragment>
                       ))}
                     </div>
                     <span className="ks-diagram-arrow">→</span>
