@@ -1,4 +1,4 @@
-# Học tiếng Hàn — reference cá nhân
+# Học tiếng Hàn — tham khảo cá nhân
 
 Static reference site cho người mới học tiếng Hàn — Hangul, số đếm, quy tắc nối âm, và 160 từ vựng cơ bản (chào hỏi, gia đình, ăn uống, mua sắm).
 

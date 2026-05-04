@@ -22,7 +22,7 @@ const notoSansKr = Noto_Sans_KR({
 export const metadata: Metadata = {
   title: "Học tiếng Hàn",
   description:
-    "Reference cá nhân học tiếng Hàn — Hangul, số đếm, quy tắc nối âm, từ vựng cơ bản (~160 từ).",
+    "Tham khảo cá nhân học tiếng Hàn — Hangul, số đếm, quy tắc nối âm, từ vựng cơ bản (~160 từ).",
 };
 
 export default function RootLayout({

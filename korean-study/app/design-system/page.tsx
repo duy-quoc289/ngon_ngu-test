@@ -120,7 +120,7 @@ export default function DesignSystemPage() {
             </div>
             <div className="flex items-baseline gap-4 pb-3 border-b border-slate-100 dark:border-slate-800">
               <span className="text-xs text-slate-400 w-16 shrink-0">text-3xl</span>
-              <p className="text-3xl font-semibold text-slate-800 dark:text-slate-100">Reference cá nhân</p>
+              <p className="text-3xl font-semibold text-slate-800 dark:text-slate-100">Tham khảo cá nhân</p>
             </div>
             <div className="flex items-baseline gap-4 pb-3 border-b border-slate-100 dark:border-slate-800">
               <span className="text-xs text-slate-400 w-16 shrink-0">text-2xl</span>

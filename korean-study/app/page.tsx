@@ -57,7 +57,7 @@ export default function HomePage() {
               안녕하세요 👋
             </p>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-5 bg-linear-to-r from-primary-600 via-violet-500 to-pink-500 bg-clip-text text-transparent leading-tight pb-1">
-              Reference học tiếng Hàn
+              Tham khảo học tiếng Hàn
             </h1>
             <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
               Tài liệu cá nhân ngắn gọn — cover Stage&nbsp;1 (Hangul, số đếm, nối âm) +&nbsp;160&nbsp;từ vựng trước khi bước vào TOPIK&nbsp;1.
@@ -202,7 +202,7 @@ export default function HomePage() {
         <h2 className="text-xl font-bold mb-4 text-slate-800 dark:text-slate-100">Tài nguyên khuyên dùng</h2>
         <Card variant="outlined" className="p-5 sm:p-6 bg-white dark:bg-slate-900">
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-5">
-            Site này là reference cá nhân ngắn gọn. Để học bài bản, combine với:
+            Site này là tham khảo cá nhân ngắn gọn. Để học bài bản, combine với:
           </p>
           <ul className="space-y-4">
             {[
