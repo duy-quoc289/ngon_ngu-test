@@ -5,13 +5,13 @@
 
 -- ── Tiến độ từng bài học ────────────────────────────────────
 create table if not exists lesson_progress (
-  id         uuid default gen_random_uuid() primary key,
-  user_id    uuid references auth.users(id) on delete cascade not null,
-  topic      text not null,   -- 'hangul' | 'numbers' | 'pronunciation'
-  lesson_idx int  not null,
-  done       bool default false,
-  updated_at timestamptz default now(),
-  unique(user_id, topic, lesson_idx)
+  id          uuid default gen_random_uuid() primary key,
+  user_id     uuid references auth.users(id) on delete cascade not null,
+  topic       text not null,   -- 'hangul' | 'numbers' | 'pronunciation'
+  lesson_id   text not null,   -- string ID của lesson (vd: 'vowels-basic')
+  done        bool default true,
+  updated_at  timestamptz default now(),
+  unique(user_id, topic, lesson_id)
 );
 
 -- ── SRS Leitner cards ───────────────────────────────────────
@@ -42,12 +42,15 @@ alter table srs_cards        enable row level security;
 alter table streak_log       enable row level security;
 
 -- Mỗi user chỉ thấy/sửa dữ liệu của chính mình
+drop policy if exists "user_own_lesson_progress" on lesson_progress;
 create policy "user_own_lesson_progress" on lesson_progress
   for all using (auth.uid() = user_id);
 
+drop policy if exists "user_own_srs_cards" on srs_cards;
 create policy "user_own_srs_cards" on srs_cards
   for all using (auth.uid() = user_id);
 
+drop policy if exists "user_own_streak_log" on streak_log;
 create policy "user_own_streak_log" on streak_log
   for all using (auth.uid() = user_id);
 
