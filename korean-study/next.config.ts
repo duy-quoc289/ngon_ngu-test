@@ -1,10 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // Static HTML export — deploy được Netlify/GitHub Pages/anywhere
-  trailingSlash: true, // Friendly cho static hosts (e.g. /hangul/index.html)
+  // Đã bỏ "output: export" vì app dùng Server Actions + Route Handlers (Supabase Auth)
+  // Deploy: Vercel (free tier) hoặc bất kỳ host hỗ trợ Node.js
   images: {
-    unoptimized: true, // next/image optimization không support ở static export
+    // Cho phép avatar từ Supabase/Google
+    remotePatterns: [
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      { protocol: "https", hostname: "*.supabase.co" },
+    ],
   },
 };
 

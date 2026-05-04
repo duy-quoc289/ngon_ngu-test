@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { UserButton } from "@/components/auth/UserButton";
 
 interface Props {
   title: string;
@@ -93,6 +94,7 @@ export function TopBar({ title, titleKo, onToggleSidebar, progress, countText }:
               {countText}
             </span>
           )}
+          <UserButton />
         </div>
 
       </div>

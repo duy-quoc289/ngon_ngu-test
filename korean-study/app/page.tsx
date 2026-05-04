@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ProgressCard } from "@/components/layout/ProgressCard";
+import { UserButton } from "@/components/auth/UserButton";
 
 export default function HomePage() {
   return (
@@ -38,6 +39,7 @@ export default function HomePage() {
             <Link href="/flashcards" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Thẻ ôn</Link>
             <Link href="/summary" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Lộ trình</Link>
           </div>
+          <UserButton />
         </div>
       </nav>
 
