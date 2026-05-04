@@ -14,7 +14,7 @@ function normalize(s: string): string {
   return s.trim().toLowerCase().replace(/-/g, "").replace(/\s+/g, "");
 }
 
-/** Chính tả: tự động phát audio → user gõ tiếng Hàn hoặc romanization → auto-check. */
+/** Chính tả: tự động phát audio → user gõ tiếng Hàn hoặc phiên âm La-tinh → auto-check. */
 export function DictationCard({ word, onResult }: Props) {
   const [input, setInput] = useState("");
   const [submitted, setSubmitted] = useState(false);

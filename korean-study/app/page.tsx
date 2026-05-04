@@ -19,7 +19,7 @@ export default function HomePage() {
               { href: "/numbers", label: "Số đếm" },
               { href: "/pronunciation", label: "Nối âm" },
               { href: "/vocab", label: "Từ vựng" },
-              { href: "/flashcards", label: "Flashcards" },
+              { href: "/flashcards", label: "Thẻ ôn" },
               { href: "/summary", label: "Lộ trình" },
             ].map((n) => (
               <Link
@@ -35,7 +35,7 @@ export default function HomePage() {
           <div className="flex sm:hidden items-center gap-2 text-sm overflow-x-auto">
             <Link href="/hangul" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Hangul</Link>
             <Link href="/vocab" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Từ vựng</Link>
-            <Link href="/flashcards" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Flashcards</Link>
+            <Link href="/flashcards" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Thẻ ôn</Link>
             <Link href="/summary" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Lộ trình</Link>
           </div>
         </div>
@@ -169,11 +169,11 @@ export default function HomePage() {
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="font-semibold text-slate-800 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 flex items-center gap-2 transition-colors">
-                Flashcards (SRS)
-                <Badge variant="primary" size="sm">Phase 3</Badge>
+                Thẻ ghi nhớ (SRS)
+                <Badge variant="primary" size="sm">Giai đoạn 3</Badge>
               </h3>
               <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                Học từ vựng theo Leitner box (5 cấp). Ôn đúng lúc, không quên. Tiến độ lưu trong trình duyệt.
+                Học từ vựng theo hộp Leitner (5 cấp). Ôn đúng lúc, không quên. Tiến độ lưu trong trình duyệt.
               </p>
               <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary-600 dark:text-primary-400 font-semibold group-hover:gap-2 transition-all">
                 Bắt đầu ôn
@@ -185,13 +185,13 @@ export default function HomePage() {
             icon="문"
             iconLang="ko"
             title="Ngữ pháp (문법)"
-            phase="Phase 4"
+            phase="Giai đoạn 4"
             desc="10 ngữ pháp cốt lõi: -아/어요, -았/었-, particles, kính ngữ..."
           />
           <PlaceholderCard
             icon="✍️"
-            title="Dictation"
-            phase="Phase 5"
+            title="Chính tả"
+            phase="Giai đoạn 5"
             desc="Nghe - chép lại từ/câu. Luyện phản xạ nghe-viết Hangul."
           />
         </div>

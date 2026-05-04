@@ -32,7 +32,7 @@ export default function FlashcardsPage() {
             <span className="text-sm font-black tracking-tight">KRD</span>
           </Link>
           <span className="w-px h-5 bg-slate-200 dark:bg-slate-700 mx-0.5" />
-          <h1 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Flashcards</h1>
+          <h1 className="text-sm font-semibold text-slate-700 dark:text-slate-200">Thẻ ghi nhớ</h1>
           <span className="text-xs text-slate-400 dark:text-slate-500 ml-0.5">플래시카드</span>
         </div>
       </header>

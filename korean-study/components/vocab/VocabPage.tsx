@@ -97,7 +97,7 @@ export function VocabPage({ data }: Props) {
         <div className="mb-6">
           <Hero
             icon="단"
-            step="Phase 2 · Vocabulary"
+            step="Giai đoạn 2 · Từ vựng"
             title="Từ vựng cơ bản"
             hint="~160 từ thực dụng theo 4 chủ đề. Click thẻ để nghe, dùng filter và search để tìm nhanh."
           />

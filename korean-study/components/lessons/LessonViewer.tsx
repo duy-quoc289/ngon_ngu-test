@@ -22,6 +22,6 @@ export function LessonViewer({ lesson }: Props) {
     case "rule":
       return <RuleLesson lesson={lesson} />;
     default:
-      return <div className="ks-card">Lesson type unknown</div>;
+      return <div className="ks-card">Loại bài không xác định</div>;
   }
 }
