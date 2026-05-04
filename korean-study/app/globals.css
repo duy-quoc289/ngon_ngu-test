@@ -1852,3 +1852,17 @@ html {
 
 /* Ease utility classes */
 .ease-smooth { transition-timing-function: var(--ease-smooth); }
+
+/* ── Grammar lesson ────────────────────────────────────────── */
+.ks-grammar-mark {
+  background: rgb(254 240 138 / 0.85);
+  color: rgb(92 45 10);
+  padding: 0 0.15em;
+  border-radius: 3px;
+  font-weight: 700;
+  font-style: normal;
+}
+.dark .ks-grammar-mark {
+  background: rgb(161 98 7 / 0.45);
+  color: rgb(253 224 71);
+}

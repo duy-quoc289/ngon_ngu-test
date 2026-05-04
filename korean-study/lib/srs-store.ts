@@ -76,19 +76,25 @@ export function useSrsStore(allIds: string[]) {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    // 1. Luôn load localStorage trước để hiển thị ngay
-    const local = load();
-    setState(local);
-    setHydrated(true);
-
-    // 2. Kiểm tra xem user có login không → merge server data
     const supabase = createClient();
-    supabase.auth.getUser().then(async ({ data }) => {
-      if (!data.user) return;
 
-      // Lần đầu login với localStorage có dữ liệu → sync lên server
-      if (Object.keys(local.cards).length > 0) {
-        syncLocalToServer(local).catch(console.error);
+    supabase.auth.getUser().then(async ({ data }) => {
+      const uid = data.user?.id ?? null;
+      const local = load();
+
+      // Kiểm tra data localStorage có thuộc về user hiện tại không.
+      // local.userId undefined = data anonymous (tạo trước khi có auth) → coi là của user hiện tại.
+      const isMine = !local.userId || local.userId === uid;
+      const base = isMine ? local : EMPTY_STATE;
+
+      setState(base);
+      setHydrated(true);
+
+      if (!uid) return; // anonymous — chỉ dùng local, không sync
+
+      // Chỉ sync local → server nếu data thực sự thuộc user này
+      if (isMine && Object.keys(base.cards).length > 0) {
+        syncLocalToServer(base).catch(console.error);
       }
 
       // Lấy data server → merge (server là nguồn chính xác nhất)
@@ -104,7 +110,7 @@ export function useSrsStore(allIds: string[]) {
             merged[wordId] = serverCard;
           }
         }
-        const next: SrsState = { ...prev, cards: merged };
+        const next: SrsState = { ...prev, cards: merged, userId: uid };
         save(next);
         return next;
       });

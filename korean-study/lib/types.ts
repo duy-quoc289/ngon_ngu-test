@@ -2,7 +2,7 @@
 
 /* ─── Topic / Lesson ─── */
 
-export type LessonType = "explainer" | "tile-grid" | "comparison" | "exercise" | "rule";
+export type LessonType = "explainer" | "tile-grid" | "comparison" | "exercise" | "rule" | "grammar";
 
 export interface BaseLesson {
   id: string;
@@ -125,12 +125,53 @@ export interface RuleLesson extends BaseLesson {
   examples?: RuleExample[];
 }
 
+/* grammar */
+export interface GrammarExample {
+  ko: string;
+  rom: string;
+  vi: string;
+  audio?: string;
+  highlight?: string;
+}
+
+export type GrammarExerciseType = "fill-blank" | "choice";
+
+export interface GrammarExercise {
+  type: GrammarExerciseType;
+  question: string;
+  answer: string | string[];
+  options?: string[];
+  hint?: string;
+}
+
+export interface ConjugationTable {
+  headers: string[];
+  rows: { verb: string; forms: string[] }[];
+}
+
+export interface GrammarRule {
+  label: string;
+  rule: string;
+  examples?: string[];
+}
+
+export interface GrammarLesson extends BaseLesson {
+  type: "grammar";
+  formula: string;
+  meaning: string;
+  conjugation?: ConjugationTable;
+  rules: GrammarRule[];
+  examples: GrammarExample[];
+  exercise?: GrammarExercise[];
+}
+
 export type Lesson =
   | ExplainerLesson
   | TileGridLesson
   | ComparisonLesson
   | ExerciseLesson
-  | RuleLesson;
+  | RuleLesson
+  | GrammarLesson;
 
 export interface Topic {
   topic: string;

@@ -21,6 +21,7 @@ export default function HomePage() {
               { href: "/pronunciation", label: "Nối âm" },
               { href: "/vocab", label: "Từ vựng" },
               { href: "/flashcards", label: "Thẻ ôn" },
+              { href: "/grammar", label: "Ngữ pháp" },
               { href: "/summary", label: "Lộ trình" },
             ].map((n) => (
               <Link
@@ -37,6 +38,7 @@ export default function HomePage() {
             <Link href="/hangul" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Hangul</Link>
             <Link href="/vocab" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Từ vựng</Link>
             <Link href="/flashcards" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Thẻ ôn</Link>
+            <Link href="/grammar" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Ngữ pháp</Link>
             <Link href="/summary" className="shrink-0 px-2 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-primary-600 text-xs font-medium">Lộ trình</Link>
           </div>
           <UserButton />
@@ -183,13 +185,27 @@ export default function HomePage() {
               </span>
             </div>
           </Link>
-          <PlaceholderCard
-            icon="문"
-            iconLang="ko"
-            title="Ngữ pháp (문법)"
-            phase="Giai đoạn 4"
-            desc="10 ngữ pháp cốt lõi: -아/어요, -았/었-, particles, kính ngữ..."
-          />
+          <Link
+            href="/grammar"
+            className="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-lg transition-all duration-base flex items-start gap-4"
+          >
+            <div className="w-12 h-12 rounded-xl bg-linear-to-br from-violet-500 to-purple-600 text-white grid place-items-center text-xl font-bold shadow-md shadow-violet-500/30 shrink-0" lang="ko">
+              문
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-slate-800 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 flex items-center gap-2 transition-colors">
+                Ngữ pháp (문법)
+                <Badge variant="primary" size="sm">Giai đoạn 4</Badge>
+              </h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                10 ngữ pháp cốt lõi TOPIK 1: 이다, -아/어요, thì quá khứ, tương lai, particles và phủ định.
+              </p>
+              <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary-600 dark:text-primary-400 font-semibold group-hover:gap-2 transition-all">
+                Học ngay
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" /></svg>
+              </span>
+            </div>
+          </Link>
           <PlaceholderCard
             icon="✍️"
             title="Chính tả"

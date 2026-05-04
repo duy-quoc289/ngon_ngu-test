@@ -13,6 +13,8 @@ export interface SrsState {
   cards: Record<string, CardState>; // key = word audio id
   streak: number;
   lastStudyDate: string; // "YYYY-MM-DD"
+  /** Supabase user id của chủ sở hữu data này. undefined = anonymous. */
+  userId?: string;
 }
 
 /** Số ngày interval mỗi box. index = box number (1–5). */

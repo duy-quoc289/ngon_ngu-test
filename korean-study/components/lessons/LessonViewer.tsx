@@ -4,6 +4,7 @@ import { TileGridLesson } from "./TileGridLesson";
 import { ComparisonLesson } from "./ComparisonLesson";
 import { ExerciseLesson } from "./ExerciseLesson";
 import { RuleLesson } from "./RuleLesson";
+import { GrammarLesson } from "./GrammarLesson";
 
 interface Props {
   lesson: Lesson;
@@ -21,6 +22,8 @@ export function LessonViewer({ lesson }: Props) {
       return <ExerciseLesson lesson={lesson} />;
     case "rule":
       return <RuleLesson lesson={lesson} />;
+    case "grammar":
+      return <GrammarLesson lesson={lesson} />;
     default:
       return <div className="ks-card">Loại bài không xác định</div>;
   }
