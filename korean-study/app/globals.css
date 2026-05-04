@@ -5,15 +5,129 @@
 
 /* Theme tokens — ánh xạ sang Tailwind utilities (text-accent-500, font-sans, ...) */
 @theme {
+  /* Fonts */
   --font-sans: "Inter", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Arial, sans-serif;
   --font-ko: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 
+  /* Brand colors - Primary (Korean blue) */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #4A7CFF;
+  --color-primary-600: #3b68db;
+  --color-primary-700: #2f5fd0;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  
+  /* Brand colors - Secondary (warm coral) */
+  --color-secondary-50: #fff5f2;
+  --color-secondary-100: #ffe8e0;
+  --color-secondary-200: #ffd4c6;
+  --color-secondary-300: #ffb89d;
+  --color-secondary-400: #ff9574;
+  --color-secondary-500: #FF7A59;
+  --color-secondary-600: #f05a36;
+  --color-secondary-700: #d94520;
+  --color-secondary-800: #b8381a;
+  --color-secondary-900: #9a3019;
+  
+  /* Semantic - Success */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+  --color-success-800: #065f46;
+  --color-success-900: #064e3b;
+  
+  /* Semantic - Warning */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
+  
+  /* Semantic - Error */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #f43f5e;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  
+  /* Semantic - Info */
+  --color-info-50: #f0f9ff;
+  --color-info-100: #e0f2fe;
+  --color-info-200: #bae6fd;
+  --color-info-300: #7dd3fc;
+  --color-info-400: #38bdf8;
+  --color-info-500: #0ea5e9;
+  --color-info-600: #0284c7;
+  --color-info-700: #0369a1;
+  --color-info-800: #075985;
+  --color-info-900: #0c4a6e;
+  
+  /* Legacy accent colors (for backward compatibility) */
   --color-accent-50: #eff6ff;
   --color-accent-100: #dbeafe;
-  --color-accent-500: #5b8def;
-  --color-accent-600: #2f5fd0;
-  --color-accent-700: #1e40af;
+  --color-accent-500: #4A7CFF;
+  --color-accent-600: #3b68db;
+  --color-accent-700: #2f5fd0;
+  
+  /* Animations */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 400ms;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Animation keyframes */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slide-up {
+    from { 
+      transform: translateY(10px); 
+      opacity: 0; 
+    }
+    to { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes scale-in {
+    from { 
+      transform: scale(0.95); 
+      opacity: 0; 
+    }
+    to { 
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -337,19 +451,22 @@ body {
   border-radius: 0.75rem;
   box-shadow: 0 10px 40px rgb(0 0 0 / 0.12);
   padding: 1rem;
-  width: 260px;
+  width: 300px;
   font-size: 0.9em;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .ks-controls-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
   margin-bottom: 0.8rem;
+  min-width: 0;
 }
 .ks-controls-row:last-of-type { margin-bottom: 0.5rem; }
 .ks-controls-label {
   flex-shrink: 0;
-  width: 90px;
+  width: 100px;
   font-weight: 500;
   font-size: 0.92em;
 }
@@ -398,6 +515,14 @@ body {
   border-top: 1px solid rgb(241 245 249);
   padding-top: 0.5rem;
 }
+.ks-controls-divider {
+  height: 1px;
+  background: rgb(226 232 240);
+  margin: 0.5rem 0 0.8rem;
+}
+.dark .ks-controls-divider {
+  background: rgb(51 65 85);
+}
 .ks-controls-hint kbd {
   background: rgb(241 245 249);
   border: 1px solid rgb(226 232 240);
@@ -440,7 +565,7 @@ body {
   .ks-controls-popover {
     width: calc(100vw - 1.6rem);
     right: 0;
-    max-width: 280px;
+    max-width: 300px;
   }
 }
 
@@ -1600,3 +1725,130 @@ body {
   .ks-cat-chip { font-size: 0.85em; padding: 0.4rem 0.7rem; }
   .ks-cat-icon { font-size: 1em; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Phase E — Micro-interactions
+   ═══════════════════════════════════════════════════════════ */
+
+/* Page-level fade-in + slight lift when content loads */
+main,
+[role="main"] {
+  animation: slide-up 280ms var(--ease-smooth) both;
+}
+
+/* Smooth focus transitions on interactive elements */
+a,
+button {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-timing-function: var(--ease-smooth);
+  transition-duration: var(--transition-base);
+}
+
+/* Audio button pulse ripple */
+.ks-vocab-play {
+  position: relative;
+  overflow: hidden;
+}
+.ks-vocab-play::after {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  border-radius: 50%;
+  background: rgb(91 141 239 / 0.15);
+  transform: scale(0);
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  opacity: 0;
+}
+.ks-vocab-play:active::after {
+  transform: scale(1);
+  opacity: 1;
+  transition: none;
+}
+
+/* Smooth color-scheme transition when dark mode toggled */
+html {
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Phase I — Dark mode refinement
+   ═══════════════════════════════════════════════════════════ */
+
+/* Richer dark backgrounds with subtle noise/gradient */
+.dark body {
+  background-color: rgb(2 6 23);
+}
+
+/* Glassmorphism cards in dark mode */
+.dark .ks-vocab-card {
+  background: rgb(15 23 42 / 0.8);
+  backdrop-filter: blur(8px);
+  border-color: rgb(51 65 85);
+}
+
+/* Soft top-edge highlight on dark cards */
+.dark .ks-hero {
+  border-top: 1px solid rgb(255 255 255 / 0.05);
+}
+
+/* Sidebar active item gradient shimmer in dark */
+.dark .ks-side-item.is-active {
+  background: linear-gradient(135deg, rgb(30 58 138 / 0.5), rgb(91 33 182 / 0.3));
+  border-color: rgb(99 102 241 / 0.5);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: rgb(15 23 42);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgb(51 65 85);
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgb(71 85 105);
+}
+
+/* Light mode scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(248 250 252);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(203 213 225);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(148 163 184);
+}
+
+/* Focus-visible ring: consistent across all interactive elements */
+:focus-visible {
+  outline: 2px solid #4A7CFF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Selection color */
+::selection {
+  background: rgb(74 124 255 / 0.2);
+  color: inherit;
+}
+.dark ::selection {
+  background: rgb(74 124 255 / 0.35);
+  color: inherit;
+}
+
+/* Duration utility classes (for Tailwind transition-duration) */
+.duration-base { transition-duration: var(--transition-base); }
+.duration-slow  { transition-duration: var(--transition-slow); }
+
+/* Ease utility classes */
+.ease-smooth { transition-timing-function: var(--ease-smooth); }

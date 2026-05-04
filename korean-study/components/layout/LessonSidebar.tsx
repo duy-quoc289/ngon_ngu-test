@@ -1,6 +1,7 @@
 "use client";
 
 import type { Lesson } from "@/lib/types";
+import { ProgressBar } from "@/components/ui/ProgressBar";
 
 interface ListProps {
   lessons: Lesson[];
@@ -12,7 +13,7 @@ interface ListProps {
 /** List of lesson links — không có khung card, không có title. Reuse được trong drawer. */
 export function LessonList({ lessons, currentIdx, completed, onSelect }: ListProps) {
   return (
-    <ul className="space-y-1">
+    <ul className="space-y-0.5">
       {lessons.map((l, i) => {
         const isActive = i === currentIdx;
         const isDone = completed.has(l.id);
@@ -54,7 +55,7 @@ interface SidebarProps extends ListProps {
   countText: string;
 }
 
-/** Desktop sidebar — card-styled với title + count + list. */
+/** Desktop sidebar — card-styled với title + count + progress + list. */
 export function LessonSidebar({
   lessons,
   currentIdx,
@@ -64,15 +65,29 @@ export function LessonSidebar({
   countText,
 }: SidebarProps) {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 shadow-sm">
-      <h2 className="font-bold text-lg mb-1">{title}</h2>
-      <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">{countText}</p>
-      <LessonList
-        lessons={lessons}
-        currentIdx={currentIdx}
-        completed={completed}
-        onSelect={onSelect}
-      />
+    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+      {/* Header */}
+      <div className="px-4 pt-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+        <h2 className="font-bold text-base text-slate-800 dark:text-slate-100 mb-1">{title}</h2>
+        <ProgressBar
+          value={completed.size}
+          max={lessons.length}
+          showPercent
+          size="sm"
+          className="mt-2"
+        />
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">{countText}</p>
+      </div>
+      {/* List */}
+      <div className="p-2">
+        <LessonList
+          lessons={lessons}
+          currentIdx={currentIdx}
+          completed={completed}
+          onSelect={onSelect}
+        />
+      </div>
     </div>
   );
 }
+

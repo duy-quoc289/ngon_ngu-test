@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { FlatVocabWord, VocabCategory, VocabData } from "@/lib/types";
 import { TopBar } from "@/components/layout/TopBar";
 import { Hero } from "@/components/layout/Hero";
+import { EmptyState } from "@/components/ui/EmptyState";
 import { useDebouncedValue } from "@/lib/debounce";
 import { CategoryChips } from "./CategoryChips";
 import { SearchBox } from "./SearchBox";
@@ -123,10 +124,21 @@ export function VocabPage({ data }: Props) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 text-slate-400">
-            <div className="text-5xl mb-3">🔍</div>
-            <p>Không tìm thấy từ nào khớp.</p>
-          </div>
+          <EmptyState
+            icon="🔍"
+            title="Không tìm thấy từ nào"
+            description={
+              debouncedQuery
+                ? `Không có từ khớp với "${debouncedQuery}". Thử tìm kiếm khác hoặc xóa bộ lọc.`
+                : "Không có từ nào trong danh mục này."
+            }
+            action={
+              debouncedQuery || catId !== "all"
+                ? { label: "Xóa bộ lọc", onClick: () => { setQuery(""); setCatId("all"); } }
+                : undefined
+            }
+            className="mt-8"
+          />
         )}
       </main>
     </>
