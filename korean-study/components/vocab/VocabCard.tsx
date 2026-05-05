@@ -9,7 +9,6 @@ interface Props {
 }
 
 export function VocabCard({ word, category, query }: Props) {
-  const audioPath = word.audio ? `/audio/${word.audio}.mp3` : "";
 
   return (
     <article className="ks-vocab-card">
@@ -52,13 +51,11 @@ export function VocabCard({ word, category, query }: Props) {
         )}
         {word.note && <div className="ks-vocab-note">{word.note}</div>}
       </div>
-      {audioPath && (
-        <AudioButton
-          src={audioPath}
-          label={`Nghe ${word.ko}`}
-          className="ks-vocab-play"
-        />
-      )}
+      <AudioButton
+        text={word.ko}
+        label={`Nghe ${word.ko}`}
+        className="ks-vocab-play"
+      />
     </article>
   );
 }

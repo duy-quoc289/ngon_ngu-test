@@ -27,9 +27,7 @@ export function DictationCard({ word, onResult }: Props) {
   useEffect(() => {
     if (hasPlayed.current) return;
     hasPlayed.current = true;
-    if (word.audio) {
-      setTimeout(() => play(`/audio/${word.audio}.mp3`, word.audio), 250);
-    }
+    setTimeout(() => play(word.ko, word.ko), 250);
     setTimeout(() => inputRef.current?.focus(), 300);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -51,13 +49,9 @@ export function DictationCard({ word, onResult }: Props) {
         <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5">
           Nghe và gõ lại
         </p>
-        {word.audio ? (
-          <div className="flex justify-center mb-3">
-            <AudioButton src={`/audio/${word.audio}.mp3`} label="Phát lại" />
-          </div>
-        ) : (
-          <p className="text-slate-400 dark:text-slate-500 mb-3">Không có audio</p>
-        )}
+        <div className="flex justify-center mb-3">
+          <AudioButton text={word.ko} label="Phát lại" />
+        </div>
         <p className="text-xs text-slate-400 dark:text-slate-500">
           Gõ tiếng Hàn <span className="opacity-50">hoặc romanization</span>
         </p>

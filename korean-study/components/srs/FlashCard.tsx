@@ -30,14 +30,9 @@ export function FlashCard({ word, flipped, onFlip }: Props) {
           <p className="text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-3">
             {word.ko}
           </p>
-          {word.audio && (
-            <div className="flex justify-center mt-4" onClick={(e) => e.stopPropagation()}>
-              <AudioButton
-                src={`/audio/${word.audio}.mp3`}
-                label={`Phát âm ${word.ko}`}
-              />
-            </div>
-          )}
+          <div className="flex justify-center mt-4" onClick={(e) => e.stopPropagation()}>
+            <AudioButton text={word.ko} label={`Phát âm ${word.ko}`} />
+          </div>
           <p className="mt-6 text-sm text-slate-400 dark:text-slate-500">
             Nhấp để xem đáp án · Space
           </p>
@@ -82,14 +77,9 @@ export function FlashCard({ word, flipped, onFlip }: Props) {
             </div>
           )}
 
-          {word.audio && (
-            <div className="flex justify-center mt-5">
-              <AudioButton
-                src={`/audio/${word.audio}.mp3`}
-                label={`Phát âm ${word.ko}`}
-              />
-            </div>
-          )}
+          <div className="flex justify-center mt-5">
+            <AudioButton text={word.ko} label={`Phát âm ${word.ko}`} />
+          </div>
         </div>
       )}
     </div>

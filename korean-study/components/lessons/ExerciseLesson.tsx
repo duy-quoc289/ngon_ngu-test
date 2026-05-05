@@ -35,9 +35,9 @@ export function ExerciseLesson({ lesson }: Props) {
               {item.rom && <div className="ks-ex-rom">{item.rom}</div>}
               {item.vi && <div className="ks-ex-vi">{item.vi}</div>}
             </details>
-            {item.audio && (
+            {item.ko && (
               <AudioButton
-                src={`/audio/${item.audio}.mp3`}
+                text={item.ko}
                 label={`Nghe ${item.ko}`}
                 className="ks-ex-audio"
               />

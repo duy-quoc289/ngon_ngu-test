@@ -29,17 +29,16 @@ export function ComparisonLesson({ lesson }: Props) {
 }
 
 function CmpItem({ item }: { item: ComparisonItem }) {
-  const audioPath = item.audio ? `/audio/${item.audio}.mp3` : undefined;
-  const { isPlaying, isLoading, onClick } = useAudioButtonState(audioPath);
+  const text = item.char;
+  const { isPlaying, isLoading, onClick } = useAudioButtonState(text);
   const stateClass = isPlaying ? "is-playing" : isLoading ? "is-loading" : "";
 
   return (
     <button
       type="button"
       className={`ks-cmp-item ${stateClass}`}
-      data-audio={audioPath}
       onClick={onClick}
-      disabled={!audioPath}
+      disabled={!text}
     >
       <span className="ks-cmp-char" lang="ko">
         {item.char}

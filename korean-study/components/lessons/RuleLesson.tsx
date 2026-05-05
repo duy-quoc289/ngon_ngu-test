@@ -64,17 +64,16 @@ export function RuleLesson({ lesson }: Props) {
 }
 
 function RuleExampleButton({ ex }: { ex: RuleExample }) {
-  const audioPath = ex.audio ? `/audio/${ex.audio}.mp3` : undefined;
-  const { isPlaying, isLoading, onClick } = useAudioButtonState(audioPath);
+  const text = ex.read ?? ex.written;
+  const { isPlaying, isLoading, onClick } = useAudioButtonState(text);
   const stateClass = isPlaying ? "is-playing" : isLoading ? "is-loading" : "";
 
   return (
     <button
       type="button"
       className={`ks-rule-example ${stateClass}`}
-      data-audio={audioPath}
       onClick={onClick}
-      disabled={!audioPath}
+      disabled={!text}
     >
       <div className="ks-rule-example-pair">
         <span className="ks-rule-example-written" lang="ko">
@@ -93,11 +92,9 @@ function RuleExampleButton({ ex }: { ex: RuleExample }) {
         {ex.rom && <span className="ks-rule-example-rom">{ex.rom}</span>}
         {ex.vi && <span className="ks-rule-example-vi">{ex.vi}</span>}
       </div>
-      {audioPath && (
-        <div className="ks-rule-example-play">
-          <PlayIcons />
-        </div>
-      )}
+      <div className="ks-rule-example-play">
+        <PlayIcons />
+      </div>
     </button>
   );
 }

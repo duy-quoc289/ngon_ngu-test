@@ -19,15 +19,14 @@ export function TileGridLesson({ lesson }: Props) {
 }
 
 function TileButton({ tile }: { tile: Tile }) {
-  const audioPath = tile.audio ? `/audio/${tile.audio}.mp3` : undefined;
-  const { isPlaying, isLoading, onClick } = useAudioButtonState(audioPath);
+  const text = tile.syllable ?? tile.char;
+  const { isPlaying, isLoading, onClick } = useAudioButtonState(text);
   const stateClass = isPlaying ? "is-playing" : isLoading ? "is-loading" : "";
 
   return (
     <button
       type="button"
       className={`ks-tile ${stateClass}`}
-      data-audio={audioPath}
       aria-label={`Nghe ${tile.char}`}
       onClick={onClick}
     >
@@ -46,11 +45,9 @@ function TileButton({ tile }: { tile: Tile }) {
           <span lang="ko">{tile.syllable}</span>
         </div>
       )}
-      {audioPath && (
-        <div className="ks-tile-play-hint">
-          <PlayIcons />
-        </div>
-      )}
+      <div className="ks-tile-play-hint">
+        <PlayIcons />
+      </div>
     </button>
   );
 }

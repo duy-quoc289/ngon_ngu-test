@@ -206,12 +206,27 @@ export default function HomePage() {
               </span>
             </div>
           </Link>
-          <PlaceholderCard
-            icon="✍️"
-            title="Chính tả"
-            phase="Giai đoạn 5"
-            desc="Nghe - chép lại từ/câu. Luyện phản xạ nghe-viết Hangul."
-          />
+          <Link
+            href="/dictation"
+            className="group rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 hover:border-primary-400 dark:hover:border-primary-600 hover:shadow-lg transition-all duration-base flex items-start gap-4"
+          >
+            <div className="w-12 h-12 rounded-xl bg-linear-to-br from-rose-500 to-pink-600 text-white grid place-items-center text-xl shadow-md shadow-rose-500/30 shrink-0">
+              🎧
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold text-slate-800 dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 flex items-center gap-2 transition-colors">
+                Chép chính tả
+                <Badge variant="primary" size="sm">Giai đoạn 5</Badge>
+              </h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
+                Nghe đoạn Korean từ 세종학당 → gõ lại Hangul → kiểm tra. Luyện phản xạ nghe-viết.
+              </p>
+              <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary-600 dark:text-primary-400 font-semibold group-hover:gap-2 transition-all">
+                Luyện ngay
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" /></svg>
+              </span>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -304,30 +319,3 @@ function SectionCard({ href, icon, iconLang, iconBg, iconShadow, title, desc, ct
   );
 }
 
-interface PlaceholderProps {
-  icon: string;
-  iconLang?: string;
-  title: string;
-  phase: string;
-  desc: string;
-  colSpan?: boolean;
-}
-
-function PlaceholderCard({ icon, iconLang, title, phase, desc, colSpan }: PlaceholderProps) {
-  return (
-    <div className={`rounded-xl border border-dashed border-slate-300 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/30 p-5 ${colSpan ? "sm:col-span-2" : ""}`}>
-      <div className="flex items-start gap-4 opacity-60">
-        <div className="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-500 grid place-items-center text-xl font-bold shrink-0" lang={iconLang}>
-          {icon}
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-2">
-            {title}
-            <Badge variant="default" size="sm">{phase}</Badge>
-          </h3>
-          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{desc}</p>
-        </div>
-      </div>
-    </div>
-  );
-}

@@ -71,11 +71,9 @@ export function ViToHanCard({ word, flipped, onFlip }: Props) {
           {word.note && (
             <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 italic">{word.note}</p>
           )}
-          {word.audio && (
-            <div className="flex justify-center mt-5">
-              <AudioButton src={`/audio/${word.audio}.mp3`} label={`Phát âm ${word.ko}`} />
-            </div>
-          )}
+          <div className="flex justify-center mt-5">
+            <AudioButton text={word.ko} label={`Phát âm ${word.ko}`} />
+          </div>
         </div>
       )}
     </div>
