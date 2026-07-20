@@ -7,6 +7,7 @@ import { LessonShell } from "@/components/layout/LessonShell";
 import { Hero } from "@/components/layout/Hero";
 import { LessonViewer } from "./LessonViewer";
 import { useProgress } from "@/lib/progress";
+import { getLessonIcon } from "@/lib/lesson-icons";
 
 interface Props {
   data: Topic;
@@ -51,7 +52,7 @@ export function TopicPage({ data }: Props) {
       onSelect={select}
     >
       <Hero
-        icon={lesson.icon}
+        icon={getLessonIcon(data.topic, lesson.id, 28) ?? lesson.icon}
         step={`Bài ${currentIdx + 1} / ${data.lessons.length}`}
         title={lesson.title}
         hint={lesson.hint}

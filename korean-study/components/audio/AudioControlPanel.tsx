@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Setting, VolumeUp, FastForward, Sun, Night } from "duma-icons-react";
 import { useAudio } from "./AudioProvider";
 import { toggleTheme, getIsDark } from "@/lib/theme";
 
@@ -41,18 +42,15 @@ export function AudioControlPanel() {
         title="Cài đặt"
         onClick={() => setOpen((v) => !v)}
       >
-        {/* Gear icon */}
-        <svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
-          <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-        </svg>
+        <Setting size={18} />
       </button>
 
       <div className="ks-controls-popover" hidden={!open}>
 
         {/* ── Dark mode toggle ── */}
         <div className="ks-controls-row">
-          <span className="ks-controls-label">
-            {isDark ? "🌙" : "☀️"} Giao diện
+          <span className="ks-controls-label flex items-center gap-1">
+            {isDark ? <Night size={14} /> : <Sun size={14} />} Giao diện
           </span>
           <button
             type="button"
@@ -69,11 +67,11 @@ export function AudioControlPanel() {
             <span
               className={[
               "inline-flex h-4.5 w-4.5 items-center justify-center rounded-full bg-white shadow",
-              "transition-transform duration-200 text-[10px]",
-              isDark ? "translate-x-5.5" : "translate-x-0.5",
+              "transition-transform duration-200",
+              isDark ? "translate-x-5.5 text-primary-600" : "translate-x-0.5 text-warning-500",
               ].join(" ")}
             >
-              {isDark ? "🌙" : "☀️"}
+              {isDark ? <Night size={11} /> : <Sun size={11} />}
             </span>
           </button>
           <span className="ks-controls-val">{isDark ? "Tối" : "Sáng"}</span>
@@ -83,8 +81,8 @@ export function AudioControlPanel() {
 
         {/* ── Volume ── */}
         <div className="ks-controls-row">
-          <label className="ks-controls-label" htmlFor="ks-volume">
-            🔊 Âm lượng
+          <label className="ks-controls-label flex items-center gap-1" htmlFor="ks-volume">
+            <VolumeUp size={14} /> Âm lượng
           </label>
           <input
             id="ks-volume"
@@ -101,7 +99,7 @@ export function AudioControlPanel() {
 
         {/* ── Speed ── */}
         <div className="ks-controls-row">
-          <span className="ks-controls-label">⏩ Tốc độ</span>
+          <span className="ks-controls-label flex items-center gap-1"><FastForward size={14} /> Tốc độ</span>
           <div className="ks-controls-rates">
             {RATES.map((r) => (
               <button

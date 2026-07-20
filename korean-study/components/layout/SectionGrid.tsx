@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Link from "next/link";
+import { ArrowSingleRight, Star, Card as CardIcon, Headphone, Hand, Cutlery, ShoppingCart, Home, Tick, Play } from "duma-icons-react";
 import { Badge } from "@/components/ui/Badge";
 import { HOME_PHASES, isPhaseDone } from "@/lib/home-phases";
 
@@ -15,11 +16,11 @@ const ICON_BG: Record<string, string> = {
 
 interface SectionCardData {
   href: string;
-  icon: string;
+  icon: ReactNode;
   iconLang?: string;
   iconColor: keyof typeof ICON_BG;
   title: string;
-  desc: string;
+  desc: ReactNode;
   cta: string;
   badge?: "vocab" | "srs" | "grammar" | "dictation";
   wide?: boolean;
@@ -49,18 +50,24 @@ const CARDS: SectionCardData[] = [
     cta: "Quan trọng",
   },
   {
-    href: "/summary", icon: "★", iconColor: "highlight",
+    href: "/summary", icon: <Star size={24} />, iconColor: "highlight",
     title: "Lộ trình ôn tập", desc: "Kế hoạch 4 tuần đầu + mẹo học hiệu quả.",
     cta: "Xem lộ trình",
   },
   {
     href: "/vocab", icon: "단", iconLang: "ko", iconColor: "purple", wide: true,
     title: "Từ vựng (단어)", badge: "vocab",
-    desc: "160 từ theo 4 chủ đề: 👋 Chào hỏi · 👨‍👩‍👧 Gia đình · 🍚 Ăn uống · 🛍️ Mua sắm. Có search + filter.",
+    desc: (
+      <>
+        160 từ theo 4 chủ đề: <Hand size={13} className="inline" /> Chào hỏi ·{" "}
+        <Home size={13} className="inline" /> Gia đình ·{" "}
+        <Cutlery size={13} className="inline" /> Ăn uống · <ShoppingCart size={13} className="inline" /> Mua sắm. Có search + filter.
+      </>
+    ),
     cta: "Học từ vựng",
   },
   {
-    href: "/flashcards", icon: "🎴", iconColor: "green", wide: true,
+    href: "/flashcards", icon: <CardIcon size={24} />, iconColor: "green", wide: true,
     title: "Thẻ ghi nhớ (SRS)", badge: "srs",
     desc: "Học từ vựng theo hộp Leitner (5 cấp). Ôn đúng lúc, không quên. Tiến độ lưu trong trình duyệt.",
     cta: "Bắt đầu ôn",
@@ -72,7 +79,7 @@ const CARDS: SectionCardData[] = [
     cta: "Học ngay",
   },
   {
-    href: "/dictation", icon: "🎧", iconColor: "coral",
+    href: "/dictation", icon: <Headphone size={24} />, iconColor: "coral",
     title: "Chép chính tả", badge: "dictation",
     desc: "Nghe đoạn Korean từ 세종학당 → gõ lại Hangul → kiểm tra. Luyện phản xạ nghe-viết.",
     cta: "Luyện ngay",
@@ -120,18 +127,18 @@ function SectionCard({
     >
       {status === "done" && (
         <span
-          className="absolute -top-2.5 -right-2.5 rotate-[10deg] bg-success-500 text-white text-[11px] font-hand font-bold px-2 py-0.5 rounded-md border-2 border-ink"
+          className="absolute -top-2.5 -right-2.5 rotate-[10deg] bg-success-500 text-white text-[11px] font-hand font-bold px-2 py-0.5 rounded-md border-2 border-ink inline-flex items-center gap-1"
           style={{ boxShadow: "2px 2px 0 rgb(35 34 34 / 0.25)" }}
         >
-          ✓ Đã học
+          <Tick size={11} /> Đã học
         </span>
       )}
       {status === "current" && (
         <span
-          className="absolute -top-2.5 -right-2.5 -rotate-[8deg] bg-primary-500 text-white text-[11px] font-hand font-bold px-2 py-0.5 rounded-md border-2 border-ink"
+          className="absolute -top-2.5 -right-2.5 -rotate-[8deg] bg-primary-500 text-white text-[11px] font-hand font-bold px-2 py-0.5 rounded-md border-2 border-ink inline-flex items-center gap-1"
           style={{ boxShadow: "2px 2px 0 rgb(35 34 34 / 0.25)" }}
         >
-          ▶ Tiếp theo
+          <Play size={10} /> Tiếp theo
         </span>
       )}
       <div
@@ -149,7 +156,7 @@ function SectionCard({
         <p className="text-ink/55 text-sm mt-1">{desc}</p>
         <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary-600 font-hand font-semibold group-hover:gap-2 transition-all">
           {cta}
-          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" /></svg>
+          <ArrowSingleRight size={14} />
         </span>
       </div>
     </Link>

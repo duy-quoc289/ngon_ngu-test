@@ -1,4 +1,14 @@
 import Link from "next/link";
+import {
+  ArrowSingleRight as ArrowSingleRightIcon,
+  MovieClapper as MovieClapperIcon,
+  Card as CardIcon,
+  Doc as DocIcon,
+  Search as SearchIcon,
+  Hand,
+  Fire,
+  Heart,
+} from "duma-icons-react";
 import { Card } from "@/components/ui/Card";
 import { ProgressCard } from "@/components/layout/ProgressCard";
 import { SectionGrid } from "@/components/layout/SectionGrid";
@@ -20,13 +30,13 @@ export default function HomePage() {
       {/* ── Nav ── */}
       <nav className="ks-topbar sticky top-0 z-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-1.5 font-hand font-black text-ink tracking-tight" style={{ transform: "rotate(-1deg)" }}>
-            <span className="text-base">🇰🇷</span>
+          <Link href="/" className="flex items-center gap-1.5 font-hand font-black text-ink tracking-tight shrink-0" style={{ transform: "rotate(-1deg)" }}>
+            <span className="w-6 h-6 rounded-md bg-primary-500 text-white text-xs grid place-items-center shrink-0" lang="ko">한</span>
             <span className="text-lg">KRD</span>
           </Link>
-          <div className="hidden sm:flex items-center gap-1 text-sm">
+          <div className="hidden sm:flex items-center gap-1 text-sm overflow-x-auto">
             {NAV_LINKS.map((n) => (
-              <Link key={n.href} href={n.href} className="ks-icon-btn px-3 py-1.5 font-hand font-medium">
+              <Link key={n.href} href={n.href} className="ks-icon-btn shrink-0 whitespace-nowrap px-3 py-1.5 font-hand font-medium">
                 {n.label}
               </Link>
             ))}
@@ -47,10 +57,10 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-14">
           <div className="text-center">
-            <p className="text-4xl sm:text-5xl font-hand font-black mb-4 text-ink" lang="ko" style={{ transform: "rotate(-1deg)" }}>
-              안녕하세요 👋
+            <p className="text-4xl sm:text-5xl font-hand font-black mb-4 text-ink flex items-center justify-center gap-3" lang="ko" style={{ transform: "rotate(-1deg)" }}>
+              안녕하세요 <Hand size={40} className="text-warning-500 shrink-0" />
             </p>
-            <h1 className="font-hand text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 text-ink leading-tight inline-block" style={{ transform: "rotate(-1.5deg)" }}>
+            <h1 className="font-hand text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 text-ink leading-tight" style={{ transform: "rotate(-1.5deg)" }}>
               Tham khảo học tiếng Hàn
             </h1>
             <span className="ks-stamp block w-fit mx-auto mt-3 mb-5">TOPIK 1 · PHASE 0</span>
@@ -64,7 +74,7 @@ export default function HomePage() {
                 style={{ boxShadow: "3px 3px 0 rgb(35 34 34 / 0.2)" }}
               >
                 Bắt đầu học
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" /></svg>
+                <ArrowSingleRightIcon size={16} />
               </Link>
               <Link
                 href="/vocab"
@@ -98,13 +108,15 @@ export default function HomePage() {
           </p>
           <ul className="space-y-4">
             {[
-              { emoji: "📺", href: "https://talktomeinkorean.com/", title: "Talk To Me In Korean", desc: "Series Level 1-2 free, audio + transcript chuẩn bản xứ." },
-              { emoji: "🎴", href: "https://ankiweb.net/", title: "Anki + Korean Decks", desc: 'SRS chuẩn industry. Tìm "TOPIK 1 vocabulary" trong shared decks.' },
-              { emoji: "📚", href: "https://www.sejong-korean.org/", title: "Sejong Korean", desc: "Giáo trình chính thức của Hàn Quốc. PDF free 1-4." },
-              { emoji: "🔍", href: "https://dict.naver.com/", title: "Naver Dictionary", desc: "Từ điển có audio chuẩn nhất. Cài app trên điện thoại." },
+              { Icon: MovieClapperIcon, href: "https://talktomeinkorean.com/", title: "Talk To Me In Korean", desc: "Series Level 1-2 free, audio + transcript chuẩn bản xứ." },
+              { Icon: CardIcon, href: "https://ankiweb.net/", title: "Anki + Korean Decks", desc: 'SRS chuẩn industry. Tìm "TOPIK 1 vocabulary" trong shared decks.' },
+              { Icon: DocIcon, href: "https://www.sejong-korean.org/", title: "Sejong Korean", desc: "Giáo trình chính thức của Hàn Quốc. PDF free 1-4." },
+              { Icon: SearchIcon, href: "https://dict.naver.com/", title: "Naver Dictionary", desc: "Từ điển có audio chuẩn nhất. Cài app trên điện thoại." },
             ].map((r) => (
               <li key={r.href} className="flex gap-3 group">
-                <span className="text-2xl shrink-0 mt-0.5">{r.emoji}</span>
+                <span className="shrink-0 mt-0.5 text-primary-600">
+                  <r.Icon size={30} />
+                </span>
                 <div>
                   <a
                     href={r.href}
@@ -125,11 +137,11 @@ export default function HomePage() {
       {/* ── Footer ── */}
       <footer className="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-sm text-ink/50 border-t-2 border-dashed border-ink/20">
         <div className="flex flex-wrap gap-4 items-center justify-between">
-          <span lang="ko">화이팅! 파이팅! 🔥</span>
+          <span lang="ko" className="inline-flex items-center gap-1">화이팅! 파이팅! <Fire size={14} className="text-secondary-500" /></span>
           <div className="flex items-center gap-3">
             <Link href="/design-system" className="hover:text-primary-500 transition-colors text-xs">Design System</Link>
             <span>·</span>
-            <span>Made with ❤️</span>
+            <span className="inline-flex items-center gap-1">Made with <Heart size={14} className="text-secondary-500" /></span>
           </div>
         </div>
       </footer>

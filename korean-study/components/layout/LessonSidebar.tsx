@@ -1,9 +1,12 @@
 "use client";
 
+import { Tick } from "duma-icons-react";
 import type { Lesson } from "@/lib/types";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { getLessonIcon } from "@/lib/lesson-icons";
 
 interface ListProps {
+  topic: string;
   lessons: Lesson[];
   currentIdx: number;
   completed: Set<string>;
@@ -11,12 +14,13 @@ interface ListProps {
 }
 
 /** List of lesson links — không có khung card, không có title. Reuse được trong drawer. */
-export function LessonList({ lessons, currentIdx, completed, onSelect }: ListProps) {
+export function LessonList({ topic, lessons, currentIdx, completed, onSelect }: ListProps) {
   return (
     <ul className="space-y-0.5">
       {lessons.map((l, i) => {
         const isActive = i === currentIdx;
         const isDone = completed.has(l.id);
+        const icon = getLessonIcon(topic, l.id, 14) ?? l.icon;
         return (
           <li key={l.id}>
             <a
@@ -30,14 +34,14 @@ export function LessonList({ lessons, currentIdx, completed, onSelect }: ListPro
               }`}
             >
               {isDone ? (
-                <span className="ks-side-icon ks-side-icon-done">✓</span>
+                <span className="ks-side-icon ks-side-icon-done"><Tick size={13} /></span>
               ) : (
                 <span className="ks-side-icon">{i + 1}</span>
               )}
               <span className="ks-side-text">
-                {l.icon && (
-                  <span className="ks-side-emoji" lang="ko">
-                    {l.icon}
+                {icon && (
+                  <span className="ks-side-emoji" lang={typeof icon === "string" ? "ko" : undefined}>
+                    {icon}
                   </span>
                 )}
                 <span>{l.title}</span>
@@ -57,6 +61,7 @@ interface SidebarProps extends ListProps {
 
 /** Desktop sidebar — card-styled với title + count + progress + list. */
 export function LessonSidebar({
+  topic,
   lessons,
   currentIdx,
   completed,
@@ -81,6 +86,7 @@ export function LessonSidebar({
       {/* List */}
       <div className="p-2">
         <LessonList
+          topic={topic}
           lessons={lessons}
           currentIdx={currentIdx}
           completed={completed}

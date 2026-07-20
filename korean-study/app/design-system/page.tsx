@@ -1,6 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Play as PlayIcon,
+  Heart as HeartIcon,
+  Search as SearchIcon,
+  PaintBrush,
+  Pen,
+  Tap,
+  Pencil,
+  Tag as TagIcon,
+  Bookmark,
+  Card as CardIconDS,
+  Stopwatch,
+  Doc,
+  Bulb,
+  Frame,
+} from "duma-icons-react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
@@ -13,12 +29,12 @@ function Section({
   title,
   children,
 }: {
-  title: string;
+  title: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <section className="mb-12">
-      <h2 className="text-2xl font-bold mb-1 text-slate-800 dark:text-slate-100">
+      <h2 className="text-2xl font-bold mb-1 text-slate-800 dark:text-slate-100 inline-flex items-center gap-2">
         {title}
       </h2>
       <div className="h-0.5 w-12 bg-primary-500 mb-6 rounded-full" />
@@ -78,7 +94,7 @@ export default function DesignSystemPage() {
       <div className="max-w-5xl mx-auto px-6 py-10">
 
         {/* ── COLOR PALETTE ── */}
-        <Section title="🎨 Color Palette">
+        <Section title={<><PaintBrush size={22} className="text-secondary-500" /> Color Palette</>}>
           {(
             [
               { name: "Primary", key: "primary", swatches: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] },
@@ -108,7 +124,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── TYPOGRAPHY ── */}
-        <Section title="🔤 Typography">
+        <Section title={<><Pen size={22} className="text-primary-600" /> Typography</>}>
           <div className="space-y-3 bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800">
             <div className="flex items-baseline gap-4 pb-3 border-b border-slate-100 dark:border-slate-800">
               <span className="text-xs text-slate-400 w-16 shrink-0">text-5xl</span>
@@ -150,7 +166,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── BUTTONS ── */}
-        <Section title="🔘 Buttons">
+        <Section title={<><Tap size={22} className="text-primary-600" /> Buttons</>}>
           <Row label="Variants">
             <Button variant="primary">Primary</Button>
             <Button variant="secondary">Secondary</Button>
@@ -168,23 +184,12 @@ export default function DesignSystemPage() {
               {loadingBtn ? "Loading..." : "Click để loading"}
             </Button>
             <Button disabled>Disabled</Button>
-            <Button
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              }
-            >
+            <Button icon={<PlayIcon size={18} />}>
               With Icon
             </Button>
             <Button
               variant="outline"
-              icon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              }
+              icon={<HeartIcon size={18} />}
               iconPosition="right"
             >
               Icon Right
@@ -193,7 +198,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── INPUTS ── */}
-        <Section title="📝 Inputs">
+        <Section title={<><Pencil size={22} className="text-primary-600" /> Inputs</>}>
           <div className="grid sm:grid-cols-2 gap-6">
             <Input
               label="Default Input"
@@ -205,11 +210,7 @@ export default function DesignSystemPage() {
               label="Với helper text"
               placeholder="search..."
               helperText="Gõ để tìm từ vựng"
-              prefixIcon={
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                  <circle cx="11" cy="11" r="8" /><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35" />
-                </svg>
-              }
+              prefixIcon={<SearchIcon size={18} />}
             />
             <Input
               label="Error variant"
@@ -229,7 +230,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── BADGES ── */}
-        <Section title="🏷 Badges">
+        <Section title={<><TagIcon size={22} className="text-info-500" /> Badges</>}>
           <Row label="Variants">
             <Badge variant="default">Default</Badge>
             <Badge variant="primary">Primary</Badge>
@@ -256,7 +257,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── TAGS ── */}
-        <Section title="🔖 Tags">
+        <Section title={<><Bookmark size={22} className="text-info-500" /> Tags</>}>
           <Row label="Colors">
             <Tag color="blue">greeting</Tag>
             <Tag color="green">polite</Tag>
@@ -273,7 +274,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── CARDS ── */}
-        <Section title="🃏 Cards">
+        <Section title={<><CardIconDS size={22} className="text-primary-600" /> Cards</>}>
           <div className="grid sm:grid-cols-3 gap-4">
             <Card variant="flat">
               <CardBody>
@@ -326,7 +327,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── SPINNERS ── */}
-        <Section title="⏳ Spinners">
+        <Section title={<><Stopwatch size={22} className="text-primary-600" /> Spinners</>}>
           <Row label="Sizes">
             <Spinner size="xs" />
             <Spinner size="sm" />
@@ -342,7 +343,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── SKELETONS ── */}
-        <Section title="💀 Skeletons">
+        <Section title={<><Frame size={22} className="text-ink/40" /> Skeletons</>}>
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
               <p className="text-xs text-slate-400 uppercase tracking-wide mb-3">Text Lines</p>
@@ -379,7 +380,7 @@ export default function DesignSystemPage() {
         </Section>
 
         {/* ── VOCAB CARD DEMO ── */}
-        <Section title="📖 Vocab Card (demo)">
+        <Section title={<><Doc size={22} className="text-primary-600" /> Vocab Card (demo)</>}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { ko: "안녕하세요", rom: "an-nyeong-ha-se-yo", vi: "Xin chào", viExtra: "(lịch sự)", tags: ["greeting", "polite"], category: "Chào hỏi" },
@@ -422,7 +423,7 @@ export default function DesignSystemPage() {
 
         {/* ── DARK MODE NOTE ── */}
         <div className="rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 p-5 text-sm text-primary-700 dark:text-primary-300">
-          <p className="font-semibold mb-1">💡 Dark mode</p>
+          <p className="font-semibold mb-1 inline-flex items-center gap-1.5"><Bulb size={16} className="text-warning-500" /> Dark mode</p>
           <p>Toggle dark mode bằng cách thêm/xóa class <code className="bg-primary-100 dark:bg-primary-900/30 px-1 py-0.5 rounded text-xs font-mono">dark</code> trên thẻ <code className="bg-primary-100 dark:bg-primary-900/30 px-1 py-0.5 rounded text-xs font-mono">&lt;html&gt;</code>. Tất cả components đều hỗ trợ dark mode.</p>
         </div>
       </div>

@@ -1,6 +1,8 @@
+import { Bulb } from "duma-icons-react";
 import type { FlatVocabWord, VocabCategory } from "@/lib/types";
 import { Highlight } from "@/lib/highlight";
 import { AudioButton } from "@/components/audio/AudioButton";
+import { getCategoryIcon } from "@/lib/vocab-category-icons";
 
 interface Props {
   word: FlatVocabWord;
@@ -29,7 +31,7 @@ export function VocabCard({ word, category, query }: Props) {
         <div className="ks-vocab-tags">
           {category && (
             <span className={`ks-vocab-cat-pill ks-cat-${category.color}`}>
-              {category.icon} {category.title}
+              {getCategoryIcon(category.id, category.icon)} {category.title}
             </span>
           )}
           {(word.tags || []).map((t) => (
@@ -49,7 +51,12 @@ export function VocabCard({ word, category, query }: Props) {
             <div className="ks-vocab-example-vi">{word.example.vi}</div>
           </div>
         )}
-        {word.note && <div className="ks-vocab-note">{word.note}</div>}
+        {word.note && (
+          <div className="ks-vocab-note">
+            <Bulb size={13} className="inline mr-1 -mt-0.5" />
+            {word.note}
+          </div>
+        )}
       </div>
       <AudioButton
         text={word.ko}

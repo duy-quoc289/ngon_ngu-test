@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { Search as SearchIcon } from "duma-icons-react";
 
 interface Props {
   value: string;
@@ -26,20 +27,7 @@ export function SearchBox({ value, onChange }: Props) {
 
   return (
     <div className="ks-vocab-search-wrap">
-      <svg
-        viewBox="0 0 24 24"
-        width={18}
-        height={18}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="ks-vocab-search-icon"
-      >
-        <circle cx="11" cy="11" r="7" />
-        <path d="M21 21l-4.3-4.3" />
-      </svg>
+      <SearchIcon size={18} className="ks-vocab-search-icon" />
       <input
         ref={inputRef}
         type="search"

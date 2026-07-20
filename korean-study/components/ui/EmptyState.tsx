@@ -1,10 +1,11 @@
 "use client";
 
 import { type ReactNode } from "react";
+import { Search } from "duma-icons-react";
 import { Button } from "./Button";
 
 export interface EmptyStateProps {
-  icon?: string;
+  icon?: ReactNode;
   title: string;
   description?: string;
   action?: {
@@ -16,7 +17,7 @@ export interface EmptyStateProps {
 }
 
 export function EmptyState({
-  icon = "🔍",
+  icon = <Search size={32} />,
   title,
   description,
   action,

@@ -1,17 +1,18 @@
 "use client";
 
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState, type ReactNode } from "react";
+import { Analytics, Card as CardIcon, Trophy, Tick } from "duma-icons-react";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { HOME_PHASES, isPhaseDone } from "@/lib/home-phases";
 
 // icon/iconLang khớp với SectionCard ở trang chủ để người dùng nhận ra cùng 1 mục
-const PHASE_ICONS: Record<string, { icon: string; iconLang?: string }> = {
+const PHASE_ICONS: Record<string, { icon: ReactNode; iconLang?: string }> = {
   "/hangul": { icon: "한", iconLang: "ko" },
   "/numbers": { icon: "1" },
   "/pronunciation": { icon: "발", iconLang: "ko" },
   "/vocab": { icon: "단", iconLang: "ko" },
-  "/flashcards": { icon: "🎴" },
+  "/flashcards": { icon: <CardIcon size={18} /> },
 };
 
 export function ProgressCard() {
@@ -35,7 +36,9 @@ export function ProgressCard() {
   const isAllDone = currentIndex === -1;
   // Nhãn ngắn — Badge của sketchbook-ui vẽ hình lục giác theo chiều rộng chữ,
   // chuỗi dài (vd "Phase 2/5 — Hangul") làm hình vẽ phình to đè lên nội dung khác.
-  const badgeLabel = isAllDone ? "Hoàn thành 🎉" : `Phase ${doneCount + 1}/${total}`;
+  const badgeLabel: ReactNode = isAllDone
+    ? <span className="inline-flex items-center gap-1">Hoàn thành <Trophy size={14} className="text-warning-500" /></span>
+    : `Phase ${doneCount + 1}/${total}`;
   const description = isAllDone
     ? "Đã hoàn thành cả 5 chặng — quay lại ôn tập bất cứ lúc nào."
     : doneCount === 0
@@ -47,7 +50,7 @@ export function ProgressCard() {
       <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
         <div>
           <h2 className="font-hand font-bold text-lg text-ink flex items-center gap-2">
-            <span>📊</span>
+            <Analytics size={20} />
             Tiến độ học
           </h2>
           <p className="text-ink/60 text-sm mt-1">{description}</p>
@@ -81,7 +84,7 @@ export function ProgressCard() {
                         : undefined
                     }
                   >
-                    {p.done ? "✓" : <span lang={p.iconLang}>{p.icon}</span>}
+                    {p.done ? <Tick size={16} /> : <span lang={p.iconLang}>{p.icon}</span>}
                   </div>
                 </div>
                 <p

@@ -18,7 +18,7 @@ export default async function LoginPage({ searchParams }: Props) {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <span className="text-4xl">🇰🇷</span>
+          <span className="inline-grid place-items-center w-14 h-14 rounded-2xl bg-primary-500 text-white text-2xl font-black" lang="ko">한</span>
           <h1 className="mt-3 text-2xl font-black tracking-tight text-slate-800 dark:text-slate-100">KRD</h1>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Đăng nhập để lưu tiến độ học</p>
         </div>

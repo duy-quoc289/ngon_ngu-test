@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Tick as TickIcon, Cross as CrossIcon } from "duma-icons-react";
 import { useAudio } from "@/components/audio/AudioProvider";
 import { AudioButton } from "@/components/audio/AudioButton";
 import { Input } from "@/components/ui/Input";
@@ -84,8 +85,9 @@ export function DictationCard({ word, onResult }: Props) {
                 : "bg-error-50 dark:bg-error-900/20 border-error-200 dark:border-error-800"
             }`}
           >
-            <p className="font-hand font-semibold text-ink mb-1">
-              {isCorrect ? "✅ Đúng rồi!" : "❌ Sai rồi"}
+            <p className="font-hand font-semibold text-ink mb-1 flex items-center justify-center gap-1.5">
+              {isCorrect ? <TickIcon size={18} className="text-success-500" /> : <CrossIcon size={16} className="text-error-500" />}
+              {isCorrect ? "Đúng rồi!" : "Sai rồi"}
             </p>
             {!isCorrect && (
               <p className="text-sm text-ink/70 mb-1">

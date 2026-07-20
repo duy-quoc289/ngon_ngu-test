@@ -1868,8 +1868,6 @@ h3,
   font-size: 0.82em;
   color: rgb(120 53 15);
 }
-.ks-vocab-note::before { content: '💡 '; }
-
 /* Audio button */
 .ks-vocab-play {
   flex-shrink: 0;

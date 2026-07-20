@@ -1,5 +1,12 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import {
+  ArrowSingleLeft as ArrowSingleLeftIcon,
+  Fire as FireIcon,
+  Target as TargetIcon,
+  Box as BoxIcon,
+  Sync as SyncIcon,
+} from "duma-icons-react";
 import { fetchProfileStats } from "@/actions/srs";
 import { createClient } from "@/lib/supabase/server";
 
@@ -54,7 +61,7 @@ export default async function ProfilePage() {
       <header className="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-3xl mx-auto px-4 py-2.5 flex items-center gap-3">
           <Link href="/" className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all">
-            <svg viewBox="0 0 24 24" width={15} height={15} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            <ArrowSingleLeftIcon size={15} />
             <span className="text-sm font-black tracking-tight">KRD</span>
           </Link>
           <span className="w-px h-5 bg-slate-200 dark:bg-slate-700" />
@@ -82,13 +89,15 @@ export default async function ProfilePage() {
         {/* Stats grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            { label: "Chuỗi ngày", value: `${streak}`, unit: "ngày", icon: "🔥" },
-            { label: "Chính xác", value: `${accuracy}`, unit: "%", icon: "🎯" },
-            { label: "Thẻ vững", value: `${matureCards}`, unit: `/${totalCards}`, icon: "📦" },
-            { label: "Đã ôn", value: `${totalReps}`, unit: "lần", icon: "🔄" },
+            { label: "Chuỗi ngày", value: `${streak}`, unit: "ngày", Icon: FireIcon, color: "text-secondary-500" },
+            { label: "Chính xác", value: `${accuracy}`, unit: "%", Icon: TargetIcon, color: "text-error-500" },
+            { label: "Thẻ vững", value: `${matureCards}`, unit: `/${totalCards}`, Icon: BoxIcon, color: "text-primary-600" },
+            { label: "Đã ôn", value: `${totalReps}`, unit: "lần", Icon: SyncIcon, color: "text-success-500" },
           ].map((s) => (
             <div key={s.label} className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4 text-center">
-              <p className="text-2xl mb-1">{s.icon}</p>
+              <div className={`flex justify-center mb-1 ${s.color}`}>
+                <s.Icon size={24} />
+              </div>
               <p className="text-2xl font-black text-slate-800 dark:text-slate-100 leading-none">
                 {s.value}<span className="text-sm font-normal text-slate-400 ml-0.5">{s.unit}</span>
               </p>

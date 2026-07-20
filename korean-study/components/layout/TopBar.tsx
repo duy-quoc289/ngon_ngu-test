@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowSingleLeft, Menu } from "duma-icons-react";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { UserButton } from "@/components/auth/UserButton";
 
@@ -28,19 +29,7 @@ export function TopBar({ title, titleKo, onToggleSidebar, progress, countText }:
             className="ks-icon-btn flex items-center gap-1.5 px-2.5 py-1.5 group"
             aria-label="Về trang chủ KRD"
           >
-            <svg
-              viewBox="0 0 24 24"
-              width={15}
-              height={15}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.5}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="shrink-0"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
+            <ArrowSingleLeft size={15} className="shrink-0" />
             <span className="font-hand text-sm font-black tracking-tight leading-none">KRD</span>
           </Link>
 
@@ -55,9 +44,7 @@ export function TopBar({ title, titleKo, onToggleSidebar, progress, countText }:
               className="ks-icon-btn lg:hidden p-1.5"
               aria-label="Mở danh sách bài học"
             >
-              <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <Menu size={18} />
             </button>
           )}
         </div>

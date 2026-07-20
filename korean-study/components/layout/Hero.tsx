@@ -1,14 +1,17 @@
+import type { ReactNode } from "react";
+
 interface Props {
-  icon?: string;
+  icon?: ReactNode;
   step?: string;
   title: string;
   hint?: string;
 }
 
-export function Hero({ icon = "📘", step, title, hint }: Props) {
+export function Hero({ icon = "가", step, title, hint }: Props) {
+  const isText = typeof icon === "string";
   return (
     <section className="ks-hero">
-      <div className="ks-hero-icon" lang="ko">
+      <div className="ks-hero-icon" lang={isText ? "ko" : undefined}>
         {icon}
       </div>
       <div className="flex-1 min-w-0">

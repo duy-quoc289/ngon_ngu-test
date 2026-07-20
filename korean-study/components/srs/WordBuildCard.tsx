@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Tick, Cross } from "duma-icons-react";
 import { Button } from "@/components/ui/Button";
 import type { VocabWord } from "@/lib/types";
 
@@ -164,9 +165,11 @@ export function WordBuildCard({ word, onResult }: Props) {
               : "bg-error-50 dark:bg-error-900/20 border-error-200 dark:border-error-800"
           }`}
         >
-          <p className="font-hand font-semibold text-ink mb-1">
-            {isCorrect ? "✅ Đúng rồi!" : (
-              <>❌ Sai — Đáp án: <span className="font-bold">{word.ko}</span>{" "}
+          <p className="font-hand font-semibold text-ink mb-1 flex items-center justify-center gap-1.5">
+            {isCorrect ? (
+              <><Tick size={18} className="text-success-500" /> Đúng rồi!</>
+            ) : (
+              <><Cross size={16} className="text-error-500" /> Sai — Đáp án: <span className="font-bold">{word.ko}</span>{" "}
                 <span className="text-ink/50 text-sm">({word.rom})</span>
               </>
             )}

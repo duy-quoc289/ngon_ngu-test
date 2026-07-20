@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Cross } from "duma-icons-react";
 import type { Topic } from "@/lib/types";
 import { TopBar } from "./TopBar";
 import { LessonSidebar, LessonList } from "./LessonSidebar";
@@ -60,6 +61,7 @@ export function LessonShell({ data, currentIdx, completed, onSelect, children }:
         <aside className="hidden lg:block w-64 shrink-0">
           <div className="sticky top-20">
             <LessonSidebar
+              topic={data.topic}
               lessons={data.lessons}
               currentIdx={currentIdx}
               completed={completed}
@@ -86,20 +88,11 @@ export function LessonShell({ data, currentIdx, completed, onSelect, children }:
                   className="ks-icon-btn p-2 -mr-2"
                   aria-label="Đóng"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width={22}
-                    height={22}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    strokeLinecap="round"
-                  >
-                    <path d="M6 6l12 12M6 18l12-12" />
-                  </svg>
+                  <Cross size={20} />
                 </button>
               </div>
               <LessonList
+                topic={data.topic}
                 lessons={data.lessons}
                 currentIdx={currentIdx}
                 completed={completed}

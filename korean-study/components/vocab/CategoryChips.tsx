@@ -1,9 +1,12 @@
+import type { ReactNode } from "react";
+import { MagicWand } from "duma-icons-react";
 import type { ComparisonColor, VocabCategory } from "@/lib/types";
+import { getCategoryIcon } from "@/lib/vocab-category-icons";
 
 interface ChipDef {
   id: string;
   title: string;
-  icon: string;
+  icon: ReactNode;
   color: ComparisonColor;
   count: number;
 }
@@ -17,11 +20,11 @@ interface Props {
 
 export function CategoryChips({ categories, total, active, onSelect }: Props) {
   const chips: ChipDef[] = [
-    { id: "all", title: "Tất cả", icon: "✨", color: "slate", count: total },
+    { id: "all", title: "Tất cả", icon: <MagicWand size={14} />, color: "slate", count: total },
     ...categories.map((c) => ({
       id: c.id,
       title: c.title,
-      icon: c.icon,
+      icon: getCategoryIcon(c.id, c.icon),
       color: c.color,
       count: c.words.length,
     })),

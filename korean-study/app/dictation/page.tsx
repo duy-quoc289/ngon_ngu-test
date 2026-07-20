@@ -1,6 +1,12 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import {
+  Play as PlayIcon,
+  Tick as TickIcon,
+  Cross as CrossIcon,
+  Headphone as HeadphoneIcon,
+} from "duma-icons-react";
 import { getRandomSegment, type DictationSegment } from "@/actions/dictation";
 import { useAudio } from "@/components/audio/AudioProvider";
 import { TopBar } from "@/components/layout/TopBar";
@@ -91,16 +97,16 @@ export default function DictationPage() {
         {/* Empty state */}
         {!segment && !loading && !error && (
           <div className="ks-surface p-10 text-center space-y-4">
-            <div className="text-4xl">🎧</div>
+            <div className="flex justify-center text-primary-600">
+              <HeadphoneIcon size={36} />
+            </div>
             <div>
               <p className="font-hand font-semibold text-ink">Luyện nghe chép chính tả</p>
               <p className="text-sm text-ink/55 mt-1">
                 Nghe câu Korean → gõ lại Hangul → kiểm tra đáp án.
               </p>
             </div>
-            <Button variant="primary" onClick={fetchNext} icon={
-              <svg viewBox="0 0 24 24" width={16} height={16} fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-            }>
+            <Button variant="primary" onClick={fetchNext} icon={<PlayIcon size={16} />}>
               Bắt đầu
             </Button>
           </div>
@@ -145,9 +151,7 @@ export default function DictationPage() {
                     ))}
                   </span>
                 ) : (
-                  <svg viewBox="0 0 24 24" width={32} height={32} fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+                  <PlayIcon size={32} />
                 )}
               </button>
 
@@ -188,7 +192,10 @@ export default function DictationPage() {
                     ? "bg-success-50 dark:bg-success-900/20 border-success-200 dark:border-success-800 text-success-700 dark:text-success-300"
                     : "bg-error-50 dark:bg-error-900/20 border-error-200 dark:border-error-800 text-error-700 dark:text-error-300"
                 }`}>
-                  <p className="font-hand font-semibold">{result === "correct" ? "✓ Chính xác!" : "✗ Chưa đúng"}</p>
+                  <p className="font-hand font-semibold flex items-center gap-1.5">
+                    {result === "correct" ? <TickIcon size={16} /> : <CrossIcon size={14} />}
+                    {result === "correct" ? "Chính xác!" : "Chưa đúng"}
+                  </p>
                   {result === "wrong" && (
                     showAnswer
                       ? <p>Đáp án: <strong lang="ko">{segment.text}</strong></p>

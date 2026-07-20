@@ -125,7 +125,6 @@ export function VocabPage({ data }: Props) {
           </div>
         ) : (
           <EmptyState
-            icon="🔍"
             title="Không tìm thấy từ nào"
             description={
               debouncedQuery

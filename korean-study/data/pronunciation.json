@@ -32,7 +32,7 @@
     },
     {
       "id": "rule-1",
-      "title": "Quy tắc 1: Nối âm ⭐",
+      "title": "Quy tắc 1: Nối âm",
       "icon": "🔗",
       "type": "rule",
       "formula": "받침 + ㅇ → 받침 chuyển sang phụ âm đầu của âm tiết sau",

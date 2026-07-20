@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Fire as FireIcon, Target as TargetIcon, Box as BoxIcon, Trophy } from "duma-icons-react";
 import { TopBar } from "@/components/layout/TopBar";
 import { Skeleton } from "@/components/ui/Skeleton";
 import { useSrsStore } from "@/lib/srs-store";
@@ -29,7 +30,7 @@ export default function FlashcardsPage() {
             <Skeleton variant="card" height={80} className="rounded-2xl" />
           ) : queue.length === 0 ? (
             <>
-              <p className="text-5xl mb-3">🎉</p>
+              <div className="flex justify-center mb-3 text-warning-500"><Trophy size={48} /></div>
               <h2 className="font-hand text-2xl font-bold text-ink mb-2">
                 Hôm nay đã xong!
               </h2>
@@ -68,12 +69,14 @@ export default function FlashcardsPage() {
         {/* ── Stats strip ── */}
         <div className="grid grid-cols-3 gap-4 mb-10">
           {[
-            { label: "Streak", value: hydrated ? `${stats.streak} ngày` : "—", icon: "🔥" },
-            { label: "Chính xác", value: hydrated ? `${stats.accuracy}%` : "—", icon: "🎯" },
-            { label: "Thẻ vững", value: hydrated ? `${stats.mature}/${stats.total}` : "—", icon: "📦" },
+            { label: "Streak", value: hydrated ? `${stats.streak} ngày` : "—", Icon: FireIcon, color: "text-secondary-500" },
+            { label: "Chính xác", value: hydrated ? `${stats.accuracy}%` : "—", Icon: TargetIcon, color: "text-error-500" },
+            { label: "Thẻ vững", value: hydrated ? `${stats.mature}/${stats.total}` : "—", Icon: BoxIcon, color: "text-primary-600" },
           ].map((s) => (
             <div key={s.label} className="ks-surface p-4 text-center">
-              <p className="text-2xl mb-1">{s.icon}</p>
+              <div className={`flex justify-center mb-1 ${s.color}`}>
+                <s.Icon size={24} />
+              </div>
               <p className="font-hand text-lg font-bold text-ink">{s.value}</p>
               <p className="text-xs text-ink/55">{s.label}</p>
             </div>

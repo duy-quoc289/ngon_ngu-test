@@ -1,6 +1,7 @@
 "use client";
 
 import { Fragment, useState } from "react";
+import { Tick, Cross } from "duma-icons-react";
 import type { GrammarLesson as GrammarLessonType, GrammarExample, GrammarExercise } from "@/lib/types";
 import { AudioButton } from "@/components/audio/AudioButton";
 import { renderInlineMarkdown } from "@/components/layout/Hero";
@@ -171,7 +172,7 @@ function ExerciseCard({ ex, idx }: ExerciseCardProps) {
               : "bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300"
           }`}
         >
-          <span className="text-base leading-none mt-0.5">{isCorrect ? "✓" : "✗"}</span>
+          <span className="leading-none mt-0.5">{isCorrect ? <Tick size={16} /> : <Cross size={14} />}</span>
           <div>
             {isCorrect ? (
               <span>Chính xác!</span>

@@ -1,7 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
+import { Pencil, Headphone, Puzzle, Trophy, Target, Doc, ArrowSingleLeft, Card as CardModeIcon } from "duma-icons-react";
 import { FlashCard } from "@/components/srs/FlashCard";
 import { ViToHanCard } from "@/components/srs/ViToHanCard";
 import { DictationCard } from "@/components/srs/DictationCard";
@@ -26,11 +27,11 @@ type StudyMode = "han-vi" | "vi-han" | "dictation" | "word-build";
 
 const MODE_POOL: StudyMode[] = ["han-vi", "vi-han", "dictation", "word-build"];
 
-const MODE_META: Record<StudyMode, { icon: string; label: string }> = {
-  "han-vi":     { icon: "🔤", label: "한 → Vi" },
-  "vi-han":     { icon: "✍️",  label: "Vi → 한" },
-  "dictation":  { icon: "🎧", label: "Nghe"    },
-  "word-build": { icon: "🧩", label: "Ghép chữ" },
+const MODE_META: Record<StudyMode, { icon: ReactNode; label: string }> = {
+  "han-vi":     { icon: <CardModeIcon size={14} />, label: "한 → Vi" },
+  "vi-han":     { icon: <Pencil size={14} />, label: "Vi → 한" },
+  "dictation":  { icon: <Headphone size={14} />, label: "Nghe" },
+  "word-build": { icon: <Puzzle size={14} />, label: "Ghép chữ" },
 };
 
 function randomMode(): StudyMode {
@@ -137,7 +138,7 @@ export default function StudyPage() {
   if (total === 0) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <p className="text-5xl mb-4">🎉</p>
+        <div className="text-warning-500 mb-4"><Trophy size={48} /></div>
         <h2 className="font-hand text-2xl font-bold text-ink mb-2">Hôm nay đã xong!</h2>
         <p className="text-ink/55 mb-6">Không có thẻ nào đến hạn hôm nay.</p>
         <Link
@@ -145,7 +146,7 @@ export default function StudyPage() {
           className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border-2 border-ink bg-paper text-ink font-hand font-semibold transition-transform duration-base hover:-translate-y-0.5"
           style={{ boxShadow: "3px 3px 0 rgb(35 34 34 / 0.15)" }}
         >
-          ← Về Flashcards
+          <ArrowSingleLeft size={14} /> Về Flashcards
         </Link>
       </div>
     );
@@ -155,7 +156,9 @@ export default function StudyPage() {
     const accuracy = Math.round((result.correct / result.total) * 100);
     return (
       <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-        <p className="text-5xl mb-4">{accuracy >= 80 ? "🏆" : accuracy >= 50 ? "💪" : "📖"}</p>
+        <div className={`mb-4 ${accuracy >= 80 ? "text-warning-500" : accuracy >= 50 ? "text-error-500" : "text-ink/40"}`}>
+          {accuracy >= 80 ? <Trophy size={48} /> : accuracy >= 50 ? <Target size={48} /> : <Doc size={48} />}
+        </div>
         <h2 className="font-hand text-2xl font-bold text-ink mb-1">Phiên học hoàn thành</h2>
         <p className="text-ink/55 mb-6">
           {result.correct}/{result.total} đúng · {accuracy}% chính xác

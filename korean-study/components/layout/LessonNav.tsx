@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowSingleLeft, ArrowSingleRight, Tick } from "duma-icons-react";
 import { Button } from "@/components/ui/Button";
 
 interface Props {
@@ -20,11 +21,7 @@ export function LessonNav({ currentIdx, total, onPrev, onNext }: Props) {
         onClick={onPrev}
         disabled={isFirst}
         className="flex-1 sm:flex-none justify-center"
-        icon={
-          <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        }
+        icon={<ArrowSingleLeft size={18} />}
       >
         Trước
       </Button>
@@ -57,16 +54,10 @@ export function LessonNav({ currentIdx, total, onPrev, onNext }: Props) {
         onClick={onNext}
         disabled={isLast}
         className="flex-1 sm:flex-none justify-center"
-        icon={
-          !isLast ? (
-            <svg viewBox="0 0 24 24" width={18} height={18} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-              <path d="M9 6l6 6-6 6" />
-            </svg>
-          ) : undefined
-        }
+        icon={isLast ? <Tick size={18} /> : <ArrowSingleRight size={18} />}
         iconPosition="right"
       >
-        {isLast ? "Hoàn thành ✓" : "Tiếp"}
+        {isLast ? "Hoàn thành" : "Tiếp"}
       </Button>
     </nav>
   );
