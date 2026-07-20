@@ -1,6 +1,8 @@
 "use client";
 
 import { type HTMLAttributes, type ReactNode } from "react";
+import { Card as SketchCard } from "sketchbook-ui";
+import { sketchColors, skFont } from "@/lib/sketch-theme";
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: "flat" | "elevated" | "outlined";
@@ -8,6 +10,13 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   clickable?: boolean;
   children: ReactNode;
 }
+
+// variant cũ → variant "sketchy" của sketchbook-ui
+const VARIANT_MAP: Record<NonNullable<CardProps["variant"]>, "paper" | "notebook" | "sticky"> = {
+  flat: "paper",
+  elevated: "notebook",
+  outlined: "notebook",
+};
 
 export function Card({
   variant = "elevated",
@@ -17,59 +26,31 @@ export function Card({
   children,
   ...props
 }: CardProps) {
-  const baseClasses =
-    "rounded-lg transition-all duration-base ease-smooth bg-white dark:bg-slate-900";
-
-  const variantClasses = {
-    flat: "shadow-none",
-    elevated: "shadow-md hover:shadow-lg",
-    outlined: "border border-slate-200 dark:border-slate-800 shadow-sm",
-  };
-
-  const hoverClasses = hoverable
-    ? "hover:-translate-y-1 hover:shadow-xl"
-    : "";
-
-  const clickableClasses = clickable
-    ? "cursor-pointer active:scale-[0.98]"
-    : "";
+  const hoverClasses = hoverable ? "transition-transform duration-base hover:-translate-y-1" : "";
+  const clickableClasses = clickable ? "cursor-pointer active:scale-[0.98]" : "";
 
   return (
-    <div
-      className={`
-        ${baseClasses}
-        ${variantClasses[variant]}
-        ${hoverClasses}
-        ${clickableClasses}
-        ${className}
-      `}
+    <SketchCard
+      variant={VARIANT_MAP[variant]}
+      colors={{ bg: sketchColors.paper, stroke: sketchColors.ink, text: sketchColors.ink }}
+      typography={{ fontFamily: skFont }}
+      className={`${hoverClasses} ${clickableClasses} ${className}`}
       {...props}
     >
+      {children}
+    </SketchCard>
+  );
+}
+
+export function CardHeader({ className = "", children, ...props }: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={`px-6 py-4 border-b-2 border-dashed border-black/15 ${className}`} {...props}>
       {children}
     </div>
   );
 }
 
-export function CardHeader({
-  className = "",
-  children,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div
-      className={`px-6 py-4 border-b border-slate-200 dark:border-slate-800 ${className}`}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-}
-
-export function CardBody({
-  className = "",
-  children,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+export function CardBody({ className = "", children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div className={`px-6 py-4 ${className}`} {...props}>
       {children}
@@ -77,16 +58,9 @@ export function CardBody({
   );
 }
 
-export function CardFooter({
-  className = "",
-  children,
-  ...props
-}: HTMLAttributes<HTMLDivElement>) {
+export function CardFooter({ className = "", children, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={`px-6 py-4 border-t border-slate-200 dark:border-slate-800 ${className}`}
-      {...props}
-    >
+    <div className={`px-6 py-4 border-t-2 border-dashed border-black/15 ${className}`} {...props}>
       {children}
     </div>
   );

@@ -27,12 +27,12 @@ export function EmptyState({
     <div
       className={`flex flex-col items-center justify-center text-center py-16 px-6 ${className}`}
     >
-      <div className="text-5xl mb-4 opacity-70 select-none">{icon}</div>
-      <h3 className="text-lg font-semibold text-slate-700 dark:text-slate-200 mb-2">
+      <div className="ks-empty-icon mb-4 select-none">{icon}</div>
+      <h3 className="font-hand text-lg font-bold text-ink mb-2">
         {title}
       </h3>
       {description && (
-        <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm">
+        <p className="text-sm text-ink/55 max-w-sm">
           {description}
         </p>
       )}

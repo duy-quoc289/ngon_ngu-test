@@ -65,10 +65,10 @@ export function LessonSidebar({
   countText,
 }: SidebarProps) {
   return (
-    <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+    <div className="ks-surface overflow-hidden">
       {/* Header */}
-      <div className="px-4 pt-4 pb-3 border-b border-slate-100 dark:border-slate-800">
-        <h2 className="font-bold text-base text-slate-800 dark:text-slate-100 mb-1">{title}</h2>
+      <div className="px-4 pt-4 pb-3 border-b-2 border-dashed border-ink/15">
+        <h2 className="font-hand font-bold text-base text-ink mb-1">{title}</h2>
         <ProgressBar
           value={completed.size}
           max={lessons.length}
@@ -76,7 +76,7 @@ export function LessonSidebar({
           size="sm"
           className="mt-2"
         />
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">{countText}</p>
+        <p className="text-xs text-ink/50 mt-1.5">{countText}</p>
       </div>
       {/* List */}
       <div className="p-2">

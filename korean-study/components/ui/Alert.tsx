@@ -63,7 +63,7 @@ export function Alert({
   return (
     <div
       role="alert"
-      className={`rounded-lg border p-4 flex gap-3 ${cfg.bg} ${cfg.border} ${cfg.text} ${className}`}
+      className={`ks-alert p-4 flex gap-3 ${cfg.bg} ${cfg.text} ${className}`}
     >
       <span className="text-lg shrink-0 mt-0.5" aria-hidden="true">
         {cfg.icon}

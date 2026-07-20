@@ -75,7 +75,7 @@ export function TabList({
       ref={listRef}
       role="tablist"
       onKeyDown={handleKeyDown}
-      className={`flex border-b border-slate-200 dark:border-slate-800 gap-1 ${className}`}
+      className={`flex border-b-2 border-ink/15 gap-1 ${className}`}
     >
       {children}
     </div>
@@ -103,20 +103,17 @@ export function Tab({ value, children, disabled = false, className = "" }: TabPr
       disabled={disabled}
       onClick={() => setActive(value)}
       className={`
-        relative px-4 py-2.5 text-sm font-medium transition-all duration-base
+        ks-tab relative px-4 py-2.5 text-sm transition-all duration-base
         focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
         disabled:opacity-40 disabled:cursor-not-allowed
-        ${isActive
-          ? "text-primary-600 dark:text-primary-400"
-          : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
-        }
+        ${isActive ? "is-active text-primary-600" : "hover:opacity-100"}
         ${className}
       `}
     >
       {children}
-      {/* Underline indicator */}
+      {/* Underline indicator — nét highlighter thay vì underline mảnh */}
       {isActive && (
-        <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-500 rounded-t-full" />
+        <span className="ks-tab-underline absolute -bottom-0.5 left-1 right-1" />
       )}
     </button>
   );

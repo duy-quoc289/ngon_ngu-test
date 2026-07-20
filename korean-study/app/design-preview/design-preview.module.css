@@ -1,0 +1,195 @@
+.page {
+  min-height: 100vh;
+  background-color: #fbf6ec;
+  background-image:
+    linear-gradient(#e5dcc8 1px, transparent 1px);
+  background-size: 100% 32px;
+  padding: 3rem 1.5rem 6rem;
+  color: #232323;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.heroTitle {
+  font-family: var(--font-hand), cursive;
+  font-weight: 700;
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  color: #232323;
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.heroSub {
+  font-family: var(--font-hand), cursive;
+  font-size: 1.15rem;
+  color: #5f5a4d;
+  margin-top: 0.5rem;
+  transform: rotate(1deg);
+}
+
+.stamp {
+  font-family: var(--font-marker), cursive;
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #e8503a;
+  border: 2px solid #e8503a;
+  border-radius: 6px;
+  padding: 0.2rem 0.7rem;
+  transform: rotate(4deg);
+  margin-left: 0.75rem;
+  vertical-align: middle;
+}
+
+.section {
+  margin-bottom: 3.5rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-hand), cursive;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  transform: rotate(-1deg);
+  display: inline-block;
+  border-bottom: 3px solid #ffd93d;
+  padding-bottom: 2px;
+}
+
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.swatch {
+  border: 2px solid #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.swatchColor {
+  height: 64px;
+}
+
+.swatchLabel {
+  font-family: var(--font-hand), cursive;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  line-height: 1.3;
+}
+
+.swatchHex {
+  font-family: var(--font-body-vi), sans-serif;
+  font-size: 0.7rem;
+  color: #6b6558;
+  padding: 0 0.6rem 0.5rem;
+}
+
+.typeCard {
+  border: 2px dashed #b8ae95;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  background: #fffdf7;
+}
+
+.typeMeta {
+  font-family: var(--font-body-vi), sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8b8471;
+  margin: 0 0 0.4rem;
+}
+
+.typeMarker {
+  font-family: var(--font-marker), cursive;
+  font-size: 2rem;
+  color: #232323;
+}
+
+.typeCaveat {
+  font-family: var(--font-hand), cursive;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #2b4eff;
+}
+
+.typePatrick {
+  font-family: var(--font-hand), cursive;
+  font-size: 1.15rem;
+}
+
+.typeBody {
+  font-family: var(--font-body-vi), sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #232323;
+  max-width: 60ch;
+}
+
+.typeKo {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.35rem;
+  color: #232323;
+}
+
+.noteTag {
+  display: inline-block;
+  font-family: var(--font-hand), cursive;
+  font-size: 0.8rem;
+  background: #ffd93d;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  transform: rotate(-2deg);
+}
+
+.componentRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.vocabGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.75rem;
+  padding: 0.5rem;
+}
+
+.vocabTile {
+  transform: rotate(var(--tilt, 0deg));
+}
+
+.vocabTileInner {
+  font-family: var(--font-hand), cursive;
+}
+
+.vocabWord {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.15rem;
+}
+
+.vocabMeta {
+  font-family: var(--font-body-vi), sans-serif;
+  font-size: 0.85rem;
+  color: #514c40;
+}

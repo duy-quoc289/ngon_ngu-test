@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_KR } from "next/font/google";
+import "sketchbook-ui/style.css";
+import { hand, marker, beVietnamPro, notoSansKr } from "@/lib/fonts";
+import { SketchThemeProvider } from "@/components/providers/SketchThemeProvider";
 import { AudioProvider } from "@/components/audio/AudioProvider";
 import { AudioControlPanel } from "@/components/audio/AudioControlPanel";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
-
-const notoSansKr = Noto_Sans_KR({
-  variable: "--font-noto-kr",
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Học tiếng Hàn",
@@ -31,16 +19,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${inter.variable} ${notoSansKr.variable} scroll-smooth`}>
+    <html
+      lang="vi"
+      className={`${hand.variable} ${marker.variable} ${beVietnamPro.variable} ${notoSansKr.variable} scroll-smooth`}
+    >
       <head>
         {/* FOUC fix — set dark class trước khi React hydrate */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-200 antialiased min-h-screen">
-        <AudioProvider>
-          {children}
-          <AudioControlPanel />
-        </AudioProvider>
+      <body className="bg-paper text-ink antialiased min-h-screen">
+        {/* Filter SVG dùng cho viền vẽ tay lượn sóng (.ks-wobble) — xem app/globals.css */}
+        <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden focusable="false">
+          <filter id="ks-sketchy" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.06" numOctaves={2} seed={7} result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale={3.2} xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </svg>
+        <SketchThemeProvider>
+          <AudioProvider>
+            {children}
+            <AudioControlPanel />
+          </AudioProvider>
+        </SketchThemeProvider>
       </body>
     </html>
   );

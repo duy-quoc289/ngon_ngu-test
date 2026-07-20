@@ -74,16 +74,16 @@ export function LessonShell({ data, currentIdx, completed, onSelect, children }:
         {drawerOpen && (
           <div className="fixed inset-0 z-40 lg:hidden">
             <div
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-ink/40"
               onClick={() => setDrawerOpen(false)}
             />
-            <aside className="absolute left-0 top-0 bottom-0 w-72 bg-white dark:bg-slate-900 shadow-xl p-4 overflow-y-auto">
+            <aside className="ks-drawer absolute left-0 top-0 bottom-0 w-72 p-4 overflow-y-auto">
               <div className="flex items-center justify-between mb-4">
-                <h2 className="font-bold text-lg">{data.title}</h2>
+                <h2 className="font-hand font-bold text-lg text-ink">{data.title}</h2>
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
-                  className="p-2 -mr-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+                  className="ks-icon-btn p-2 -mr-2"
                   aria-label="Đóng"
                 >
                   <svg

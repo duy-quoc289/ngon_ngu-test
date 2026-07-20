@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 
@@ -39,9 +38,9 @@ export function ProgressCard() {
   const doneCount = phases.filter((p) => p.done).length;
   const total = phases.length;
   const currentPhase = phases.find((p) => !p.done);
-  const badgeLabel = currentPhase
-    ? `Phase ${doneCount + 1}/${total} — ${currentPhase.label}`
-    : "Hoàn thành 🎉";
+  // Nhãn ngắn — Badge của sketchbook-ui vẽ hình lục giác theo chiều rộng chữ,
+  // chuỗi dài (vd "Phase 2/5 — Hangul") làm hình vẽ phình to đè lên nội dung khác.
+  const badgeLabel = currentPhase ? `Phase ${doneCount + 1}/${total}` : "Hoàn thành 🎉";
   const doneLabels = phases.filter((p) => p.done).map((p) => p.label);
   const description =
     doneCount === 0
@@ -49,16 +48,16 @@ export function ProgressCard() {
       : `Đang ở Phase ${doneCount + 1} — ${doneLabels.join(" + ")} hoàn thành.`;
 
   return (
-    <Card variant="outlined" className="p-5 sm:p-6 bg-white dark:bg-slate-900">
+    <Card variant="outlined" className="p-5 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
         <div>
-          <h2 className="font-bold text-lg text-slate-800 dark:text-slate-100 flex items-center gap-2">
+          <h2 className="font-hand font-bold text-lg text-ink flex items-center gap-2">
             <span>📊</span>
             Tiến độ học
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">{description}</p>
+          <p className="text-ink/60 text-sm mt-1">{description}</p>
         </div>
-        <Badge variant="primary" size="md">{badgeLabel}</Badge>
+        <span className="ks-count-pill shrink-0 font-hand">{badgeLabel}</span>
       </div>
       <ProgressBar value={doneCount} max={total} showPercent label="Tổng tiến độ" />
       <div className="grid grid-cols-5 gap-2 mt-4">
@@ -69,7 +68,7 @@ export function ProgressCard() {
             </div>
             <p
               className={`text-xs font-medium ${
-                p.done ? "text-slate-700 dark:text-slate-300" : "text-slate-400"
+                p.done ? "text-ink/80" : "text-ink/35"
               }`}
             >
               {p.label}

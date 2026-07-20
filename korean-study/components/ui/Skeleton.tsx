@@ -19,7 +19,7 @@ export function Skeleton({
   ...props
 }: SkeletonProps) {
   const baseClasses =
-    "animate-shimmer bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-700 dark:to-slate-800 bg-[length:200%_100%]";
+    "animate-shimmer bg-gradient-to-r from-ink/8 via-ink/15 to-ink/8 bg-[length:200%_100%] border border-ink/10";
 
   const variantClasses = {
     text: "h-4 w-full",
