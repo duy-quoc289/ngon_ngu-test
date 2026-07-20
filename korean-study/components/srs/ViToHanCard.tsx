@@ -21,16 +21,16 @@ export function ViToHanCard({ word, flipped, onFlip }: Props) {
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onFlip(); }
           }}
-          className="w-full rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow cursor-pointer p-8 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
+          className="ks-surface w-full cursor-pointer p-8 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           aria-label="Lật thẻ để xem tiếng Hàn"
         >
-          <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5">
+          <p className="text-xs font-semibold text-ink/45 uppercase tracking-widest mb-5">
             Nghĩa tiếng Việt
           </p>
-          <p className="text-3xl font-bold text-slate-800 dark:text-slate-100">
+          <p className="font-hand text-3xl font-bold text-ink">
             {word.vi}
             {word.viExtra && (
-              <span className="ml-2 text-lg font-normal text-slate-400 dark:text-slate-500">
+              <span className="ml-2 text-lg font-normal text-ink/45">
                 {word.viExtra}
               </span>
             )}
@@ -38,38 +38,35 @@ export function ViToHanCard({ word, flipped, onFlip }: Props) {
           {word.tags && word.tags.length > 0 && (
             <div className="flex flex-wrap justify-center gap-1.5 mt-5">
               {word.tags.map((t) => (
-                <span
-                  key={t}
-                  className="px-2 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"
-                >
+                <span key={t} className="ks-vocab-tag">
                   {t}
                 </span>
               ))}
             </div>
           )}
-          <p className="mt-8 text-sm text-slate-400 dark:text-slate-500">
+          <p className="mt-8 text-sm text-ink/45">
             Nhấp để xem tiếng Hàn · Space
           </p>
         </div>
       ) : (
-        <div className="w-full rounded-2xl border-2 border-emerald-400 dark:border-emerald-600 bg-white dark:bg-slate-900 shadow-lg p-8 text-center">
-          <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">
+        <div className="ks-surface w-full p-8 text-center border-success-500! dark:border-success-400!">
+          <p className="text-xs font-semibold text-ink/45 uppercase tracking-widest mb-4">
             Tiếng Hàn
           </p>
-          <p className="text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-2">
+          <p className="font-hand text-5xl font-bold tracking-tight text-ink mb-2">
             {word.ko}
           </p>
-          <p className="text-base text-slate-500 dark:text-slate-400 mb-5">{word.rom}</p>
-          <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mb-2">
-            <p className="text-lg text-slate-600 dark:text-slate-300">
+          <p className="text-base text-ink/55 mb-5">{word.rom}</p>
+          <div className="border-t-2 border-dashed border-ink/15 pt-4 mb-2">
+            <p className="text-lg text-ink/80">
               {word.vi}
               {word.viExtra && (
-                <span className="ml-2 text-base font-normal text-slate-400"> {word.viExtra}</span>
+                <span className="ml-2 text-base font-normal text-ink/45"> {word.viExtra}</span>
               )}
             </p>
           </div>
           {word.note && (
-            <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 italic">{word.note}</p>
+            <p className="mt-3 text-sm text-ink/55 italic">{word.note}</p>
           )}
           <div className="flex justify-center mt-5">
             <AudioButton text={word.ko} label={`Phát âm ${word.ko}`} />

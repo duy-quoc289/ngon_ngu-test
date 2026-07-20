@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Button } from "@/components/ui/Button";
 import type { VocabWord } from "@/lib/types";
 
 const DISTRACTOR_POOL = [
@@ -79,16 +80,13 @@ export function WordBuildCard({ word, onResult }: Props) {
   // Fallback cho từ không thuần Hàn (câu có ___, spaces...)
   if (syllables.length === 0) {
     return (
-      <div className="w-full max-w-md mx-auto rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg p-8 text-center">
-        <p className="text-slate-500 dark:text-slate-400 mb-4">
+      <div className="ks-surface w-full max-w-md mx-auto p-8 text-center">
+        <p className="text-ink/55 mb-4">
           Từ này không hỗ trợ chế độ ghép chữ.
         </p>
-        <button
-          onClick={() => onResult(true)}
-          className="px-6 py-2 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
-        >
+        <Button variant="outline" size="sm" onClick={() => onResult(true)}>
           Bỏ qua →
-        </button>
+        </Button>
       </div>
     );
   }
@@ -96,23 +94,23 @@ export function WordBuildCard({ word, onResult }: Props) {
   return (
     <div className="w-full max-w-md mx-auto">
       {/* Prompt + Building area */}
-      <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg p-6 text-center mb-4">
-        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">
+      <div className="ks-surface p-6 text-center mb-4">
+        <p className="text-xs font-semibold text-ink/45 uppercase tracking-widest mb-3">
           Nghĩa tiếng Việt
         </p>
-        <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6">
+        <p className="font-hand text-2xl font-bold text-ink mb-6">
           {word.vi}
           {word.viExtra && (
-            <span className="ml-2 text-base font-normal text-slate-400 dark:text-slate-500">
+            <span className="ml-2 text-base font-normal text-ink/45">
               {word.viExtra}
             </span>
           )}
         </p>
 
         {/* Building tray */}
-        <div className="min-h-14 flex flex-wrap justify-center items-center gap-2 border-b-2 border-dashed border-slate-200 dark:border-slate-700 pb-4 mb-2">
+        <div className="min-h-14 flex flex-wrap justify-center items-center gap-2 border-b-2 border-dashed border-ink/15 pb-4 mb-2">
           {selected.length === 0 ? (
-            <p className="text-slate-300 dark:text-slate-600 text-sm">
+            <p className="text-ink/30 text-sm">
               Chọn các ký tự bên dưới...
             </p>
           ) : (
@@ -126,8 +124,8 @@ export function WordBuildCard({ word, onResult }: Props) {
                   className={`w-12 h-12 rounded-xl text-xl font-bold transition-all border-2 ${
                     submitted
                       ? isCorrect
-                        ? "bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 border-emerald-400"
-                        : "bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 border-red-400"
+                        ? "bg-success-100 dark:bg-success-900/40 text-success-700 dark:text-success-300 border-success-400"
+                        : "bg-error-100 dark:bg-error-900/40 text-error-700 dark:text-error-300 border-error-400"
                       : "bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 border-primary-400 hover:bg-primary-200 active:scale-95"
                   }`}
                 >
@@ -148,8 +146,8 @@ export function WordBuildCard({ word, onResult }: Props) {
             disabled={submitted}
             className={`w-12 h-12 rounded-xl text-xl font-bold border-2 transition-all ${
               usedIds.has(block.id)
-                ? "opacity-25 cursor-default bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400"
-                : "bg-white dark:bg-slate-900 border-slate-300 dark:border-slate-600 text-slate-800 dark:text-slate-100 hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950/30 active:scale-95"
+                ? "opacity-25 cursor-default bg-paper-overlay border-ink/15 text-ink/40"
+                : "bg-paper border-ink/30 text-ink hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950/30 active:scale-95"
             }`}
           >
             {block.char}
@@ -160,51 +158,43 @@ export function WordBuildCard({ word, onResult }: Props) {
       {/* Actions */}
       {submitted ? (
         <div
-          className={`rounded-xl p-4 text-center ${
+          className={`rounded-xl p-4 text-center border-2 ${
             isCorrect
-              ? "bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800"
-              : "bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800"
+              ? "bg-success-50 dark:bg-success-900/20 border-success-200 dark:border-success-800"
+              : "bg-error-50 dark:bg-error-900/20 border-error-200 dark:border-error-800"
           }`}
         >
-          <p className="font-semibold text-slate-800 dark:text-slate-100 mb-1">
+          <p className="font-hand font-semibold text-ink mb-1">
             {isCorrect ? "✅ Đúng rồi!" : (
               <>❌ Sai — Đáp án: <span className="font-bold">{word.ko}</span>{" "}
-                <span className="text-slate-500 text-sm">({word.rom})</span>
+                <span className="text-ink/50 text-sm">({word.rom})</span>
               </>
             )}
           </p>
           <div className="flex gap-2 justify-center mt-3">
             {!isCorrect && (
-              <button
-                onClick={reset}
-                className="px-4 py-2 rounded-lg border-2 border-slate-300 dark:border-slate-600 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-              >
+              <Button variant="outline" size="sm" onClick={reset}>
                 Thử lại
-              </button>
+              </Button>
             )}
-            <button
-              onClick={() => onResult(isCorrect)}
-              className="px-6 py-2 rounded-lg bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
+            <Button variant="primary" size="sm" onClick={() => onResult(isCorrect)}>
               Tiếp theo →
-            </button>
+            </Button>
           </div>
         </div>
       ) : (
         <div className="flex gap-2">
-          <button
-            onClick={reset}
-            className="px-4 py-3 rounded-xl border-2 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          >
+          <Button variant="outline" onClick={reset}>
             Xóa
-          </button>
-          <button
+          </Button>
+          <Button
+            variant="primary"
             onClick={submit}
             disabled={selected.length === 0}
-            className="flex-1 py-3 rounded-xl bg-primary-600 text-white font-semibold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-primary-700 transition-colors"
+            className="flex-1"
           >
             Kiểm tra
-          </button>
+          </Button>
         </div>
       )}
     </div>

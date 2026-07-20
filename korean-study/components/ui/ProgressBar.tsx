@@ -31,7 +31,7 @@ export function ProgressBar({
   };
 
   return (
-    <div className={className}>
+    <div className={className || "w-full"}>
       {(label || showPercent) && (
         <div className="flex items-center justify-between mb-1.5">
           {label && (

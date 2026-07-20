@@ -11,10 +11,10 @@ function LoadingFallback() {
       <aside className="hidden lg:block w-64 shrink-0">
         <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4">
           <SkeletonText lines={1} className="mb-4" />
-          <Skeleton variant="text" className="h-2 mb-4" />
+          <Skeleton variant="text" height={8} className="mb-4" />
           <div className="space-y-2">
             {Array.from({ length: 6 }).map((_, i) => (
-              <Skeleton key={i} variant="text" className="h-9 rounded-lg" />
+              <Skeleton key={i} variant="text" height={36} width="100%" />
             ))}
           </div>
         </div>

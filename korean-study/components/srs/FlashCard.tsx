@@ -24,16 +24,16 @@ export function FlashCard({ word, flipped, onFlip }: Props) {
           tabIndex={0}
           onClick={flip}
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } }}
-          className="w-full rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg hover:shadow-xl transition-shadow cursor-pointer p-8 text-center focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
+          className="ks-surface w-full cursor-pointer p-8 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
           aria-label="Lật thẻ để xem đáp án"
         >
-          <p className="text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-3">
+          <p className="font-hand text-5xl font-bold tracking-tight text-ink mb-3">
             {word.ko}
           </p>
           <div className="flex justify-center mt-4" onClick={(e) => e.stopPropagation()}>
             <AudioButton text={word.ko} label={`Phát âm ${word.ko}`} />
           </div>
-          <p className="mt-6 text-sm text-slate-400 dark:text-slate-500">
+          <p className="mt-6 text-sm text-ink/45">
             Nhấp để xem đáp án · Space
           </p>
         </div>
@@ -41,17 +41,17 @@ export function FlashCard({ word, flipped, onFlip }: Props) {
 
       {/* ─── Back ─── */}
       {flipped && (
-        <div className="w-full rounded-2xl border-2 border-primary-400 dark:border-primary-600 bg-white dark:bg-slate-900 shadow-lg p-8 text-center">
-          <p className="text-5xl font-bold tracking-tight text-slate-900 dark:text-slate-50 mb-1">
+        <div className="ks-surface w-full p-8 text-center border-primary-400! dark:border-primary-600!">
+          <p className="font-hand text-5xl font-bold tracking-tight text-ink mb-1">
             {word.ko}
           </p>
-          <p className="text-base text-slate-500 dark:text-slate-400 mb-5">{word.rom}</p>
+          <p className="text-base text-ink/55 mb-5">{word.rom}</p>
 
-          <div className="border-t border-slate-100 dark:border-slate-800 pt-5">
-            <p className="text-2xl font-semibold text-slate-800 dark:text-slate-100">
+          <div className="border-t-2 border-dashed border-ink/15 pt-5">
+            <p className="text-2xl font-semibold text-ink">
               {word.vi}
               {word.viExtra && (
-                <span className="ml-2 text-base font-normal text-slate-500 dark:text-slate-400">
+                <span className="ml-2 text-base font-normal text-ink/55">
                   {word.viExtra}
                 </span>
               )}
@@ -59,7 +59,7 @@ export function FlashCard({ word, flipped, onFlip }: Props) {
           </div>
 
           {word.note && (
-            <p className="mt-4 text-sm text-slate-500 dark:text-slate-400 italic">
+            <p className="mt-4 text-sm text-ink/55 italic">
               {word.note}
             </p>
           )}
@@ -67,10 +67,7 @@ export function FlashCard({ word, flipped, onFlip }: Props) {
           {word.tags && word.tags.length > 0 && (
             <div className="flex flex-wrap justify-center gap-1.5 mt-4">
               {word.tags.map((t) => (
-                <span
-                  key={t}
-                  className="px-2 py-0.5 rounded-full text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400"
-                >
+                <span key={t} className="ks-vocab-tag">
                   {t}
                 </span>
               ))}

@@ -1,60 +1,45 @@
 "use client";
 
 import { type HTMLAttributes } from "react";
+import { Skeleton as SketchSkeleton } from "sketchbook-ui";
 
 export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
   variant?: "text" | "card" | "avatar" | "button";
-  width?: string;
-  height?: string;
+  width?: string | number;
+  height?: string | number;
+  // Không còn ý nghĩa với hình vẽ tay (đường viền wobble thay cho border-radius) — giữ lại để tương thích ngược, không dùng.
   rounded?: "none" | "sm" | "md" | "lg" | "full";
 }
+
+// variant cũ → variant thật của sketchbook-ui (vẽ path SVG wobble)
+const VARIANT_MAP: Record<NonNullable<SkeletonProps["variant"]>, "text" | "rectangle" | "avatar"> = {
+  text: "text",
+  card: "rectangle",
+  avatar: "avatar",
+  button: "rectangle",
+};
+
+const DEFAULT_WIDTH: Record<NonNullable<SkeletonProps["variant"]>, string> = {
+  text: "100%",
+  card: "100%",
+  avatar: "48px",
+  button: "96px",
+};
 
 export function Skeleton({
   variant = "text",
   width,
   height,
-  rounded = "md",
+  rounded: _rounded,
   className = "",
-  style,
   ...props
 }: SkeletonProps) {
-  const baseClasses =
-    "animate-shimmer bg-gradient-to-r from-ink/8 via-ink/15 to-ink/8 bg-[length:200%_100%] border border-ink/10";
-
-  const variantClasses = {
-    text: "h-4 w-full",
-    card: "h-32 w-full",
-    avatar: "h-12 w-12",
-    button: "h-10 w-24",
-  };
-
-  const roundedClasses = {
-    none: "rounded-none",
-    sm: "rounded-sm",
-    md: "rounded-md",
-    lg: "rounded-lg",
-    full: "rounded-full",
-  };
-
-  // Override rounded for avatar variant
-  const finalRounded = variant === "avatar" ? "full" : rounded;
-
-  const inlineStyles = {
-    ...(width && { width }),
-    ...(height && { height }),
-    ...style,
-  };
-
   return (
-    <div
-      className={`
-        ${baseClasses}
-        ${variantClasses[variant]}
-        ${roundedClasses[finalRounded]}
-        ${className}
-      `}
-      style={inlineStyles}
-      aria-hidden="true"
+    <SketchSkeleton
+      variant={VARIANT_MAP[variant]}
+      width={width ?? DEFAULT_WIDTH[variant]}
+      height={height}
+      className={className}
       {...props}
     />
   );

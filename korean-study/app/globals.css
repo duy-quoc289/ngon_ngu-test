@@ -185,6 +185,13 @@
   --color-ink: #F2EDE1;
 }
 
+/* sketchbook-ui đóng cứng màu placeholder của Input (rgba(42,42,42,.5))
+   trong CSS thư viện, không đọc theme qua props — tự đè lại ở dark mode
+   để không bị chữ tối trên nền tối. */
+.dark .sketch-input-field::placeholder {
+  color: rgba(242, 237, 225, 0.45);
+}
+
 
 :lang(ko),
 .lang-ko {
@@ -270,6 +277,14 @@ body {
   box-shadow: 2px 2px 0 rgb(35 34 34 / 0.12);
 }
 .dark .ks-alert { box-shadow: 2px 2px 0 rgb(0 0 0 / 0.3); }
+
+/* Nhãn phía trên Input/Textarea — chữ viết tay hơi nghiêng như ghi chú tay */
+.ks-field-label {
+  font-family: var(--font-hand), cursive;
+  font-weight: 600;
+  transform: rotate(-0.4deg);
+  transform-origin: left;
+}
 
 /* "Con dấu" marker — nhãn nhỏ nổi bật (vd TOPIK 1 · PHASE 0), lấy từ
    app/design-preview/design-preview.module.css (.stamp) */

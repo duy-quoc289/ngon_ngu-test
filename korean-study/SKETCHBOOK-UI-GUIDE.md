@@ -83,11 +83,24 @@ Muốn đổi tông màu: sửa 1 chỗ duy nhất là `lib/sketch-theme.ts` (ch
 component đã dùng sketchbook-ui) và khối `@theme` đầu file `app/globals.css`
 (cho phần còn lại dùng class Tailwind `primary-*`/`secondary-*`/...).
 
-## 5. Đã làm — đã build/type-check/lint sạch
+## 5. Đã làm — đã build/type-check/lint sạch, đã kiểm tra trên trình duyệt
 
 - Toàn site: font, màu, nền giấy kẻ dòng, tiêu đề viết tay
 - Atom dùng chung: `Button`, `Badge`, `Card` (viền vẽ tay thật từ sketchbook-ui), `Tag`, `ProgressBar`
-- **Dark mode cho Button/Badge/Card/Tag**: chuyển từ hex cứng sang biến CSS
+- **`Input`, `Skeleton`, `Spinner`** — nay cũng dùng component thật của
+  `sketchbook-ui` (viền/hình SVG wobble vẽ tay thật, không còn CSS giả lập)
+  thay vì Tailwind thuần như trước. Giữ nguyên prop API cũ nên không phải sửa
+  chỗ gọi (trừ 2 chỗ ở `app/summary/page.tsx` dùng `className="h-9"`-kiểu để
+  chỉnh chiều cao — đã đổi sang prop `height` số vì component thật tự set
+  `height` qua inline style, class Tailwind không còn đè được nữa).
+  `Tabs`, `Alert`, `EmptyState` vẫn giữ Tailwind thuần vì thư viện không có
+  primitive tương ứng.
+- Thêm class `.ks-field-label` (nhãn phía trên Input, trước đó bị tham chiếu
+  nhưng chưa từng định nghĩa trong CSS).
+- Fix màu placeholder của `Input` bị đóng cứng trong CSS gốc của thư viện
+  (`rgba(42,42,42,.5)`) khiến chữ mờ gần như biến mất ở dark mode — đè lại
+  bằng `.dark .sketch-input-field::placeholder` trong `globals.css`.
+- **Dark mode cho Button/Badge/Card/Tag/Input**: chuyển từ hex cứng sang biến CSS
   `--sk-*` (định nghĩa ở đầu `app/globals.css`, ngay sau khối `@theme`) —
   tự đổi màu khi bật `.dark`, không cần sửa logic trong component
 - Các bề mặt đã sketchify (viền mực đen + đổ bóng lệch thay vì box-shadow mềm/gradient):
@@ -96,25 +109,23 @@ component đã dùng sketchbook-ui) và khối `@theme` đầu file `app/globals
   (`ks-ex-*`), khối quy tắc nối âm + chip âm tiết (`ks-rule-*`, `ks-chip`),
   chip danh mục + ô tìm kiếm trang từ vựng (`ks-cat-chip`, `ks-vocab-search`),
   sidebar điều hướng (`ks-side-item`, nhẹ tay hơn vì là danh sách dọc nhiều dòng)
+- Đã xoá `tailwind.config.ts` + `lib/design-tokens.ts` (xác nhận không còn
+  dùng — dự án chạy Tailwind v4 thuần bằng `@theme` trong CSS, không có dòng
+  `@config` nào trỏ tới 2 file này).
+- Đã soát lại `.dark .ks-hero` trong `globals.css` — không thấy bị định nghĩa
+  trùng lặp như ghi chú cũ (có thể đã được dọn từ trước); không cần sửa gì.
 
 ## 6. CHƯA làm — làm tiếp nếu cần
 
-1. **Viền vẽ tay thật (SVG wobble)** — hiện tất cả các mục ở mục 5 mới dùng
-   viền thẳng dày (2px solid) + box-shadow lệch để gợi cảm giác sổ tay,
-   CHỨ CHƯA phải đường viền lượn sóng thật (wobble path) như logo/demo của
-   sketchbook-ui. Muốn có viền lượn sóng thật cho từng thẻ này cần dùng
-   `SketchBorder`/`SketchPaper` (primitive nội bộ của thư viện, xem
-   `node_modules/sketchbook-ui/dist/lib`) — việc này cần nhìn trực tiếp để
-   canh vì mỗi loại thẻ có kích thước khác nhau.
-2. **`Input`, `Spinner`, `Skeleton`, `Tabs`, `Alert`, `EmptyState`** — chưa
-   chuyển sang component thật của `sketchbook-ui` (vẫn là Tailwind thuần,
-   nhưng đã ăn theo bảng màu mới nên không bị lạc tông).
-3. Xoá `tailwind.config.ts` + `lib/design-tokens.ts` nếu xác nhận không còn
-   dùng — dự án đang chạy Tailwind v4 với `@theme` trong CSS nên 2 file này
-   nhiều khả năng không còn tác dụng (không có dòng `@config` nào trỏ tới).
-4. Có 1 chỗ trùng lặp code có sẵn từ trước (không phải do đợt sửa này):
-   `.dark .ks-hero` được định nghĩa 2 lần ở 2 vị trí khác nhau trong
-   `globals.css` — không gây lỗi nhưng nên dọn khi có dịp.
+1. **Viền vẽ tay thật (SVG wobble)** — các bề mặt tự dựng (`.ks-*`, mục 5)
+   vẫn dùng viền thẳng dày (2px solid) + box-shadow lệch để gợi cảm giác sổ
+   tay, CHỨ CHƯA phải đường viền lượn sóng thật (wobble path) như
+   `Button`/`Card`/`Input` (những cái đã chuyển sang component thật của
+   sketchbook-ui thì ĐÃ có viền wobble thật, tự động). Muốn có viền lượn
+   sóng thật cho các thẻ `.ks-*` còn lại cần dùng `SketchBorder`/`SketchPaper`
+   (primitive nội bộ của thư viện, xem `node_modules/sketchbook-ui/dist/lib`)
+   — việc này cần nhìn trực tiếp để canh vì mỗi loại thẻ có kích thước khác
+   nhau, và là khối lượng việc lớn (~10 loại bề mặt) nên để làm riêng.
 
 ## 7. Cách xem trước khi merge
 

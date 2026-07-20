@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useAudio } from "@/components/audio/AudioProvider";
 import { AudioButton } from "@/components/audio/AudioButton";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 import type { VocabWord } from "@/lib/types";
 
 interface Props {
@@ -45,34 +47,29 @@ export function DictationCard({ word, onResult }: Props) {
   return (
     <div className="w-full max-w-md mx-auto">
       {/* Audio card */}
-      <div className="rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-lg p-8 text-center mb-4">
-        <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-5">
+      <div className="ks-surface p-8 text-center mb-4">
+        <p className="text-xs font-semibold text-ink/45 uppercase tracking-widest mb-5">
           Nghe và gõ lại
         </p>
         <div className="flex justify-center mb-3">
           <AudioButton text={word.ko} label="Phát lại" />
         </div>
-        <p className="text-xs text-slate-400 dark:text-slate-500">
+        <p className="text-xs text-ink/45">
           Gõ tiếng Hàn <span className="opacity-50">hoặc romanization</span>
         </p>
       </div>
 
       {/* Input */}
       <div className="space-y-3">
-        <input
+        <Input
           ref={inputRef}
           type="text"
+          variant={submitted ? (isCorrect ? "success" : "error") : "default"}
           value={input}
           onChange={(e) => { if (!submitted) setInput(e.target.value); }}
           onKeyDown={(e) => { if (e.key === "Enter") submit(); }}
           placeholder="안녕하세요 · hoặc an-nyeong-ha-se-yo"
-          className={`w-full px-4 py-3 rounded-xl border-2 text-center text-lg font-medium bg-white dark:bg-slate-900 outline-none transition-colors ${
-            submitted
-              ? isCorrect
-                ? "border-emerald-400 dark:border-emerald-600 text-emerald-700 dark:text-emerald-400"
-                : "border-red-400 dark:border-red-600 text-red-600 dark:text-red-400"
-              : "border-slate-200 dark:border-slate-700 focus:border-primary-400 dark:focus:border-primary-600 text-slate-800 dark:text-slate-100"
-          }`}
+          className="text-center"
           disabled={submitted}
           autoComplete="off"
           autoCorrect="off"
@@ -81,37 +78,35 @@ export function DictationCard({ word, onResult }: Props) {
 
         {submitted ? (
           <div
-            className={`rounded-xl p-4 text-center ${
+            className={`rounded-xl p-4 text-center border-2 ${
               isCorrect
-                ? "bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800"
-                : "bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800"
+                ? "bg-success-50 dark:bg-success-900/20 border-success-200 dark:border-success-800"
+                : "bg-error-50 dark:bg-error-900/20 border-error-200 dark:border-error-800"
             }`}
           >
-            <p className="font-semibold text-slate-800 dark:text-slate-100 mb-1">
+            <p className="font-hand font-semibold text-ink mb-1">
               {isCorrect ? "✅ Đúng rồi!" : "❌ Sai rồi"}
             </p>
             {!isCorrect && (
-              <p className="text-sm text-slate-600 dark:text-slate-300 mb-1">
+              <p className="text-sm text-ink/70 mb-1">
                 Đáp án:{" "}
-                <span className="font-bold text-slate-900 dark:text-slate-50">{word.ko}</span>{" "}
-                <span className="text-slate-500">({word.rom})</span>
+                <span className="font-bold text-ink">{word.ko}</span>{" "}
+                <span className="text-ink/50">({word.rom})</span>
               </p>
             )}
-            <button
-              onClick={() => onResult(isCorrect)}
-              className="mt-3 px-6 py-2 rounded-lg bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
+            <Button variant="primary" size="sm" onClick={() => onResult(isCorrect)} className="mt-3">
               Tiếp theo →
-            </button>
+            </Button>
           </div>
         ) : (
-          <button
+          <Button
+            variant="primary"
             onClick={submit}
             disabled={!input.trim()}
-            className="w-full py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="w-full"
           >
             Kiểm tra <span className="opacity-60 text-sm">(Enter)</span>
-          </button>
+          </Button>
         )}
       </div>
     </div>
