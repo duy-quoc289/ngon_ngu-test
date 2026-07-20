@@ -1,51 +1,46 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { HOME_PHASES, isPhaseDone } from "@/lib/home-phases";
 
-// Tổng số lesson của từng topic (lấy từ data/*.json)
-const PHASES = [
-  { label: "Hangul",     storageKey: "ks-progress-hangul",        total: 7  },
-  { label: "Số đếm",    storageKey: "ks-progress-numbers",       total: 9  },
-  { label: "Nối âm",    storageKey: "ks-progress-pronunciation",  total: 8  },
-  { label: "Từ vựng",   storageKey: "ks-vocab-state",             total: -1 }, // -1 = chỉ kiểm tra có key không
-  { label: "Flashcards", storageKey: "ks-srs-vocab",              total: -1 }, // có data SRS = đã bắt đầu
-] as const;
-
-function isDone(storageKey: string, total: number): boolean {
-  try {
-    if (total === 0) return false; // phase chưa triển khai
-    if (total === -1) return Boolean(localStorage.getItem(storageKey)); // chỉ cần đã visit
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) return false;
-    const arr = JSON.parse(raw) as string[];
-    return arr.length >= total;
-  } catch {
-    return false;
-  }
-}
+// icon/iconLang khớp với SectionCard ở trang chủ để người dùng nhận ra cùng 1 mục
+const PHASE_ICONS: Record<string, { icon: string; iconLang?: string }> = {
+  "/hangul": { icon: "한", iconLang: "ko" },
+  "/numbers": { icon: "1" },
+  "/pronunciation": { icon: "발", iconLang: "ko" },
+  "/vocab": { icon: "단", iconLang: "ko" },
+  "/flashcards": { icon: "🎴" },
+};
 
 export function ProgressCard() {
   const [phases, setPhases] = useState(() =>
-    PHASES.map((p) => ({ label: p.label, done: false })),
+    HOME_PHASES.map((p) => ({ label: p.label, ...PHASE_ICONS[p.href], done: false })),
   );
 
   useEffect(() => {
-    setPhases(PHASES.map((p) => ({ label: p.label, done: isDone(p.storageKey, p.total) })));
+    setPhases(
+      HOME_PHASES.map((p) => ({
+        label: p.label,
+        ...PHASE_ICONS[p.href],
+        done: isPhaseDone(p.storageKey, p.total),
+      })),
+    );
   }, []);
 
   const doneCount = phases.filter((p) => p.done).length;
   const total = phases.length;
-  const currentPhase = phases.find((p) => !p.done);
+  const currentIndex = phases.findIndex((p) => !p.done);
+  const isAllDone = currentIndex === -1;
   // Nhãn ngắn — Badge của sketchbook-ui vẽ hình lục giác theo chiều rộng chữ,
   // chuỗi dài (vd "Phase 2/5 — Hangul") làm hình vẽ phình to đè lên nội dung khác.
-  const badgeLabel = currentPhase ? `Phase ${doneCount + 1}/${total}` : "Hoàn thành 🎉";
-  const doneLabels = phases.filter((p) => p.done).map((p) => p.label);
-  const description =
-    doneCount === 0
+  const badgeLabel = isAllDone ? "Hoàn thành 🎉" : `Phase ${doneCount + 1}/${total}`;
+  const description = isAllDone
+    ? "Đã hoàn thành cả 5 chặng — quay lại ôn tập bất cứ lúc nào."
+    : doneCount === 0
       ? "Bắt đầu với Hangul — bảng chữ cái tiếng Hàn."
-      : `Đang ở Phase ${doneCount + 1} — ${doneLabels.join(" + ")} hoàn thành.`;
+      : `Tiếp theo: ${phases[currentIndex].label}.`;
 
   return (
     <Card variant="outlined" className="p-5 sm:p-6">
@@ -60,21 +55,53 @@ export function ProgressCard() {
         <span className="ks-count-pill shrink-0 font-hand">{badgeLabel}</span>
       </div>
       <ProgressBar value={doneCount} max={total} showPercent label="Tổng tiến độ" />
-      <div className="grid grid-cols-5 gap-2 mt-4">
-        {phases.map((p) => (
-          <div key={p.label} className="text-center">
-            <div className={`text-lg mb-0.5 ${p.done ? "" : "opacity-30 grayscale"}`}>
-              {p.done ? "✅" : "⏳"}
-            </div>
-            <p
-              className={`text-xs font-medium ${
-                p.done ? "text-ink/80" : "text-ink/35"
-              }`}
-            >
-              {p.label}
-            </p>
-          </div>
-        ))}
+
+      {/* Chặng học — "hành trình" nối các mốc bằng đường kẻ tay */}
+      <div className="flex items-start mt-6">
+        {phases.map((p, i) => {
+          const isCurrent = i === currentIndex;
+          return (
+            <Fragment key={p.label}>
+              <div className="flex flex-col items-center gap-1.5 shrink-0 w-14 sm:w-16">
+                <div className="relative">
+                  {isCurrent && (
+                    <span className="absolute inset-0 rounded-full bg-primary-400/40 animate-ping" />
+                  )}
+                  <div
+                    className={`relative w-9 h-9 sm:w-11 sm:h-11 rounded-full border-2 border-ink grid place-items-center text-sm sm:text-base font-bold transition-transform ${
+                      p.done
+                        ? "bg-success-500 text-white"
+                        : isCurrent
+                          ? "bg-primary-500 text-white -translate-y-0.5"
+                          : "bg-paper-overlay text-ink/35"
+                    }`}
+                    style={
+                      p.done || isCurrent
+                        ? { boxShadow: "2px 2px 0 rgb(35 34 34 / 0.2)" }
+                        : undefined
+                    }
+                  >
+                    {p.done ? "✓" : <span lang={p.iconLang}>{p.icon}</span>}
+                  </div>
+                </div>
+                <p
+                  className={`text-[11px] sm:text-xs text-center leading-tight ${
+                    isCurrent ? "font-hand font-bold text-primary-600" : p.done ? "text-ink/70" : "text-ink/35"
+                  }`}
+                >
+                  {p.label}
+                </p>
+              </div>
+              {i < phases.length - 1 && (
+                <div
+                  className={`flex-1 h-0.5 mt-4.5 sm:mt-5.5 ${
+                    p.done ? "bg-success-400" : "border-t-2 border-dashed border-ink/20"
+                  }`}
+                />
+              )}
+            </Fragment>
+          );
+        })}
       </div>
     </Card>
   );

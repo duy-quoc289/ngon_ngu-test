@@ -198,9 +198,11 @@ export default function DictationPage() {
               )}
 
               {/* Next */}
-              <Button variant="outline" onClick={fetchNext} disabled={loading} className="w-full">
-                {loading ? "Đang lấy…" : "Bài tiếp theo →"}
-              </Button>
+              <div className="flex justify-center pt-1">
+                <Button variant="outline" onClick={fetchNext} disabled={loading}>
+                  {loading ? "Đang lấy…" : "Bài tiếp theo →"}
+                </Button>
+              </div>
             </div>
           </div>
         )}

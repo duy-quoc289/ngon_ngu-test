@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { ProgressCard } from "@/components/layout/ProgressCard";
+import { SectionGrid } from "@/components/layout/SectionGrid";
 import { UserButton } from "@/components/auth/UserButton";
 
 const NAV_LINKS = [
@@ -86,91 +86,7 @@ export default function HomePage() {
       {/* ── Section cards ── */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 pb-10">
         <h2 className="ks-section-label mb-5">Nội dung học</h2>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <SectionCard
-            href="/hangul"
-            icon="한"
-            iconLang="ko"
-            iconColor="blue"
-            title="Hangul (한글)"
-            desc="21 nguyên âm, 14+5 phụ âm. Cấu trúc âm tiết. Bài tập đọc thử."
-            cta="Bắt đầu ở đây"
-            status="done"
-          />
-          <SectionCard
-            href="/numbers"
-            icon="1"
-            iconColor="green"
-            title="Số đếm (숫자)"
-            desc="2 hệ thống Hán-Hàn vs thuần Hàn. Đơn vị đếm. Bẫy giờ-phút."
-            cta="Học tiếp"
-            status="done"
-          />
-          <SectionCard
-            href="/pronunciation"
-            icon="발"
-            iconLang="ko"
-            iconColor="coral"
-            title="Quy tắc nối âm"
-            desc="7 quy tắc 받침: nối âm, đồng hóa mũi, ㄹ, bật hơi, lược ㅎ, căng âm, vòm hóa."
-            cta="Quan trọng"
-            status="done"
-          />
-          <SectionCard
-            href="/summary"
-            icon="★"
-            iconColor="highlight"
-            title="Lộ trình ôn tập"
-            desc="Kế hoạch 4 tuần đầu + mẹo học hiệu quả."
-            cta="Xem lộ trình"
-            status="done"
-          />
-
-          {/* Vocab — full-width */}
-          <SectionCard
-            wide
-            href="/vocab"
-            icon="단"
-            iconLang="ko"
-            iconColor="purple"
-            title="Từ vựng (단어)"
-            badge={<Badge variant="success" size="sm">160 từ</Badge>}
-            desc="160 từ theo 4 chủ đề: 👋 Chào hỏi · 👨‍👩‍👧 Gia đình · 🍚 Ăn uống · 🛍️ Mua sắm. Có search + filter."
-            cta="Học từ vựng"
-          />
-
-          {/* Flashcards SRS — Phase 3, đã có */}
-          <SectionCard
-            wide
-            href="/flashcards"
-            icon="🎴"
-            iconColor="green"
-            title="Thẻ ghi nhớ (SRS)"
-            badge={<Badge variant="primary" size="sm">Giai đoạn 3</Badge>}
-            desc="Học từ vựng theo hộp Leitner (5 cấp). Ôn đúng lúc, không quên. Tiến độ lưu trong trình duyệt."
-            cta="Bắt đầu ôn"
-          />
-
-          <SectionCard
-            href="/grammar"
-            icon="문"
-            iconLang="ko"
-            iconColor="purple"
-            title="Ngữ pháp (문법)"
-            badge={<Badge variant="primary" size="sm">Giai đoạn 4</Badge>}
-            desc="10 ngữ pháp cốt lõi TOPIK 1: 이다, -아/어요, thì quá khứ, tương lai, particles và phủ định."
-            cta="Học ngay"
-          />
-          <SectionCard
-            href="/dictation"
-            icon="🎧"
-            iconColor="coral"
-            title="Chép chính tả"
-            badge={<Badge variant="primary" size="sm">Giai đoạn 5</Badge>}
-            desc="Nghe đoạn Korean từ 세종학당 → gõ lại Hangul → kiểm tra. Luyện phản xạ nghe-viết."
-            cta="Luyện ngay"
-          />
-        </div>
+        <SectionGrid />
       </section>
 
       {/* ── Resources ── */}
@@ -218,58 +134,6 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  );
-}
-
-// ─── Sub-components ───────────────────────────────────────
-
-const ICON_BG: Record<string, string> = {
-  blue: "var(--sk-washi-blue)",
-  coral: "var(--sk-washi-pink)",
-  green: "var(--sk-washi-green)",
-  purple: "var(--sk-washi-blue)",
-  highlight: "var(--sk-washi-yellow)",
-};
-
-interface SectionCardProps {
-  href: string;
-  icon: string;
-  iconLang?: string;
-  iconColor: keyof typeof ICON_BG;
-  title: string;
-  desc: string;
-  cta: string;
-  badge?: React.ReactNode;
-  status?: "done" | "active" | "locked";
-  wide?: boolean;
-}
-
-function SectionCard({ href, icon, iconLang, iconColor, title, desc, cta, badge, status, wide }: SectionCardProps) {
-  return (
-    <Link
-      href={href}
-      className={`ks-card group hover:-translate-y-0.5 transition-transform duration-base flex items-start gap-4 ${wide ? "sm:col-span-2" : ""}`}
-    >
-      <div
-        className="w-12 h-12 rounded-xl border-2 border-ink text-ink grid place-items-center text-xl font-bold shrink-0"
-        style={{ background: ICON_BG[iconColor], boxShadow: "2px 2px 0 rgb(35 34 34 / 0.15)", transform: "rotate(-2deg)" }}
-        lang={iconLang}
-      >
-        {icon}
-      </div>
-      <div className="flex-1 min-w-0">
-        <h3 className="font-hand font-semibold text-ink group-hover:text-primary-600 flex items-center gap-2 transition-colors">
-          {title}
-          {status === "done" && <span className="text-xs text-success-600">✓</span>}
-          {badge}
-        </h3>
-        <p className="text-ink/55 text-sm mt-1">{desc}</p>
-        <span className="inline-flex items-center gap-1 mt-2 text-xs text-primary-600 font-hand font-semibold group-hover:gap-2 transition-all">
-          {cta}
-          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 6l6 6-6 6" /></svg>
-        </span>
-      </div>
-    </Link>
   );
 }
 

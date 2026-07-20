@@ -183,16 +183,11 @@ export function WordBuildCard({ word, onResult }: Props) {
           </div>
         </div>
       ) : (
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center">
           <Button variant="outline" onClick={reset}>
             Xóa
           </Button>
-          <Button
-            variant="primary"
-            onClick={submit}
-            disabled={selected.length === 0}
-            className="flex-1"
-          >
+          <Button variant="primary" onClick={submit} disabled={selected.length === 0}>
             Kiểm tra
           </Button>
         </div>

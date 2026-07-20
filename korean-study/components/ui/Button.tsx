@@ -70,13 +70,13 @@ export function Button({
         </svg>
       )}
       {!loading && icon && iconPosition === "left" && (
-        <span className={ICON_SIZE[size]} aria-hidden="true">
+        <span className={`${ICON_SIZE[size]} inline-flex items-center justify-center shrink-0`} aria-hidden="true">
           {icon}
         </span>
       )}
-      <span>{children}</span>
+      <span className="leading-none">{children}</span>
       {!loading && icon && iconPosition === "right" && (
-        <span className={ICON_SIZE[size]} aria-hidden="true">
+        <span className={`${ICON_SIZE[size]} inline-flex items-center justify-center shrink-0`} aria-hidden="true">
           {icon}
         </span>
       )}

@@ -99,14 +99,11 @@ export function DictationCard({ word, onResult }: Props) {
             </Button>
           </div>
         ) : (
-          <Button
-            variant="primary"
-            onClick={submit}
-            disabled={!input.trim()}
-            className="w-full"
-          >
-            Kiểm tra <span className="opacity-60 text-sm">(Enter)</span>
-          </Button>
+          <div className="flex justify-center">
+            <Button variant="primary" onClick={submit} disabled={!input.trim()}>
+              Kiểm tra <span className="opacity-60 text-sm">(Enter)</span>
+            </Button>
+          </div>
         )}
       </div>
     </div>
