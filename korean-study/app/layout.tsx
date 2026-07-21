@@ -7,10 +7,26 @@ import { AudioControlPanel } from "@/components/audio/AudioControlPanel";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const TITLE = "Học tiếng Hàn";
+const DESCRIPTION =
+  "Tham khảo cá nhân học tiếng Hàn — Hangul, số đếm, quy tắc nối âm, từ vựng cơ bản (~160 từ).";
+
 export const metadata: Metadata = {
-  title: "Học tiếng Hàn",
-  description:
-    "Tham khảo cá nhân học tiếng Hàn — Hangul, số đếm, quy tắc nối âm, từ vựng cơ bản (~160 từ).",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    type: "website",
+    locale: "vi_VN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({
