@@ -14,6 +14,9 @@ importers:
       '@supabase/supabase-js':
         specifier: ^2.105.1
         version: 2.110.7
+      duma-icons-react:
+        specifier: ^0.1.0
+        version: 0.1.0(react@19.2.4)
       next:
         specifier: 16.2.4
         version: 16.2.4(@babel/core@7.29.7)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -23,9 +26,6 @@ importers:
       react-dom:
         specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
-      react-doodle-icons:
-        specifier: ^1.0.0
-        version: 1.0.0(react@19.2.4)
       sketchbook-ui:
         specifier: ^1.0.1
         version: 1.0.1(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -990,6 +990,11 @@ packages:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
 
+  duma-icons-react@0.1.0:
+    resolution: {integrity: sha512-t1wMgoPW6aOeJOOdJXpqnzPNp9WhMvZndi2x5a552+8yarN+N7p/oBv6v/XBR5Ju37HZQ8p28kYsNTTCZDax4g==}
+    peerDependencies:
+      react: '>=17'
+
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
@@ -1764,11 +1769,6 @@ packages:
     resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
     peerDependencies:
       react: ^19.2.4
-
-  react-doodle-icons@1.0.0:
-    resolution: {integrity: sha512-taf+UosAeP17N8pdVlri2LaBV7u5c1bF/guk998s5XCPJHnYuAfvbnYY4LQb8gP0sY/scK2+UKLPrH/xnHqDFw==}
-    peerDependencies:
-      react: '>=18'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -2938,6 +2938,10 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
+  duma-icons-react@0.1.0(react@19.2.4):
+    dependencies:
+      react: 19.2.4
+
   dunder-proto@1.0.1:
     dependencies:
       call-bind-apply-helpers: 1.0.2
@@ -3846,10 +3850,6 @@ snapshots:
     dependencies:
       react: 19.2.4
       scheduler: 0.27.0
-
-  react-doodle-icons@1.0.0(react@19.2.4):
-    dependencies:
-      react: 19.2.4
 
   react-is@16.13.1: {}
 
