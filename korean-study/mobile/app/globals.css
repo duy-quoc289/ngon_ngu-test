@@ -1,0 +1,520 @@
+@import "tailwindcss";
+
+/* Class-based dark mode — port từ app/globals.css gốc (lib/theme.ts) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme tokens port nguyên từ root app/globals.css (@theme block) —
+   xem plan: đây là "chất sketchbook", không đổi dù khung tương tác đổi. */
+@theme {
+  --font-sans: "Be Vietnam Pro", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Arial, sans-serif;
+  --font-hand: "Shantell Sans", cursive;
+  --font-marker: "Permanent Marker", cursive;
+  --font-ko: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
+  --color-paper: #fbf6ec;
+  --color-paper-overlay: #f5f1e8;
+  --color-ink: #232323;
+
+  --color-primary-50: #eef1ff;
+  --color-primary-100: #dce2ff;
+  --color-primary-200: #b9c5ff;
+  --color-primary-300: #8d9fff;
+  --color-primary-400: #5c74ff;
+  --color-primary-500: #2b4eff;
+  --color-primary-600: #1f3ed9;
+  --color-primary-700: #1a34b3;
+  --color-primary-800: #16298c;
+  --color-primary-900: #14226e;
+
+  --color-secondary-50: #fdefec;
+  --color-secondary-100: #fbdad2;
+  --color-secondary-200: #f6b3a1;
+  --color-secondary-300: #f18b6d;
+  --color-secondary-400: #ec6a45;
+  --color-secondary-500: #e8503a;
+  --color-secondary-600: #c73f2b;
+  --color-secondary-700: #9e3223;
+  --color-secondary-800: #7a271b;
+  --color-secondary-900: #5e1f16;
+
+  --color-success-50: #eef6ec;
+  --color-success-100: #d7ead1;
+  --color-success-200: #b0d5a5;
+  --color-success-300: #85bd76;
+  --color-success-400: #5fa551;
+  --color-success-500: #3f9142;
+  --color-success-600: #337536;
+  --color-success-700: #295d2b;
+  --color-success-800: #204722;
+  --color-success-900: #1a381c;
+
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fff3c4;
+  --color-warning-200: #ffe98a;
+  --color-warning-300: #ffde4f;
+  --color-warning-400: #ffd93d;
+  --color-warning-500: #f0c419;
+  --color-warning-600: #cc9f0f;
+  --color-warning-700: #a17a0c;
+  --color-warning-800: #7a5c0a;
+  --color-warning-900: #5c4508;
+
+  --color-error-50: #fdecea;
+  --color-error-100: #fad0cb;
+  --color-error-200: #f4a89e;
+  --color-error-300: #ec7d6c;
+  --color-error-400: #d85644;
+  --color-error-500: #c0392b;
+  --color-error-600: #a12f22;
+  --color-error-700: #7f251b;
+  --color-error-800: #601c15;
+  --color-error-900: #481510;
+
+  --color-info-50: #f4effa;
+  --color-info-100: #e5d8f2;
+  --color-info-200: #ccb2e5;
+  --color-info-300: #b18cd8;
+  --color-info-400: #9c72cc;
+  --color-info-500: #8b5fbf;
+  --color-info-600: #714da0;
+  --color-info-700: #593c7d;
+  --color-info-800: #422d5f;
+  --color-info-900: #332349;
+}
+
+:root {
+  --sk-paper: #fbf6ec;
+  --sk-paper-overlay: #f5f1e8;
+  --sk-ink: #232323;
+  --sk-pen-blue: #2b4eff;
+  --sk-pen-coral: #e8503a;
+  --sk-pen-red: #c0392b;
+  --sk-pen-green: #3f9142;
+  --sk-pen-purple: #8b5fbf;
+  --sk-highlight: #ffd93d;
+  --sk-washi-pink: #ffd6e0;
+  --sk-washi-blue: #d6e8ff;
+  --sk-washi-green: #d9f2d9;
+  --sk-washi-yellow: #fff3b0;
+  --sk-white: #ffffff;
+  --sk-on-pen: #ffffff;
+}
+
+.dark {
+  --sk-paper: #221f1a;
+  --sk-paper-overlay: #2b2721;
+  --sk-ink: #f2ede1;
+  --sk-pen-blue: #7c93ff;
+  --sk-pen-coral: #ff8b72;
+  --sk-pen-red: #ff6b5b;
+  --sk-pen-green: #7fcb84;
+  --sk-pen-purple: #c3a6e8;
+  --sk-highlight: #ffe066;
+  --sk-washi-pink: #4a2e36;
+  --sk-washi-blue: #253355;
+  --sk-washi-green: #2a3f2a;
+  --sk-washi-yellow: #4a3f1a;
+  --sk-white: #221f1a;
+  --sk-on-pen: #221f1a;
+  --color-paper: #221f1a;
+  --color-paper-overlay: #2b2721;
+  --color-ink: #f2ede1;
+}
+
+:lang(ko),
+.lang-ko {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-feature-settings: "kern" 1;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--color-paper);
+  background-image: linear-gradient(rgba(35, 34, 34, 0.06) 1px, transparent 1px);
+  background-size: 100% 32px;
+  color: var(--color-ink);
+}
+.dark body {
+  background-image: linear-gradient(rgba(242, 237, 225, 0.05) 1px, transparent 1px);
+}
+
+h1, h2, h3, .font-hand {
+  font-family: var(--font-hand), cursive;
+  font-weight: 700;
+}
+
+/* ── Sketch UI primitives (port nguyên từ root app/globals.css) ── */
+.ks-surface {
+  background: var(--sk-paper);
+  border: 2px solid var(--sk-ink);
+  border-radius: 1rem;
+  box-shadow: 3px 3px 0 rgb(35 34 34 / 0.15);
+}
+.dark .ks-surface { box-shadow: 3px 3px 0 rgb(0 0 0 / 0.4); }
+
+.ks-count-pill {
+  font-variant-numeric: tabular-nums;
+  background: var(--sk-paper-overlay);
+  border: 1.5px solid var(--sk-ink);
+  color: var(--sk-ink);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ks-empty-icon {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  border: 2px dashed var(--sk-ink);
+  background: var(--sk-paper-overlay);
+  opacity: 0.9;
+  margin: 0 auto;
+}
+
+/* Viền vẽ tay lượn sóng — filter SVG định nghĩa trong app/layout.tsx */
+.ks-wobble { position: relative; }
+.ks-wobble::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2.5px solid var(--sk-ink);
+  border-radius: inherit;
+  filter: url(#ks-sketchy);
+  pointer-events: none;
+}
+
+/* Audio play button */
+.ks-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--color-paper);
+  border: 2px solid var(--color-ink);
+  cursor: pointer;
+  color: #2b4eff;
+  padding: 0;
+  vertical-align: middle;
+  transition: all 0.15s ease;
+  box-shadow: 1.5px 1.5px 0 rgb(35 34 34 / 0.15);
+  flex-shrink: 0;
+}
+.ks-play:hover { background: #d6e8ff; color: #1a34b3; transform: scale(1.06); box-shadow: 2px 2px 0 rgb(35 34 34 / 0.2); }
+.ks-play:active { transform: scale(0.96); }
+.ks-play:focus-visible { outline: 2px solid #2b4eff; outline-offset: 2px; }
+.ks-play.is-playing {
+  background: #2b4eff; border-color: #2b4eff; color: white;
+  box-shadow: 0 2px 8px rgb(91 141 239 / 0.4);
+  animation: ks-pulse 1.4s ease-in-out infinite;
+}
+.ks-play.is-loading { background: #f5f1e8; border-color: #cbd5e1; color: #94a3b8; cursor: wait; }
+@keyframes ks-pulse {
+  0%, 100% { box-shadow: 0 2px 8px rgb(91 141 239 / 0.4); }
+  50%      { box-shadow: 0 2px 14px rgb(91 141 239 / 0.7); }
+}
+@keyframes ks-spin { to { transform: rotate(360deg); } }
+.dark .ks-play { background: rgb(30 41 59); border-color: rgb(71 85 105); color: #8d9fff; }
+.ks-play .ks-icon { width: 14px; height: 14px; }
+.ks-play .ks-icon-pause,
+.ks-play .ks-icon-loading { display: none; }
+.ks-play.is-playing .ks-icon-play  { display: none; }
+.ks-play.is-playing .ks-icon-pause { display: block; }
+.ks-play.is-loading .ks-icon-play   { display: none; }
+.ks-play.is-loading .ks-icon-loading { display: block; animation: ks-spin 0.8s linear infinite; }
+
+/* ═══════════════════════════════════════════════════════════
+   Mobile shell — MỚI cho bản Capacitor: tab bar dưới + safe-area +
+   review card gesture. Đây là phần "redesign hành vi" theo plan,
+   khác với TopBar/hamburger của bản web.
+   ═══════════════════════════════════════════════════════════ */
+.ks-app-shell {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ks-review-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: calc(env(safe-area-inset-top) + 0.75rem) 1.25rem 0.75rem;
+}
+
+.ks-review-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1.25rem;
+  padding-bottom: calc(64px + env(safe-area-inset-bottom) + 1.5rem);
+}
+
+.ks-review-stage {
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.ks-review-card {
+  padding: 2.5rem 1.75rem;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: box-shadow 0.15s ease;
+}
+.ks-review-card:active { box-shadow: 2px 2px 0 rgb(35 34 34 / 0.15); }
+
+/* Vật lý vuốt: kéo tay = bám ngay (không transition); thả tay = spring
+   overshoot nhẹ về giữa; vượt threshold = bay hẳn ra ngoài (ease-out nhanh). */
+.ks-review-card.is-flipped {
+  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.ks-review-card.is-flipped.is-dragging {
+  transition: none;
+}
+.ks-review-card.is-flipped.is-flying {
+  transition: transform 0.22s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ks-swipe-hint {
+  position: absolute;
+  top: 1rem;
+  font-family: var(--font-marker), cursive;
+  font-size: 1.1rem;
+  border: 3px solid currentColor;
+  border-radius: 8px;
+  padding: 0.2rem 0.8rem;
+  pointer-events: none;
+}
+.ks-swipe-hint.is-again { left: 1rem; color: var(--sk-pen-red); transform: rotate(-8deg); }
+.ks-swipe-hint.is-easy { right: 1rem; color: var(--sk-pen-blue); transform: rotate(8deg); }
+
+.ks-review-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+.ks-rate-btn {
+  font-family: var(--font-hand), cursive;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 0.4rem;
+  min-height: 48px;
+  border-radius: 0.9rem;
+  border: 2px solid var(--sk-ink);
+  background: var(--sk-paper);
+  box-shadow: 2px 2px 0 rgb(35 34 34 / 0.15);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.ks-rate-btn:active { transform: scale(0.95) translate(1px, 1px); box-shadow: 1px 1px 0 rgb(35 34 34 / 0.15); }
+.ks-rate-btn.is-again { color: var(--sk-pen-red); }
+.ks-rate-btn.is-hard { color: var(--color-warning-700); }
+.ks-rate-btn.is-good { color: var(--sk-pen-green); }
+.ks-rate-btn.is-easy { color: var(--sk-pen-blue); }
+
+.ks-swipe-tip {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--sk-ink);
+  opacity: 0.45;
+  margin-top: 0.75rem;
+}
+
+.ks-empty-state { text-align: center; margin-top: 2rem; }
+
+.ks-tabbar {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  display: flex;
+  background: var(--sk-paper);
+  border-top: 2px solid var(--sk-ink);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 40;
+}
+.ks-tab-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  padding: 0.5rem 0 0.4rem;
+  min-height: 56px;
+  color: var(--sk-ink);
+  opacity: 0.45;
+  text-decoration: none;
+}
+.ks-tab-btn.is-active { opacity: 1; }
+.ks-tab-btn:disabled { opacity: 0.25; }
+.ks-tab-icon { font-size: 1.35rem; line-height: 1; }
+.ks-tab-label { font-size: 0.68rem; font-weight: 600; }
+
+/* ═══════════════════════════════════════════════════════════
+   Vocab screen (Quizlet-style: search + chip cuộn ngang + list gọn)
+   ═══════════════════════════════════════════════════════════ */
+.ks-vocab-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--sk-paper);
+  border-bottom: 2px solid var(--sk-ink);
+  padding: calc(env(safe-area-inset-top) + 0.75rem) 1rem 0.75rem;
+}
+
+.ks-vocab-search-wrap {
+  position: relative;
+  margin-bottom: 0.65rem;
+}
+.ks-vocab-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  font-size: 0.95rem;
+}
+.ks-vocab-search {
+  width: 100%;
+  height: 44px;
+  padding: 0 2.4rem;
+  border-radius: 999px;
+  border: 2px solid var(--sk-ink);
+  background: var(--sk-paper-overlay);
+  color: var(--sk-ink);
+  font-size: 0.95rem;
+}
+.ks-vocab-search:focus { outline: 2px solid var(--sk-pen-blue); outline-offset: 1px; }
+.ks-vocab-search-clear {
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  color: var(--sk-ink);
+  opacity: 0.55;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.ks-cat-scroller {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.15rem;
+  margin: 0 -1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.ks-cat-scroller::-webkit-scrollbar { display: none; }
+
+.ks-cat-chip {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 2px solid var(--sk-ink);
+  background: var(--sk-paper-overlay);
+  color: var(--sk-ink);
+  font-size: 0.83rem;
+  font-weight: 500;
+}
+.ks-cat-chip.is-active { color: white; border-color: transparent; font-weight: 600; }
+.ks-cat-chip.ks-cat-slate.is-active   { background: linear-gradient(135deg, #2B4EFF, #8B5FBF); }
+.ks-cat-chip.ks-cat-blue.is-active    { background: linear-gradient(135deg, #2B4EFF, #5c74ff); }
+.ks-cat-chip.ks-cat-rose.is-active    { background: linear-gradient(135deg, #E8503A, #ec7d6c); }
+.ks-cat-chip.ks-cat-amber.is-active   { background: linear-gradient(135deg, #cc9f0f, #FFD93D); }
+.ks-cat-chip.ks-cat-violet.is-active  { background: linear-gradient(135deg, #8B5FBF, #8B5FBF); }
+.ks-cat-chip.ks-cat-emerald.is-active { background: linear-gradient(135deg, #3F9142, #85bd76); }
+.ks-cat-count { opacity: 0.7; font-size: 0.75em; font-variant-numeric: tabular-nums; }
+
+.ks-vocab-list-main {
+  flex: 1;
+  padding: 0.25rem 1rem calc(64px + env(safe-area-inset-bottom) + 1rem);
+}
+
+.ks-vocab-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ks-vrow {
+  background: var(--sk-paper);
+  border: 2px solid var(--sk-ink);
+  border-radius: 0.85rem;
+  box-shadow: 2px 2px 0 rgb(35 34 34 / 0.12);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 0.6rem;
+}
+.ks-vrow.is-expanded { flex-wrap: wrap; }
+
+.ks-vrow-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 56px;
+  padding: 0.5rem 0.9rem;
+  text-align: left;
+}
+
+.ks-vrow-text { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+.ks-vrow-ko { font-family: var(--font-hand), cursive; font-weight: 700; font-size: 1.15rem; color: var(--sk-ink); }
+.ks-vrow-sub { font-size: 0.8rem; color: var(--sk-ink); opacity: 0.6; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ks-vrow-sep { opacity: 0.5; }
+
+.ks-vrow-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.ks-vrow-dot.ks-cat-blue { background: #2B4EFF; }
+.ks-vrow-dot.ks-cat-rose { background: #E8503A; }
+.ks-vrow-dot.ks-cat-amber { background: #FFD93D; }
+.ks-vrow-dot.ks-cat-violet { background: #8B5FBF; }
+.ks-vrow-dot.ks-cat-emerald { background: #3F9142; }
+.ks-vrow-dot.ks-cat-slate { background: #94a3b8; }
+
+.ks-vrow-actions { flex-shrink: 0; }
+
+.ks-vrow-detail {
+  width: 100%;
+  padding: 0 0.9rem 0.85rem;
+  border-top: 2px dashed rgb(35 34 34 / 0.15);
+  margin-top: 0.15rem;
+  padding-top: 0.65rem;
+}
+.ks-vrow-example { font-size: 0.85rem; color: var(--sk-ink); opacity: 0.85; margin-bottom: 0.4rem; }
+.ks-vrow-example-rom { opacity: 0.6; font-size: 0.78rem; }
+.ks-vrow-example-vi { opacity: 0.75; font-size: 0.8rem; }
+.ks-vrow-note { font-size: 0.8rem; opacity: 0.7; margin-bottom: 0.4rem; }
+.ks-vrow-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.ks-vocab-tag {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--sk-washi-blue);
+  color: var(--sk-ink);
+  opacity: 0.85;
+}
