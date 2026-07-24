@@ -22,6 +22,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+            <!-- Deep link cho Supabase OAuth callback (com.koreanstudy.app://auth/callback) —
+                 xem lib/auth.tsx. Cần thêm URL này vào Supabase Dashboard → Authentication →
+                 URL Configuration → Redirect URLs mới hoạt động được. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="com.koreanstudy.app" android:host="auth" android:path="/callback" />
+            </intent-filter>
+
         </activity>
 
         <provider

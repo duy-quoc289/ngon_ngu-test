@@ -1,0 +1,562 @@
+{
+  "topic": "grammar",
+  "title": "Ngữ pháp",
+  "titleKo": "문법",
+  "subtitle": "10 điểm ngữ pháp cốt lõi TOPIK 1",
+  "intro": "10 điểm ngữ pháp nền tảng để tự ghép câu tiếng Hàn. Học xong 10 điểm này bạn có thể xây dựng 80% câu cơ bản trong giao tiếp hằng ngày.",
+  "lessons": [
+    {
+      "id": "ida",
+      "title": "이다 / 입니다",
+      "icon": "①",
+      "hint": "Đuôi câu 'là' — khẳng định danh tính, sự vật",
+      "type": "grammar",
+      "formula": "N + **입니다** (trang trọng) · N + **이에요/예요** (lịch sự)",
+      "meaning": "Tương đương 'là' trong tiếng Việt. Dùng để khẳng định danh tính, nghề nghiệp, sự vật.",
+      "rules": [
+        {
+          "label": "이에요 vs 예요",
+          "rule": "Danh từ kết thúc bằng **phụ âm (받침)** → 이에요. Kết thúc bằng **nguyên âm** → 예요.",
+          "examples": ["학생이에요 (받침 ㅇ)", "친구예요 (không 받침)"]
+        },
+        {
+          "label": "입니다 — trang trọng",
+          "rule": "**입니다** dùng trong văn phong trang trọng: họp hành, bài phát biểu, tin tức.",
+          "examples": ["저는 김민준입니다", "이것은 제 책입니다"]
+        },
+        {
+          "label": "Phủ định: 이/가 아니에요",
+          "rule": "Phủ định của 이다 = **이/가 아니에요** (không phải). N có 받침 → 이, không 받침 → 가.",
+          "examples": ["학생이 아니에요", "친구가 아니에요"]
+        }
+      ],
+      "examples": [
+        { "ko": "저는 학생입니다.", "rom": "Jeo-neun hak-saeng-im-ni-da.", "vi": "Tôi là học sinh.", "highlight": "입니다" },
+        { "ko": "이것은 책이에요.", "rom": "I-geo-seun chaeg-i-e-yo.", "vi": "Cái này là sách.", "highlight": "이에요" },
+        { "ko": "친구예요.", "rom": "Chin-gu-ye-yo.", "vi": "Là bạn bè (của tôi).", "highlight": "예요" },
+        { "ko": "저는 베트남 사람이에요.", "rom": "Jeo-neun be-teu-nam sa-ram-i-e-yo.", "vi": "Tôi là người Việt Nam.", "highlight": "이에요" },
+        { "ko": "학생이 아니에요.", "rom": "Hak-saeng-i a-ni-e-yo.", "vi": "Không phải học sinh.", "highlight": "이 아니에요" }
+      ],
+      "exercise": [
+        {
+          "type": "fill-blank",
+          "question": "저는 의사___ (의사 không có 받침 → lịch sự)",
+          "answer": "예요",
+          "hint": "의사 kết thúc bằng nguyên âm ㅏ"
+        },
+        {
+          "type": "choice",
+          "question": "이것은 가방___ (가방 có 받침 ㅇ)",
+          "answer": "이에요",
+          "options": ["입니다", "이에요", "예요", "이세요"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "저는 선생님이 ___ (không phải giáo viên)",
+          "answer": "아니에요",
+          "hint": "선생님 có 받침 → 이 아니에요"
+        }
+      ]
+    },
+    {
+      "id": "itda-eoptda",
+      "title": "있다 / 없다",
+      "icon": "②",
+      "hint": "Có / Không có · Ở / Không ở",
+      "type": "grammar",
+      "formula": "N + **이/가** + 장소 + **에** + **있어요/없어요**",
+      "meaning": "있다 = tồn tại / sở hữu. 없다 = không tồn tại / không có. Polite form: 있어요 / 없어요.",
+      "rules": [
+        {
+          "label": "Vị trí (location)",
+          "rule": "N + **에** + **있어요/없어요** — N ở/không ở tại nơi đó. Câu hỏi: **어디에 있어요?**",
+          "examples": ["방에 있어요 (ở trong phòng)", "집에 없어요 (không ở nhà)"]
+        },
+        {
+          "label": "Sở hữu (possession)",
+          "rule": "N + **이/가 있어요/없어요** — có/không có N. Không dùng 에 khi nói về sở hữu.",
+          "examples": ["시간이 있어요? (Có thời gian không?)", "돈이 없어요 (Không có tiền)"]
+        },
+        {
+          "label": "계세요 — kính ngữ",
+          "rule": "Khi nói lịch sự về người khác (bề trên), dùng **계세요** thay cho 있어요.",
+          "examples": ["선생님은 교실에 계세요", "부모님은 집에 계세요"]
+        }
+      ],
+      "examples": [
+        { "ko": "책상 위에 책이 있어요.", "rom": "Chaeg-sang wi-e chaeg-i i-sseo-yo.", "vi": "Có quyển sách trên bàn.", "highlight": "있어요" },
+        { "ko": "시간이 없어요.", "rom": "Si-gan-i eop-sseo-yo.", "vi": "Không có thời gian.", "highlight": "없어요" },
+        { "ko": "화장실이 어디에 있어요?", "rom": "Hwa-jang-sil-i eo-di-e i-sseo-yo?", "vi": "Nhà vệ sinh ở đâu?", "highlight": "있어요" },
+        { "ko": "냉장고 안에 물이 없어요.", "rom": "Naeng-jang-go a-ne mul-i eop-sseo-yo.", "vi": "Trong tủ lạnh không có nước.", "highlight": "없어요" },
+        { "ko": "선생님은 교실에 계세요.", "rom": "Seon-saeng-nim-eun gyo-sil-e gye-se-yo.", "vi": "Thầy/cô đang ở trong lớp.", "highlight": "계세요" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "가방이 어디___ 있어요? (ở đâu)",
+          "answer": "에",
+          "options": ["에서", "에", "이", "을"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "저는 오늘 시간이 ___ (không có thời gian)",
+          "answer": "없어요",
+          "hint": "Phủ định của 있어요"
+        }
+      ]
+    },
+    {
+      "id": "ayoeoyo",
+      "title": "-아/어요",
+      "icon": "③",
+      "hint": "Đuôi câu hiện tại lịch sự — dùng mỗi ngày",
+      "type": "grammar",
+      "formula": "Verb stem (ㅏ/ㅗ) + **아요** · Verb stem (others) + **어요** · 하다 → **해요**",
+      "meaning": "Đuôi câu hiện tại lịch sự — dùng trong giao tiếp hàng ngày với người bình thường.",
+      "conjugation": {
+        "headers": ["원형 (dict.)", "-아/어요 (hiện tại)"],
+        "rows": [
+          { "verb": "가다 (đi)", "forms": ["가요"] },
+          { "verb": "오다 (đến)", "forms": ["와요"] },
+          { "verb": "보다 (xem)", "forms": ["봐요"] },
+          { "verb": "먹다 (ăn)", "forms": ["먹어요"] },
+          { "verb": "마시다 (uống)", "forms": ["마셔요"] },
+          { "verb": "읽다 (đọc)", "forms": ["읽어요"] },
+          { "verb": "쓰다 (viết)", "forms": ["써요"] },
+          { "verb": "사다 (mua)", "forms": ["사요"] },
+          { "verb": "하다 (làm)", "forms": ["해요"] },
+          { "verb": "공부하다 (học)", "forms": ["공부해요"] }
+        ]
+      },
+      "rules": [
+        {
+          "label": "아요 — nguyên âm ㅏ hoặc ㅗ",
+          "rule": "Nguyên âm cuối của stem là **ㅏ hoặc ㅗ** → thêm **아요**. Nếu stem đơn tiết kết thúc bằng ㅏ/ㅗ: hợp nhất.",
+          "examples": ["살다→살아요", "오다→와요 (ㅗ+아=와)"]
+        },
+        {
+          "label": "어요 — nguyên âm còn lại",
+          "rule": "Tất cả nguyên âm còn lại → thêm **어요**. Một số trường hợp rút gọn.",
+          "examples": ["먹다→먹어요", "마시다→마셔요 (이+어=여)"]
+        },
+        {
+          "label": "하다 → 해요",
+          "rule": "**하다** luôn biến thành **해요** (không phải 하어요). Áp dụng cho tất cả động từ kép với 하다.",
+          "examples": ["하다→해요", "공부하다→공부해요", "요리하다→요리해요"]
+        },
+        {
+          "label": "쓰다 / 크다 — stem ㅡ",
+          "rule": "Stem kết thúc bằng ㅡ: bỏ ㅡ rồi xem nguyên âm trước để chọn 아/어요.",
+          "examples": ["쓰다→써요", "크다→커요"]
+        }
+      ],
+      "examples": [
+        { "ko": "저는 학교에 가요.", "rom": "Jeo-neun hak-gyo-e ga-yo.", "vi": "Tôi đi học.", "highlight": "가요" },
+        { "ko": "밥을 먹어요.", "rom": "Bab-eul meog-eo-yo.", "vi": "Tôi ăn cơm.", "highlight": "먹어요" },
+        { "ko": "물을 마셔요.", "rom": "Mul-eul ma-syeo-yo.", "vi": "Tôi uống nước.", "highlight": "마셔요" },
+        { "ko": "한국어를 공부해요.", "rom": "Han-gug-eo-reul gong-bu-hae-yo.", "vi": "Tôi học tiếng Hàn.", "highlight": "공부해요" },
+        { "ko": "책을 읽어요.", "rom": "Chaeg-eul ilg-eo-yo.", "vi": "Tôi đọc sách.", "highlight": "읽어요" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "보다 (xem) → -아/어요 = ?",
+          "answer": "봐요",
+          "options": ["보아요", "봐요", "보어요", "봐여요"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "요리하다 → hiện tại lịch sự = ___",
+          "answer": "요리해요",
+          "hint": "하다 luôn thành 해요"
+        }
+      ]
+    },
+    {
+      "id": "aseoss",
+      "title": "-았/었어요",
+      "icon": "④",
+      "hint": "Thì quá khứ — hành động đã xảy ra/hoàn thành",
+      "type": "grammar",
+      "formula": "Verb stem (ㅏ/ㅗ) + **았어요** · Verb stem (others) + **었어요** · 하다 → **했어요**",
+      "meaning": "Thì quá khứ lịch sự. Dùng cho hành động đã hoàn thành trước thời điểm nói.",
+      "conjugation": {
+        "headers": ["원형", "-아/어요 (hiện tại)", "-았/었어요 (quá khứ)"],
+        "rows": [
+          { "verb": "가다 (đi)", "forms": ["가요", "갔어요"] },
+          { "verb": "오다 (đến)", "forms": ["와요", "왔어요"] },
+          { "verb": "보다 (xem)", "forms": ["봐요", "봤어요"] },
+          { "verb": "먹다 (ăn)", "forms": ["먹어요", "먹었어요"] },
+          { "verb": "마시다 (uống)", "forms": ["마셔요", "마셨어요"] },
+          { "verb": "읽다 (đọc)", "forms": ["읽어요", "읽었어요"] },
+          { "verb": "하다 (làm)", "forms": ["해요", "했어요"] },
+          { "verb": "공부하다 (học)", "forms": ["공부해요", "공부했어요"] }
+        ]
+      },
+      "rules": [
+        {
+          "label": "았어요 — ㅏ/ㅗ",
+          "rule": "Nguyên âm cuối stem là **ㅏ hoặc ㅗ** → 았어요. Hợp nhất nguyên âm khi cần.",
+          "examples": ["가다→갔어요 (가+았=갔)", "오다→왔어요 (오+았=왔)"]
+        },
+        {
+          "label": "었어요 — nguyên âm khác",
+          "rule": "Tất cả trường hợp còn lại → **었어요**.",
+          "examples": ["먹다→먹었어요", "마시다→마셨어요"]
+        },
+        {
+          "label": "하다 → 했어요",
+          "rule": "**하다** → **했어요** (hợp nhất 하+였 → 했).",
+          "examples": ["하다→했어요", "공부하다→공부했어요"]
+        }
+      ],
+      "examples": [
+        { "ko": "어제 학교에 갔어요.", "rom": "Eo-je hak-gyo-e gass-eo-yo.", "vi": "Hôm qua tôi đã đi học.", "highlight": "갔어요" },
+        { "ko": "밥을 먹었어요.", "rom": "Bab-eul meog-eoss-eo-yo.", "vi": "Tôi đã ăn cơm.", "highlight": "먹었어요" },
+        { "ko": "한국어를 공부했어요.", "rom": "Han-gug-eo-reul gong-bu-haess-eo-yo.", "vi": "Tôi đã học tiếng Hàn.", "highlight": "공부했어요" },
+        { "ko": "영화를 봤어요.", "rom": "Yeong-hwa-reul bwass-eo-yo.", "vi": "Tôi đã xem phim.", "highlight": "봤어요" },
+        { "ko": "친구를 만났어요.", "rom": "Chin-gu-reul man-nass-eo-yo.", "vi": "Tôi đã gặp bạn.", "highlight": "만났어요" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "먹다 → quá khứ = ?",
+          "answer": "먹었어요",
+          "options": ["먹았어요", "먹었어요", "먹어요", "먹겠어요"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "요리하다 → quá khứ = ___",
+          "answer": "요리했어요",
+          "hint": "하다 → 했어요"
+        }
+      ]
+    },
+    {
+      "id": "geoeyo",
+      "title": "-(으)ㄹ 거예요",
+      "icon": "⑤",
+      "hint": "Tương lai / Dự định / Kế hoạch",
+      "type": "grammar",
+      "formula": "Verb stem (không 받침) + **ㄹ 거예요** · Verb stem (có 받침) + **을 거예요**",
+      "meaning": "Diễn đạt dự định, kế hoạch hoặc dự đoán trong tương lai. Gần với 'sẽ' hoặc 'dự định' trong tiếng Việt.",
+      "conjugation": {
+        "headers": ["원형", "-(으)ㄹ 거예요 (tương lai)"],
+        "rows": [
+          { "verb": "가다 (đi)", "forms": ["갈 거예요"] },
+          { "verb": "오다 (đến)", "forms": ["올 거예요"] },
+          { "verb": "보다 (xem)", "forms": ["볼 거예요"] },
+          { "verb": "먹다 (ăn)", "forms": ["먹을 거예요"] },
+          { "verb": "읽다 (đọc)", "forms": ["읽을 거예요"] },
+          { "verb": "만들다 (làm/tạo)", "forms": ["만들 거예요"] },
+          { "verb": "하다 (làm)", "forms": ["할 거예요"] },
+          { "verb": "공부하다 (học)", "forms": ["공부할 거예요"] }
+        ]
+      },
+      "rules": [
+        {
+          "label": "ㄹ 거예요 — không có 받침",
+          "rule": "Stem không kết thúc bằng phụ âm → thêm **ㄹ 거예요** trực tiếp.",
+          "examples": ["가다→갈 거예요", "오다→올 거예요"]
+        },
+        {
+          "label": "을 거예요 — có 받침",
+          "rule": "Stem kết thúc bằng phụ âm (받침) → thêm **을 거예요**.",
+          "examples": ["먹다→먹을 거예요", "읽다→읽을 거예요"]
+        },
+        {
+          "label": "Stem đã có ㄹ",
+          "rule": "Stem kết thúc bằng **ㄹ** (ㄹ irregular) → thêm **거예요** trực tiếp (không thêm ㄹ nữa).",
+          "examples": ["만들다→만들 거예요", "알다→알 거예요"]
+        }
+      ],
+      "examples": [
+        { "ko": "내일 학교에 갈 거예요.", "rom": "Nae-il hak-gyo-e gal geo-ye-yo.", "vi": "Ngày mai tôi sẽ đi học.", "highlight": "갈 거예요" },
+        { "ko": "저녁에 영화를 볼 거예요.", "rom": "Jeo-nyeog-e yeong-hwa-reul bol geo-ye-yo.", "vi": "Tối nay tôi sẽ xem phim.", "highlight": "볼 거예요" },
+        { "ko": "한국에 갈 거예요.", "rom": "Han-gug-e gal geo-ye-yo.", "vi": "Tôi sẽ đi Hàn Quốc.", "highlight": "갈 거예요" },
+        { "ko": "뭐 먹을 거예요?", "rom": "Mwo meog-eul geo-ye-yo?", "vi": "Bạn sẽ ăn gì?", "highlight": "먹을 거예요" },
+        { "ko": "한국어를 공부할 거예요.", "rom": "Han-gug-eo-reul gong-bu-hal geo-ye-yo.", "vi": "Tôi sẽ học tiếng Hàn.", "highlight": "공부할 거예요" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "읽다 → tương lai = ?",
+          "answer": "읽을 거예요",
+          "options": ["읽ㄹ 거예요", "읽을 거예요", "읽갈 거예요", "읽어 거예요"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "오다 → sẽ đến = ___",
+          "answer": "올 거예요",
+          "hint": "오다: stem 오 không có 받침 → ㄹ 거예요"
+        }
+      ]
+    },
+    {
+      "id": "euneun-iiga",
+      "title": "-은/는 vs -이/가",
+      "icon": "⑥",
+      "hint": "Particle chủ đề vs Particle chủ ngữ — dễ nhầm nhất",
+      "type": "grammar",
+      "formula": "N + **은/는** (chủ đề) · N + **이/가** (chủ ngữ)",
+      "meaning": "은/는 đánh dấu chủ đề (thông tin đã biết, so sánh). 이/가 đánh dấu chủ ngữ ngữ pháp (thông tin mới, câu trả lời ai/cái gì).",
+      "rules": [
+        {
+          "label": "Hình thức",
+          "rule": "N có **받침** → **은/이**. N không **받침** → **는/가**.",
+          "examples": ["학생 → 학생은, 학생이", "나 → 나는, 내가"]
+        },
+        {
+          "label": "은/는 — chủ đề, đối lập",
+          "rule": "Dùng **은/는** khi giới thiệu chủ đề đã biết, muốn so sánh/đối lập, hoặc nói tổng quát.",
+          "examples": ["저는 학생이에요 (chủ đề: tôi)", "사과는 빨개요, 바나나는 노래요"]
+        },
+        {
+          "label": "이/가 — thông tin mới, trả lời 누가/무엇",
+          "rule": "Dùng **이/가** khi cung cấp thông tin mới, trả lời câu hỏi 누가 (ai), 무엇이 (cái gì).",
+          "examples": ["누가 왔어요? → 친구가 왔어요", "무엇이 맛있어요? → 비빔밥이 맛있어요"]
+        },
+        {
+          "label": "은/는 — nhấn mạnh đối lập",
+          "rule": "Khi muốn nói 'A thì..., còn B thì...' — dùng **은/는** ở cả hai để thể hiện đối lập.",
+          "examples": ["커피는 좋아요, 차는 싫어요 (thích cà phê, không thích trà)"]
+        }
+      ],
+      "examples": [
+        { "ko": "저는 학생이에요.", "rom": "Jeo-neun hak-saeng-i-e-yo.", "vi": "Tôi (chủ đề) là học sinh.", "highlight": "는" },
+        { "ko": "누가 왔어요? 친구가 왔어요.", "rom": "Nu-ga wass-eo-yo? Chin-gu-ga wass-eo-yo.", "vi": "Ai đến vậy? Bạn (tôi) đến.", "highlight": "가" },
+        { "ko": "한국어는 어려워요.", "rom": "Han-gug-eo-neun eo-ryeo-wo-yo.", "vi": "Tiếng Hàn (chủ đề thì) khó.", "highlight": "는" },
+        { "ko": "뭐가 맛있어요? 비빔밥이 맛있어요.", "rom": "Mwo-ga mas-iss-eo-yo? Bi-bim-bab-i mas-iss-eo-yo.", "vi": "Cái gì ngon? Cơm trộn ngon.", "highlight": "이" },
+        { "ko": "저는 커피를 좋아해요. 차는 싫어요.", "rom": "Jeo-neun keo-pi-reul jo-a-hae-yo. Cha-neun sil-eo-yo.", "vi": "Tôi thích cà phê. (Còn) trà thì không thích.", "highlight": "는" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "누가 학생이에요? → 제 친구___ 학생이에요.",
+          "answer": "가",
+          "options": ["은", "는", "이", "가"]
+        },
+        {
+          "type": "choice",
+          "question": "저___ 한국 사람이에요. (Giới thiệu bản thân — chủ đề)",
+          "answer": "는",
+          "options": ["은", "는", "이", "가"]
+        },
+        {
+          "type": "choice",
+          "question": "사과___ 빨개요. (사과 có 받침 ㅇ — tổng quát)",
+          "answer": "은",
+          "options": ["은", "는", "이", "가"]
+        }
+      ]
+    },
+    {
+      "id": "eulreul",
+      "title": "-을/를",
+      "icon": "⑦",
+      "hint": "Particle tân ngữ — đánh dấu object của động từ",
+      "type": "grammar",
+      "formula": "N + **을** (có 받침) · N + **를** (không 받침)",
+      "meaning": "Đánh dấu tân ngữ trực tiếp của động từ — tương đương với vị trí 'ai/cái gì' bị tác động trong câu.",
+      "rules": [
+        {
+          "label": "을 vs 를",
+          "rule": "N có **받침** → 을. N không **받침** → 를.",
+          "examples": ["밥을 먹어요 (밥 có 받침 ㅂ)", "물를→물을 먹어요... Không! 물 không 받침 → 물을... Thực ra 물 có ㄹ → 물을"]
+        },
+        {
+          "label": "Nguyên tắc",
+          "rule": "Particle -을/를 đứng ngay sau danh từ làm tân ngữ (object), trước động từ.",
+          "examples": ["한국어를 공부해요", "책을 읽어요", "음악을 들어요"]
+        },
+        {
+          "label": "Bỏ particle trong văn nói",
+          "rule": "Trong hội thoại thông thường, -을/를 thường bị lược bỏ. Nhưng cần dùng trong văn viết.",
+          "examples": ["밥 먹어요 (thay vì 밥을 먹어요)", "커피 마셔요"]
+        }
+      ],
+      "examples": [
+        { "ko": "밥을 먹어요.", "rom": "Bab-eul meog-eo-yo.", "vi": "Tôi ăn cơm.", "highlight": "을" },
+        { "ko": "한국어를 공부해요.", "rom": "Han-gug-eo-reul gong-bu-hae-yo.", "vi": "Tôi học tiếng Hàn.", "highlight": "를" },
+        { "ko": "음악을 들어요.", "rom": "Eum-ag-eul deul-eo-yo.", "vi": "Tôi nghe nhạc.", "highlight": "을" },
+        { "ko": "친구를 만나요.", "rom": "Chin-gu-reul man-na-yo.", "vi": "Tôi gặp bạn bè.", "highlight": "를" },
+        { "ko": "영화를 봐요.", "rom": "Yeong-hwa-reul bwa-yo.", "vi": "Tôi xem phim.", "highlight": "를" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "저는 커피___ 마셔요. (커피 không 받침)",
+          "answer": "를",
+          "options": ["을", "를", "이", "가"]
+        },
+        {
+          "type": "choice",
+          "question": "책___ 읽어요. (책 có 받침 ㄱ)",
+          "answer": "을",
+          "options": ["을", "를", "은", "는"]
+        }
+      ]
+    },
+    {
+      "id": "e-eseo",
+      "title": "-에 / -에서",
+      "icon": "⑧",
+      "hint": "Particles địa điểm — dễ nhầm nhất",
+      "type": "grammar",
+      "formula": "N + **에** (đích đến · vị trí tĩnh · thời gian) · N + **에서** (nơi diễn ra hành động)",
+      "meaning": "Hai particles địa điểm thường bị nhầm lẫn. Quy tắc đơn giản: động từ tĩnh (있다, 없다, 가다, 오다) → 에; động từ hành động (먹다, 공부하다...) → 에서.",
+      "rules": [
+        {
+          "label": "-에 — đích đến",
+          "rule": "Dùng **에** với động từ di chuyển: 가다 (đi), 오다 (đến), 다니다 (lui tới).",
+          "examples": ["학교에 가요 (đi đến trường)", "집에 와요 (đến nhà)"]
+        },
+        {
+          "label": "-에 — vị trí tĩnh",
+          "rule": "Dùng **에** với 있다/없다 (ở tại, không ở tại).",
+          "examples": ["방에 있어요 (ở trong phòng)", "집에 없어요 (không ở nhà)"]
+        },
+        {
+          "label": "-에 — thời gian",
+          "rule": "Dùng **에** để chỉ thời điểm (giờ, ngày, tháng, năm). KHÔNG dùng với 오늘/어제/내일.",
+          "examples": ["3시에 만나요 (gặp lúc 3 giờ)", "월요일에 가요 (đi vào thứ Hai)"]
+        },
+        {
+          "label": "-에서 — nơi diễn ra hành động",
+          "rule": "Dùng **에서** khi một hành động (thường là hành động tích cực, không phải trạng thái) xảy ra tại địa điểm đó.",
+          "examples": ["카페에서 공부해요 (học ở quán cà phê)", "집에서 먹어요 (ăn ở nhà)"]
+        }
+      ],
+      "examples": [
+        { "ko": "학교에 가요.", "rom": "Hak-gyo-e ga-yo.", "vi": "Tôi đi đến trường.", "highlight": "에" },
+        { "ko": "카페에서 공부해요.", "rom": "Ka-pe-e-seo gong-bu-hae-yo.", "vi": "Tôi học ở quán cà phê.", "highlight": "에서" },
+        { "ko": "방에 있어요.", "rom": "Bang-e i-sseo-yo.", "vi": "Tôi đang ở trong phòng.", "highlight": "에" },
+        { "ko": "식당에서 밥을 먹어요.", "rom": "Sik-dang-e-seo bab-eul meog-eo-yo.", "vi": "Tôi ăn cơm ở nhà hàng.", "highlight": "에서" },
+        { "ko": "3시에 만나요.", "rom": "Se-si-e man-na-yo.", "vi": "Gặp nhau lúc 3 giờ.", "highlight": "에" },
+        { "ko": "도서관에서 책을 읽어요.", "rom": "Do-seo-gwan-e-seo chaeg-eul ilg-eo-yo.", "vi": "Tôi đọc sách ở thư viện.", "highlight": "에서" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "저는 카페___ 공부해요. (học = hành động)",
+          "answer": "에서",
+          "options": ["에", "에서", "에게", "으로"]
+        },
+        {
+          "type": "choice",
+          "question": "학교___ 가요. (đi đến trường)",
+          "answer": "에",
+          "options": ["에", "에서", "에게", "으로"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "집___ 있어요. (đang ở nhà — vị trí tĩnh với 있다)",
+          "answer": "에",
+          "hint": "있다/없다 luôn dùng 에, không dùng 에서"
+        }
+      ]
+    },
+    {
+      "id": "wagwa-hago",
+      "title": "-와/과 / -하고",
+      "icon": "⑨",
+      "hint": "'Và / Với' — nối hai danh từ",
+      "type": "grammar",
+      "formula": "N + **와** (không 받침) · N + **과** (có 받침) · N + **하고** (thông thường)",
+      "meaning": "Nối hai danh từ với nghĩa 'và' hoặc 'cùng với'. 와/과 trang trọng hơn, 하고 thông dụng trong nói.",
+      "rules": [
+        {
+          "label": "와/과 — formal",
+          "rule": "N không có **받침** → 와. N có **받침** → 과. Dùng trong văn viết hoặc trang trọng.",
+          "examples": ["사과와 바나나 (sapple và banana)", "학생과 선생님"]
+        },
+        {
+          "label": "하고 — casual",
+          "rule": "**하고** không phân biệt 받침, dùng thoải mái trong văn nói hằng ngày.",
+          "examples": ["사과하고 바나나", "학생하고 선생님"]
+        },
+        {
+          "label": "-이랑/랑 — informal",
+          "rule": "Còn có **-이랑/랑** — rất informal, chỉ dùng trong nói chuyện thân mật.",
+          "examples": ["친구랑 갔어요 (đi với bạn)", "엄마이랑 → 엄마랑"]
+        }
+      ],
+      "examples": [
+        { "ko": "사과와 바나나를 먹어요.", "rom": "Sa-gwa-wa ba-na-na-reul meog-eo-yo.", "vi": "Tôi ăn táo và chuối.", "highlight": "와" },
+        { "ko": "친구하고 학교에 가요.", "rom": "Chin-gu-ha-go hak-gyo-e ga-yo.", "vi": "Tôi đi học cùng với bạn.", "highlight": "하고" },
+        { "ko": "빵과 우유를 마셔요.", "rom": "Bbang-gwa u-yu-reul ma-syeo-yo.", "vi": "Tôi ăn bánh mì và sữa.", "highlight": "과" },
+        { "ko": "엄마하고 쇼핑했어요.", "rom": "Eom-ma-ha-go syo-ping-haess-eo-yo.", "vi": "Tôi đã đi mua sắm cùng mẹ.", "highlight": "하고" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "커피___ 차를 마셔요. (커피 không 받침 — formal)",
+          "answer": "와",
+          "options": ["와", "과", "하고", "이랑"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "저는 친구___ 영화를 봐요. (thông thường, với bạn)",
+          "answer": "하고",
+          "hint": "하고 dùng thoải mái, không cần nhớ 받침"
+        }
+      ]
+    },
+    {
+      "id": "negation",
+      "title": "안 / -지 않다",
+      "icon": "⑩",
+      "hint": "Phủ định động từ — hai cách",
+      "type": "grammar",
+      "formula": "**안** + V (ngắn, thông thường) · V + **지 않아요** (dài, nhấn mạnh)",
+      "meaning": "Hai cách phủ định. 안 V nhanh hơn và thông dụng hơn trong văn nói; V-지 않아요 nhấn mạnh hoặc trang trọng hơn.",
+      "conjugation": {
+        "headers": ["원형", "hiện tại", "안 + V", "V-지 않아요"],
+        "rows": [
+          { "verb": "가다 (đi)", "forms": ["가요", "안 가요", "가지 않아요"] },
+          { "verb": "먹다 (ăn)", "forms": ["먹어요", "안 먹어요", "먹지 않아요"] },
+          { "verb": "공부하다 (học)", "forms": ["공부해요", "공부 안 해요", "공부하지 않아요"] },
+          { "verb": "오다 (đến)", "forms": ["와요", "안 와요", "오지 않아요"] }
+        ]
+      },
+      "rules": [
+        {
+          "label": "안 + V — phủ định ngắn",
+          "rule": "Đặt **안** ngay trước động từ/tính từ. Nhanh và thông dụng trong văn nói.",
+          "examples": ["안 가요 (không đi)", "안 먹어요 (không ăn)", "안 예뻐요 (không đẹp)"]
+        },
+        {
+          "label": "Ngoại lệ — 하다 verbs",
+          "rule": "Với N+하다: **안** đứng giữa N và 하다, KHÔNG đứng trước N.",
+          "examples": ["공부 안 해요 ✓ (không phải 안 공부해요 ✗)", "요리 안 해요 ✓"]
+        },
+        {
+          "label": "V-지 않아요 — phủ định dài",
+          "rule": "Verb stem + **지 않아요**. Nhấn mạnh hơn hoặc trang trọng hơn 안 V.",
+          "examples": ["가지 않아요 (không đi)", "먹지 않아요 (không ăn)"]
+        }
+      ],
+      "examples": [
+        { "ko": "저는 커피를 안 마셔요.", "rom": "Jeo-neun keo-pi-reul an ma-syeo-yo.", "vi": "Tôi không uống cà phê.", "highlight": "안" },
+        { "ko": "오늘은 학교에 가지 않아요.", "rom": "O-neul-eun hak-gyo-e ga-ji an-a-yo.", "vi": "Hôm nay tôi không đi học.", "highlight": "가지 않아요" },
+        { "ko": "저는 고기를 안 먹어요.", "rom": "Jeo-neun go-gi-reul an meog-eo-yo.", "vi": "Tôi không ăn thịt.", "highlight": "안" },
+        { "ko": "공부 안 해요.", "rom": "Gong-bu an hae-yo.", "vi": "Không học bài.", "highlight": "안" },
+        { "ko": "그 영화는 재미있지 않아요.", "rom": "Geu yeong-hwa-neun jae-mi-iss-ji an-a-yo.", "vi": "Bộ phim đó không hay.", "highlight": "재미있지 않아요" }
+      ],
+      "exercise": [
+        {
+          "type": "choice",
+          "question": "공부하다 → phủ định ngắn = ?",
+          "answer": "공부 안 해요",
+          "options": ["안 공부해요", "공부 안 해요", "공부하지 않아요", "공부가 없어요"]
+        },
+        {
+          "type": "fill-blank",
+          "question": "저는 술을 ___ 마셔요. (không uống rượu — ngắn)",
+          "answer": "안",
+          "hint": "안 đặt trước động từ (không phải N+하다)"
+        }
+      ]
+    }
+  ]
+}

@@ -10,6 +10,8 @@ import {
   rateCard,
   updateStreak,
 } from "./srs";
+import { syncCard, fetchServerCards, syncLocalToServer } from "./srs-sync";
+import { createClient } from "@/lib/supabase/client";
 
 const STORAGE_KEY = "ks-srs-vocab";
 const DAILY_NEW_LIMIT = 20;
@@ -70,17 +72,49 @@ export function buildQueue(allIds: string[], state: SrsState): QueueItem[] {
 }
 
 /**
- * Bản mobile: guest-only, chỉ lưu localStorage trên máy — chưa nối
- * Supabase (xem plan Giai đoạn 3: viết lại actions/srs.ts thành client SDK
- * call trước khi bật sync ở đây).
+ * Anonymous → chỉ localStorage. Đã login → merge với server (union theo
+ * lastReviewedAt mới hơn) + sync mỗi lần rate. Port từ lib/srs-store.ts gốc,
+ * chỉ đổi nguồn gọi (srs-sync.ts thay vì actions/srs.ts Server Actions).
  */
 export function useSrsStore(allIds: string[]) {
   const [state, setState] = useState<SrsState>(EMPTY_STATE);
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    setState(load());
-    setHydrated(true);
+    const supabase = createClient();
+
+    supabase.auth.getUser().then(async ({ data }) => {
+      const uid = data.user?.id ?? null;
+      const local = load();
+
+      const isMine = !local.userId || local.userId === uid;
+      const base = isMine ? local : EMPTY_STATE;
+
+      setState(base);
+      setHydrated(true);
+
+      if (!uid) return; // anonymous — chỉ dùng local, không sync
+
+      if (isMine && Object.keys(base.cards).length > 0) {
+        syncLocalToServer(base).catch(console.error);
+      }
+
+      const serverCards = await fetchServerCards();
+      if (!serverCards) return;
+
+      setState((prev) => {
+        const merged: Record<string, CardState> = { ...prev.cards };
+        for (const [wordId, serverCard] of Object.entries(serverCards)) {
+          const localCard = prev.cards[wordId];
+          if (!localCard || serverCard.lastReviewedAt > localCard.lastReviewedAt) {
+            merged[wordId] = serverCard;
+          }
+        }
+        const next: SrsState = { ...prev, cards: merged, userId: uid };
+        save(next);
+        return next;
+      });
+    });
   }, []);
 
   const getCard = useCallback(
@@ -97,6 +131,10 @@ export function useSrsStore(allIds: string[]) {
       };
       const withStreak = updateStreak(updated);
       save(withStreak);
+
+      const updatedCard = withStreak.cards[id];
+      syncCard(id, updatedCard).catch(console.error);
+
       return withStreak;
     });
   }, []);

@@ -1,0 +1,159 @@
+{
+  "topic": "pronunciation",
+  "title": "Quy tắc nối âm",
+  "titleKo": "받침 발음 규칙",
+  "subtitle": "7 quy tắc làm tiếng Hàn nói khác cách viết",
+  "intro": "받침 (bat-chim) = phụ âm cuối âm tiết. Đây là phần khiến tiếng Hàn nói nghe khác xa với cách viết. 7 quy tắc dưới đây giải thích vì sao.",
+  "lessons": [
+    {
+      "id": "batchim-overview",
+      "title": "7 đại diện 받침",
+      "icon": "받",
+      "type": "explainer",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Dù viết bằng phụ âm nào, 받침 ở **cuối âm tiết** (không nối với âm tiết sau bắt đầu bằng nguyên âm) chỉ phát âm thành 1 trong **7 âm đại diện** dưới đây."
+        },
+        {
+          "kind": "rules",
+          "title": "7 đại diện",
+          "items": [
+            { "label": "ㄱ (k)",  "chars": ["ㄱ", "ㅋ", "ㄲ", "ㄳ", "ㄺ"], "rule": "5 phụ âm này khi đứng cuối đều đọc thành âm **k**", "examples": ["부엌"] },
+            { "label": "ㄴ (n)",  "chars": ["ㄴ", "ㄵ", "ㄶ"],            "rule": "Đọc thành **n**", "examples": ["산"] },
+            { "label": "ㄷ (t)",  "chars": ["ㄷ", "ㅌ", "ㅅ", "ㅆ", "ㅈ", "ㅊ", "ㅎ"], "rule": "Tất cả đọc thành **t** (đại diện 받침 'phổ biến' nhất)", "examples": ["옷", "꽃"] },
+            { "label": "ㄹ (l)",  "chars": ["ㄹ", "ㄼ", "ㄽ", "ㄾ", "ㅀ"], "rule": "Đọc thành **l**", "examples": ["길"] },
+            { "label": "ㅁ (m)",  "chars": ["ㅁ", "ㄻ"],                  "rule": "Đọc thành **m**", "examples": ["밤"] },
+            { "label": "ㅂ (p)",  "chars": ["ㅂ", "ㅍ", "ㅄ", "ㄿ"],      "rule": "Đọc thành **p**", "examples": ["밥"] },
+            { "label": "ㅇ (ng)", "chars": ["ㅇ"],                          "rule": "ㅇ ở cuối đọc thành **ng** (ở đầu thì câm)", "examples": ["강"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rule-1",
+      "title": "Quy tắc 1: Nối âm",
+      "icon": "🔗",
+      "type": "rule",
+      "formula": "받침 + ㅇ → 받침 chuyển sang phụ âm đầu của âm tiết sau",
+      "explanation": "Khi 받침 đứng trước âm tiết bắt đầu bằng **ㅇ** (nguyên âm), 받침 **'nhảy'** sang làm phụ âm đầu của âm tiết kế. Đây là quy tắc QUAN TRỌNG NHẤT, gặp khắp nơi.",
+      "diagram": {
+        "before": "음 + 악",
+        "after": "으 + 막",
+        "result": "[으막] eu-mak"
+      },
+      "examples": [
+        { "written": "음악",   "read": "[으막]",   "rom": "eu-mak",     "vi": "âm nhạc",            "audio": "r1_eumak" },
+        { "written": "한국어", "read": "[한구거]", "rom": "han-gu-geo", "vi": "tiếng Hàn",          "audio": "r1_hangugeo" },
+        { "written": "직업",   "read": "[지겁]",   "rom": "ji-geop",    "vi": "nghề nghiệp",        "audio": "r1_jigeop" },
+        { "written": "책을",   "read": "[채글]",   "rom": "chae-geul",  "vi": "quyển sách (tân ngữ)","audio": "r1_chaegeul" },
+        { "written": "꽃이",   "read": "[꼬치]",   "rom": "kko-chi",    "vi": "hoa (chủ ngữ)",      "audio": "r1_kkochi" }
+      ]
+    },
+    {
+      "id": "rule-2",
+      "title": "Quy tắc 2: Đồng hóa mũi (비음화)",
+      "icon": "👃",
+      "type": "rule",
+      "formula": "받침 ㄱ/ㄷ/ㅂ + ㄴ/ㅁ → ㅇ/ㄴ/ㅁ + ㄴ/ㅁ",
+      "explanation": "Khi 받침 ㄱ/ㄷ/ㅂ đứng trước ㄴ hoặc ㅁ, chúng bị đồng hóa thành phụ âm mũi tương ứng (ㅇ/ㄴ/ㅁ). Câu kinh điển: **감사합니다** đọc là [감사**함**니다].",
+      "diagram": {
+        "before": "ㅂ + ㄴ",
+        "after": "ㅁ + ㄴ",
+        "result": "(입니다 → 임니다)"
+      },
+      "examples": [
+        { "written": "감사합니다", "read": "[감사함니다]", "rom": "gam-sa-ham-ni-da", "vi": "cảm ơn",        "audio": "r2_gamsa" },
+        { "written": "입니다",     "read": "[임니다]",     "rom": "im-ni-da",         "vi": "là (lịch sự)",  "audio": "r2_imnida" },
+        { "written": "학년",       "read": "[항년]",       "rom": "hang-nyeon",       "vi": "năm học",       "audio": "r2_hangnyeon" }
+      ]
+    },
+    {
+      "id": "rule-3",
+      "title": "Quy tắc 3: Đồng hóa ㄹ (유음화)",
+      "icon": "💧",
+      "type": "rule",
+      "formula": "ㄴ + ㄹ  hoặc  ㄹ + ㄴ  →  ㄹ + ㄹ",
+      "explanation": "Khi ㄴ và ㄹ đứng cạnh nhau (theo cả 2 chiều), cả 2 đều biến thành ㄹㄹ. Tên cổ vương quốc 신라 đọc là [실라].",
+      "diagram": {
+        "before": "신 + 라",
+        "after": "실 + 라",
+        "result": "[실라] sil-la"
+      },
+      "examples": [
+        { "written": "신라", "read": "[실라]", "rom": "sil-la",   "vi": "Tân La (vương quốc cổ)", "audio": "r3_silla" },
+        { "written": "연락", "read": "[열락]", "rom": "yeol-lak", "vi": "liên lạc",                "audio": "r3_yeollak" },
+        { "written": "설날", "read": "[설랄]", "rom": "seol-lal", "vi": "Tết",                     "audio": "r3_seollal" }
+      ]
+    },
+    {
+      "id": "rule-4",
+      "title": "Quy tắc 4: Bật hơi hóa (격음화)",
+      "icon": "💨",
+      "type": "rule",
+      "formula": "ㅎ + ㄱ/ㄷ/ㅂ/ㅈ  (hoặc ngược lại)  →  ㅋ/ㅌ/ㅍ/ㅊ",
+      "explanation": "Khi ㅎ gặp ㄱ/ㄷ/ㅂ/ㅈ, chúng kết hợp thành phụ âm bật hơi tương ứng. **축하** (chúc mừng) đọc là [추카].",
+      "diagram": {
+        "before": "축 + 하",
+        "after": "추 + 카",
+        "result": "[추카] chu-ka"
+      },
+      "examples": [
+        { "written": "축하", "read": "[추카]", "rom": "chu-ka", "vi": "chúc mừng",   "audio": "r4_chuka" },
+        { "written": "좋다", "read": "[조타]", "rom": "jo-ta",  "vi": "tốt",         "audio": "r4_jota" },
+        { "written": "입학", "read": "[이팍]", "rom": "i-pak",  "vi": "nhập học",    "audio": "r4_ipak" }
+      ]
+    },
+    {
+      "id": "rule-5",
+      "title": "Quy tắc 5: Lược bỏ ㅎ",
+      "icon": "👻",
+      "type": "rule",
+      "formula": "ㅎ + nguyên âm (ㅇ)  →  ㅎ biến mất",
+      "explanation": "Khi ㅎ đứng trước âm tiết bắt đầu bằng nguyên âm (ㅇ), ㅎ **biến mất** khi đọc. **좋아요** (tốt/thích) đọc là [조아요].",
+      "diagram": {
+        "before": "좋 + 아요",
+        "after": "조 + 아요",
+        "result": "[조아요]"
+      },
+      "examples": [
+        { "written": "좋아요", "read": "[조아요]", "rom": "jo-a-yo", "vi": "tốt / thích", "audio": "r5_joayo" },
+        { "written": "많아요", "read": "[마나요]", "rom": "ma-na-yo", "vi": "nhiều",       "audio": "r5_manayo" }
+      ]
+    },
+    {
+      "id": "rule-6",
+      "title": "Quy tắc 6: Căng âm hóa (경음화)",
+      "icon": "🪨",
+      "type": "rule",
+      "formula": "받침 ㄱ/ㄷ/ㅂ + ㄱ/ㄷ/ㅂ/ㅅ/ㅈ  →  âm sau căng lại (ㄲ/ㄸ/ㅃ/ㅆ/ㅉ)",
+      "explanation": "Khi 받침 ㄱ/ㄷ/ㅂ đứng trước phụ âm thường, phụ âm đó bị **căng** lại thành dạng đôi. **학교** (trường học) đọc là [학꾜].",
+      "diagram": {
+        "before": "학 + 교",
+        "after": "학 + 꾜",
+        "result": "[학꾜] hak-kkyo"
+      },
+      "examples": [
+        { "written": "학교", "read": "[학꾜]", "rom": "hak-kkyo",  "vi": "trường học", "audio": "r6_hakkyo" },
+        { "written": "식당", "read": "[식땅]", "rom": "sik-ttang", "vi": "nhà hàng",   "audio": "r6_siktang" }
+      ]
+    },
+    {
+      "id": "rule-7",
+      "title": "Quy tắc 7: Vòm hóa (구개음화)",
+      "icon": "🌊",
+      "type": "rule",
+      "formula": "받침 ㄷ/ㅌ + 이  →  지/치",
+      "explanation": "Khi ㄷ hoặc ㅌ làm 받침 và sau đó là 이, chúng bị 'vòm hóa' thành 지 hoặc 치. **같이** (cùng nhau) đọc là [가치].",
+      "diagram": {
+        "before": "같 + 이",
+        "after": "가 + 치",
+        "result": "[가치] ga-chi"
+      },
+      "examples": [
+        { "written": "같이", "read": "[가치]", "rom": "ga-chi", "vi": "cùng nhau", "audio": "r7_gachi" },
+        { "written": "굳이", "read": "[구지]", "rom": "gu-ji",  "vi": "cố tình",    "audio": "r7_guji" }
+      ]
+    }
+  ]
+}

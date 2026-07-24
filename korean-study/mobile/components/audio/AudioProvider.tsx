@@ -10,6 +10,14 @@ import {
   useState,
 } from "react";
 
+// Import động — module này chạm `window` ngay ở top-level (xem dist/index.js
+// "Warm up" block), làm vỡ prerender static export (chạy trong Node, không
+// có window). Chỉ load khi thực sự cần, trong browser/WebView.
+async function getTextToSpeech() {
+  const { TextToSpeech } = await import("@capacitor-community/text-to-speech");
+  return TextToSpeech;
+}
+
 type AudioState = "loading" | "playing";
 
 interface CurrentAudio {
@@ -43,14 +51,25 @@ function saveSettings(s: { volume: number; rate: number }) {
   try { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); } catch {}
 }
 
+/**
+ * Dùng plugin native @capacitor-community/text-to-speech thay vì
+ * window.speechSynthesis trực tiếp — trên Android nó gọi thẳng
+ * android.speech.tts.TextToSpeech (native), không đi qua WebView.
+ * Lý do đổi: speechSynthesis trong WebView nhúng (khác Chrome tab thật)
+ * có nhiều report im lặng không phát/không bắn event gì — khiến nút bị
+ * kẹt "loading" mãi. Native plugin đảm bảo onDone/onError luôn bắn
+ * (xem android/.../TextToSpeech.java: UtteranceProgressListener), nên
+ * Promise chắc chắn settle dù máy thiếu gói giọng đọc Hàn hay không.
+ * Trên web (pnpm dev) plugin tự fallback dùng chính speechSynthesis
+ * trình duyệt (implementation .web.ts của plugin) — không cần code riêng.
+ */
 export function AudioProvider({ children }: { children: React.ReactNode }) {
   const [current, setCurrent] = useState<CurrentAudio | null>(null);
   const [volume, setVolumeState] = useState(DEFAULT_VOLUME);
   const [rate, setRateState] = useState(DEFAULT_RATE);
-  const voiceRef = useRef<SpeechSynthesisVoice | null>(null);
   const lastRef = useRef<{ text: string; id: string } | null>(null);
+  const tokenRef = useRef(0); // bỏ qua kết quả của lần speak() cũ nếu đã bị stop/thay bởi lần mới
 
-  // Load settings từ localStorage
   useEffect(() => {
     const s = loadSettings();
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -59,49 +78,31 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     setRateState(s.rate);
   }, []);
 
-  // Tìm Korean voice — load async vì voices có thể chưa sẵn khi mount
-  useEffect(() => {
-    function pickVoice() {
-      const voices = window.speechSynthesis?.getVoices() ?? [];
-      voiceRef.current =
-        voices.find((v) => v.lang === "ko-KR") ??
-        voices.find((v) => v.lang.startsWith("ko")) ??
-        null;
-    }
-    pickVoice();
-    window.speechSynthesis?.addEventListener("voiceschanged", pickVoice);
-    return () => window.speechSynthesis?.removeEventListener("voiceschanged", pickVoice);
-  }, []);
-
   const speak = useCallback(
     (text: string, id: string) => {
-      if (typeof window === "undefined" || !window.speechSynthesis) return;
-
-      window.speechSynthesis.cancel();
-
-      const utter = new SpeechSynthesisUtterance(text);
-      utter.lang = "ko-KR";
-      utter.volume = volume;
-      utter.rate = rate;
-      if (voiceRef.current) utter.voice = voiceRef.current;
-
-      setCurrent({ btnId: id, state: "loading" });
+      const token = ++tokenRef.current;
       lastRef.current = { text, id };
+      setCurrent({ btnId: id, state: "playing" });
 
-      utter.onstart = () => setCurrent({ btnId: id, state: "playing" });
-      utter.onend = () => setCurrent(null);
-      utter.onerror = () => setCurrent(null);
-
-      window.speechSynthesis.speak(utter);
+      getTextToSpeech()
+        .then((TextToSpeech) =>
+          TextToSpeech.speak({ text, lang: "ko-KR", rate, volume, category: "ambient" }),
+        )
+        .catch((err) => console.error("TTS error:", err))
+        .finally(() => {
+          // chỉ clear nếu vẫn là lần play này — tránh xoá state của lần play mới hơn
+          if (tokenRef.current === token) setCurrent(null);
+        });
     },
     [volume, rate],
   );
 
   const play = useCallback(
     (text: string, id: string) => {
-      // Click cùng button đang phát → stop
+      // Chạm cùng nút đang phát → stop
       if (current?.btnId === id) {
-        window.speechSynthesis?.cancel();
+        tokenRef.current++; // vô hiệu hoá callback của lần speak() đang chờ
+        getTextToSpeech().then((TextToSpeech) => TextToSpeech.stop());
         setCurrent(null);
         return;
       }
@@ -111,7 +112,8 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
   );
 
   const stop = useCallback(() => {
-    window.speechSynthesis?.cancel();
+    tokenRef.current++;
+    getTextToSpeech().then((TextToSpeech) => TextToSpeech.stop());
     setCurrent(null);
   }, []);
 

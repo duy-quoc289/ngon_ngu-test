@@ -1,0 +1,179 @@
+{
+  "topic": "hangul",
+  "title": "Hangul",
+  "titleKo": "한글",
+  "subtitle": "Bảng chữ cái tiếng Hàn",
+  "intro": "Hangul được vua Sejong tạo ra năm 1443. Hình dạng chữ mô phỏng vị trí lưỡi/môi khi phát âm — đây là một trong những bảng chữ cái khoa học nhất thế giới.",
+  "lessons": [
+    {
+      "id": "structure",
+      "title": "Cấu trúc âm tiết",
+      "icon": "🧩",
+      "type": "explainer",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Mỗi 'chữ' tiếng Hàn = **1 âm tiết**, ghép từ 2-4 thành phần."
+        },
+        {
+          "kind": "diagram",
+          "title": "Phụ âm + Nguyên âm",
+          "examples": [
+            { "parts": ["ㄱ", "ㅏ"], "result": "가", "romanization": "ga" }
+          ]
+        },
+        {
+          "kind": "diagram",
+          "title": "+ 받침 (phụ âm cuối, không bắt buộc)",
+          "examples": [
+            { "parts": ["ㄱ", "ㅏ", "ㄱ"], "result": "각", "romanization": "gak" }
+          ]
+        },
+        {
+          "kind": "rules",
+          "title": "Quy tắc viết",
+          "items": [
+            { "label": "Nguyên âm dọc", "chars": ["ㅏ", "ㅑ", "ㅓ", "ㅕ", "ㅣ"], "rule": "Viết bên **phải** phụ âm", "examples": ["가", "너", "미"] },
+            { "label": "Nguyên âm ngang", "chars": ["ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ"], "rule": "Viết **dưới** phụ âm", "examples": ["고", "누", "므"] },
+            { "label": "Có 받침", "chars": ["ㄱ", "ㄴ", "ㅁ"], "rule": "Viết **dưới cùng**", "examples": ["강", "봄", "길"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vowels-basic",
+      "title": "10 nguyên âm đơn",
+      "icon": "ㅏ",
+      "type": "tile-grid",
+      "hint": "Click vào tile để nghe phát âm. Có dấu phụ thêm (ㅑ, ㅕ, ㅛ, ㅠ) = thêm âm 'y' phía trước.",
+      "tiles": [
+        { "char": "ㅏ", "rom": "a",   "vi": "a (như 'ba')",   "syllable": "아", "audio": "vowel_a" },
+        { "char": "ㅑ", "rom": "ya",  "vi": "ya",             "syllable": "야", "audio": "vowel_ya" },
+        { "char": "ㅓ", "rom": "eo",  "vi": "ơ (như 'cơm')",  "syllable": "어", "audio": "vowel_eo" },
+        { "char": "ㅕ", "rom": "yeo", "vi": "yơ",             "syllable": "여", "audio": "vowel_yeo" },
+        { "char": "ㅗ", "rom": "o",   "vi": "ô (như 'cô')",   "syllable": "오", "audio": "vowel_o" },
+        { "char": "ㅛ", "rom": "yo",  "vi": "yô",             "syllable": "요", "audio": "vowel_yo" },
+        { "char": "ㅜ", "rom": "u",   "vi": "u (như 'mua')",  "syllable": "우", "audio": "vowel_u" },
+        { "char": "ㅠ", "rom": "yu",  "vi": "yu",             "syllable": "유", "audio": "vowel_yu" },
+        { "char": "ㅡ", "rom": "eu",  "vi": "ư (như 'thư')",  "syllable": "으", "audio": "vowel_eu" },
+        { "char": "ㅣ", "rom": "i",   "vi": "i (như 'đi')",   "syllable": "이", "audio": "vowel_i" }
+      ]
+    },
+    {
+      "id": "vowels-double",
+      "title": "11 nguyên âm ghép",
+      "icon": "ㅐ",
+      "type": "tile-grid",
+      "hint": "Ghép từ nguyên âm đơn. ㅐ và ㅔ giờ phát âm gần như nhau.",
+      "tiles": [
+        { "char": "ㅐ", "rom": "ae",  "vi": "e mở (như 'kẻ')",   "syllable": "애", "audio": "vowel_ae",  "made": "ㅏ + ㅣ" },
+        { "char": "ㅒ", "rom": "yae", "vi": "ye mở",             "syllable": "얘", "audio": "vowel_yae", "made": "ㅑ + ㅣ" },
+        { "char": "ㅔ", "rom": "e",   "vi": "ê",                 "syllable": "에", "audio": "vowel_e",   "made": "ㅓ + ㅣ" },
+        { "char": "ㅖ", "rom": "ye",  "vi": "yê",                "syllable": "예", "audio": "vowel_ye",  "made": "ㅕ + ㅣ" },
+        { "char": "ㅘ", "rom": "wa",  "vi": "oa",                "syllable": "와", "audio": "vowel_wa",  "made": "ㅗ + ㅏ" },
+        { "char": "ㅙ", "rom": "wae", "vi": "oe",                "syllable": "왜", "audio": "vowel_wae", "made": "ㅗ + ㅐ" },
+        { "char": "ㅚ", "rom": "oe",  "vi": "uê",                "syllable": "외", "audio": "vowel_oe",  "made": "ㅗ + ㅣ" },
+        { "char": "ㅝ", "rom": "wo",  "vi": "uơ",                "syllable": "워", "audio": "vowel_wo",  "made": "ㅜ + ㅓ" },
+        { "char": "ㅞ", "rom": "we",  "vi": "uê",                "syllable": "웨", "audio": "vowel_we",  "made": "ㅜ + ㅔ" },
+        { "char": "ㅟ", "rom": "wi",  "vi": "uy",                "syllable": "위", "audio": "vowel_wi",  "made": "ㅜ + ㅣ" },
+        { "char": "ㅢ", "rom": "ui",  "vi": "ưi",                "syllable": "의", "audio": "vowel_ui",  "made": "ㅡ + ㅣ" }
+      ]
+    },
+    {
+      "id": "consonants-basic",
+      "title": "14 phụ âm cơ bản",
+      "icon": "ㄱ",
+      "type": "tile-grid",
+      "hint": "ㅇ ở **đầu** âm tiết là câm; ở **cuối** đọc 'ng'. Phụ âm thay đổi âm theo vị trí.",
+      "tiles": [
+        { "char": "ㄱ", "rom": "g/k", "vi": "g/k (cuối: k)",     "syllable": "가", "audio": "cons_g" },
+        { "char": "ㄴ", "rom": "n",   "vi": "n",                 "syllable": "나", "audio": "cons_n" },
+        { "char": "ㄷ", "rom": "d/t", "vi": "d/t (cuối: t)",     "syllable": "다", "audio": "cons_d" },
+        { "char": "ㄹ", "rom": "r/l", "vi": "r/l (cuối: l)",     "syllable": "라", "audio": "cons_r" },
+        { "char": "ㅁ", "rom": "m",   "vi": "m",                 "syllable": "마", "audio": "cons_m" },
+        { "char": "ㅂ", "rom": "b/p", "vi": "b/p (cuối: p)",     "syllable": "바", "audio": "cons_b" },
+        { "char": "ㅅ", "rom": "s",   "vi": "s (cuối: t)",       "syllable": "사", "audio": "cons_s" },
+        { "char": "ㅇ", "rom": "—/ng","vi": "câm / cuối: ng",    "syllable": "아", "audio": "cons_ng" },
+        { "char": "ㅈ", "rom": "j",   "vi": "j (cuối: t)",       "syllable": "자", "audio": "cons_j" },
+        { "char": "ㅊ", "rom": "ch",  "vi": "ch bật hơi",        "syllable": "차", "audio": "cons_ch" },
+        { "char": "ㅋ", "rom": "k",   "vi": "k bật hơi mạnh",    "syllable": "카", "audio": "cons_k" },
+        { "char": "ㅌ", "rom": "t",   "vi": "t bật hơi mạnh",    "syllable": "타", "audio": "cons_t" },
+        { "char": "ㅍ", "rom": "p",   "vi": "p bật hơi mạnh",    "syllable": "파", "audio": "cons_p" },
+        { "char": "ㅎ", "rom": "h",   "vi": "h",                 "syllable": "하", "audio": "cons_h" }
+      ]
+    },
+    {
+      "id": "consonants-tense",
+      "title": "5 phụ âm căng",
+      "icon": "ㄲ",
+      "type": "tile-grid",
+      "hint": "Căng hơn phụ âm thường, KHÔNG bật hơi. Đặt giấy trước miệng — đọc xong giấy không động.",
+      "tiles": [
+        { "char": "ㄲ", "rom": "kk", "vi": "căng hơn ㄱ", "syllable": "까", "audio": "cons_kk" },
+        { "char": "ㄸ", "rom": "tt", "vi": "căng hơn ㄷ", "syllable": "따", "audio": "cons_tt" },
+        { "char": "ㅃ", "rom": "pp", "vi": "căng hơn ㅂ", "syllable": "빠", "audio": "cons_pp" },
+        { "char": "ㅆ", "rom": "ss", "vi": "căng hơn ㅅ", "syllable": "싸", "audio": "cons_ss" },
+        { "char": "ㅉ", "rom": "jj", "vi": "căng hơn ㅈ", "syllable": "짜", "audio": "cons_jj" }
+      ]
+    },
+    {
+      "id": "consonants-types",
+      "title": "Phân biệt 3 loại phụ âm",
+      "icon": "⚖️",
+      "type": "comparison",
+      "hint": "Đặt tờ giấy trước miệng. Đọc ㅋ → giấy bay mạnh. Đọc ㄲ → giấy gần như không động.",
+      "groups": [
+        {
+          "name": "Thường",
+          "color": "blue",
+          "description": "Phát âm bình thường, hơi 'mềm'",
+          "items": [
+            { "char": "ㄱ", "syllable": "가", "audio": "cons_g" },
+            { "char": "ㄷ", "syllable": "다", "audio": "cons_d" },
+            { "char": "ㅂ", "syllable": "바", "audio": "cons_b" },
+            { "char": "ㅈ", "syllable": "자", "audio": "cons_j" }
+          ]
+        },
+        {
+          "name": "Bật hơi (격음)",
+          "color": "rose",
+          "description": "Bật mạnh hơi ra (như ho nhẹ)",
+          "items": [
+            { "char": "ㅋ", "syllable": "카", "audio": "cons_k" },
+            { "char": "ㅌ", "syllable": "타", "audio": "cons_t" },
+            { "char": "ㅍ", "syllable": "파", "audio": "cons_p" },
+            { "char": "ㅊ", "syllable": "차", "audio": "cons_ch" }
+          ]
+        },
+        {
+          "name": "Căng (경음)",
+          "color": "amber",
+          "description": "Cứng, dứt khoát, không bật hơi",
+          "items": [
+            { "char": "ㄲ", "syllable": "까", "audio": "cons_kk" },
+            { "char": "ㄸ", "syllable": "따", "audio": "cons_tt" },
+            { "char": "ㅃ", "syllable": "빠", "audio": "cons_pp" },
+            { "char": "ㅉ", "syllable": "짜", "audio": "cons_jj" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "exercise",
+      "title": "Bài tập đọc thử",
+      "icon": "✏️",
+      "type": "exercise",
+      "hint": "Click 'Hiện đáp án' sau khi tự đọc thử. Click loa để nghe đáp án chuẩn.",
+      "items": [
+        { "ko": "안녕",         "rom": "an-nyeong",       "vi": "xin chào",                "audio": "ex_annyeong" },
+        { "ko": "감사합니다",   "rom": "gam-sa-ham-ni-da", "vi": "cảm ơn",                  "audio": "ex_gamsa" },
+        { "ko": "사랑",         "rom": "sa-rang",          "vi": "tình yêu",                "audio": "ex_sarang" },
+        { "ko": "학생",         "rom": "hak-saeng",        "vi": "học sinh (Hán-Việt!)",    "audio": "ex_haksaeng" },
+        { "ko": "김치",         "rom": "gim-chi",          "vi": "kim chi",                 "audio": "ex_gimchi" },
+        { "ko": "비빔밥",       "rom": "bi-bim-bap",       "vi": "cơm trộn",                "audio": "ex_bibimbap" },
+        { "ko": "한국",         "rom": "han-guk",          "vi": "Hàn Quốc",                "audio": "ex_hanguk" },
+        { "ko": "베트남",       "rom": "be-teu-nam",       "vi": "Việt Nam",                "audio": "ex_betnam" }
+      ]
+    }
+  ]
+}

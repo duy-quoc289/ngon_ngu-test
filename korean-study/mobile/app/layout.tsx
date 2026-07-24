@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { hand, marker, beVietnamPro, notoSansKr } from "@/lib/fonts";
 import { AudioProvider } from "@/components/audio/AudioProvider";
+import { AuthProvider } from "@/lib/auth";
 import { TabBar } from "@/components/TabBar";
 import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
@@ -38,10 +40,14 @@ export default function RootLayout({
             <feDisplacementMap in="SourceGraphic" in2="noise" scale={3.2} xChannelSelector="R" yChannelSelector="G" />
           </filter>
         </svg>
-        <AudioProvider>
-          {children}
-          <TabBar />
-        </AudioProvider>
+        <AuthProvider>
+          <AudioProvider>
+            {children}
+            <Suspense fallback={null}>
+              <TabBar />
+            </Suspense>
+          </AudioProvider>
+        </AuthProvider>
       </body>
     </html>
   );

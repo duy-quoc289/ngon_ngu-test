@@ -1,0 +1,132 @@
+{
+  "topic": "summary",
+  "title": "Lộ trình ôn tập",
+  "titleKo": "복습 계획",
+  "subtitle": "Kế hoạch 4 tuần đầu + mẹo học",
+  "intro": "Lộ trình gợi ý cho 4 tuần đầu học tiếng Hàn (Stage 1: Foundation). Sau khi xong, có thể bước vào TOPIK 1.",
+  "lessons": [
+    {
+      "id": "week-1",
+      "title": "Tuần 1: Hangul",
+      "icon": "1",
+      "type": "explainer",
+      "blocks": [
+        { "kind": "intro", "text": "Mục tiêu tuần 1: **đọc được Hangul** (chưa cần hiểu nghĩa)." },
+        {
+          "kind": "rules",
+          "title": "Lịch học chi tiết",
+          "items": [
+            { "label": "Ngày 1-2", "rule": "Học thuộc **21 nguyên âm** + tập viết tay", "examples": ["10 đơn", "11 ghép"] },
+            { "label": "Ngày 3-4", "rule": "Học **14 phụ âm cơ bản**", "examples": [] },
+            { "label": "Ngày 5",   "rule": "Học **5 phụ âm căng** + phân biệt 3 loại phụ âm (thường/bật hơi/căng)", "examples": [] },
+            { "label": "Ngày 6-7", "rule": "Đọc thử **50 từ vựng đơn giản** (không cần thuộc nghĩa, chỉ cần đọc đúng)", "examples": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "week-2",
+      "title": "Tuần 2: Số đếm",
+      "icon": "2",
+      "type": "explainer",
+      "blocks": [
+        { "kind": "intro", "text": "Mục tiêu tuần 2: **dùng được 2 hệ số** trong tình huống thực tế." },
+        {
+          "kind": "rules",
+          "title": "Lịch học chi tiết",
+          "items": [
+            { "label": "Đầu tuần", "rule": "Học cả 2 hệ số đếm (Hán-Hàn + Thuần Hàn)", "examples": [] },
+            { "label": "Giữa tuần", "rule": "Tập đếm: tuổi, giờ, tiền, đồ vật", "examples": ["스무 살", "세 시", "5000원"] },
+            { "label": "Cuối tuần", "rule": "Học **10 đơn vị đếm phổ biến** (개, 명, 시, 살...)", "examples": ["개", "명", "마리", "권"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "week-3-4",
+      "title": "Tuần 3-4: Nối âm",
+      "icon": "3",
+      "type": "explainer",
+      "blocks": [
+        { "kind": "intro", "text": "Mục tiêu 2 tuần cuối: **nghe được tiếng Hàn người bản xứ nói**." },
+        {
+          "kind": "rules",
+          "title": "Lịch học chi tiết",
+          "items": [
+            { "label": "Mỗi ngày", "rule": "Học **1 quy tắc nối âm** (có 7 quy tắc)", "examples": [] },
+            { "label": "Hằng ngày", "rule": "Luyện nghe các từ áp dụng quy tắc đó", "examples": [] },
+            { "label": "Đọc to", "rule": "Đọc to mọi ví dụ để **quen miệng** — nghe-nói song hành", "examples": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tips",
+      "title": "5 mẹo học hiệu quả",
+      "icon": "💡",
+      "type": "explainer",
+      "blocks": [
+        {
+          "kind": "rules",
+          "title": "Quy tắc vàng",
+          "items": [
+            { "label": "1. Viết tay", "rule": "Đừng chỉ nhìn — **cơ tay nhớ giúp não nhớ**. Mỗi chữ viết 5-10 lần.", "examples": [] },
+            { "label": "2. Đọc to", "rule": "Đọc to mọi thứ — kể cả khi chưa hiểu nghĩa. Tai và miệng học cùng não.", "examples": [] },
+            { "label": "3. Anki", "rule": "Dùng flashcard SRS cho 받침 + quy tắc nối âm. Tham khảo deck \"TOPIK 1 vocabulary\".", "examples": [] },
+            { "label": "4. Đắm mình", "rule": "Nghe **K-pop/drama** với phụ đề Hangul (TẮT phụ đề Việt). Bắt quy tắc nối âm thực tế.", "examples": [] },
+            { "label": "5. Bắt chước", "rule": "Pronunciation Hàn rất \"cảm tính\" — **luyện tai quan trọng hơn lý thuyết**. Bắt chước người bản xứ.", "examples": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "advantage",
+      "title": "Lợi thế người Việt",
+      "icon": "🎁",
+      "type": "explainer",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "**60-70% từ vựng tiếng Hàn gốc Hán** — gần giống Hán-Việt. Đây là lợi thế cực lớn nếu bạn dùng đúng cách."
+        },
+        {
+          "kind": "rules",
+          "title": "Ví dụ Hán-Hàn ↔ Hán-Việt",
+          "items": [
+            { "label": "도서관", "rule": "đồ thư quán = **thư viện**", "examples": [] },
+            { "label": "학생",   "rule": "= **học sinh**", "examples": [] },
+            { "label": "가족",   "rule": "gia tộc = **gia đình**", "examples": [] },
+            { "label": "병원",   "rule": "bệnh viện = **bệnh viện**", "examples": [] },
+            { "label": "음악",   "rule": "= **âm nhạc**", "examples": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "next-steps",
+      "title": "Sau Stage 1 thì sao?",
+      "icon": "🚀",
+      "type": "explainer",
+      "blocks": [
+        {
+          "kind": "intro",
+          "text": "Hoàn thành 4 tuần → bạn có nền **Hangul + số đếm + nối âm**. Bước tiếp theo: **TOPIK 1 (Stage 2)** với ngữ pháp + từ vựng."
+        },
+        {
+          "kind": "rules",
+          "title": "Tài nguyên khuyên dùng",
+          "items": [
+            { "label": "TTMIK Level 1-2", "rule": "Series miễn phí, người dạy bản xứ, audio + transcript", "examples": [] },
+            { "label": "Anki + TOPIK 1", "rule": "SRS chuẩn industry, nhiều shared decks", "examples": [] },
+            { "label": "Sejong Korean PDF", "rule": "Giáo trình chính thức của Hàn Quốc, free 1-4", "examples": [] },
+            { "label": "Naver Dictionary", "rule": "Audio chuẩn nhất; cài app điện thoại", "examples": [] }
+          ]
+        },
+        {
+          "kind": "intro",
+          "text": "**화이팅! 파이팅!** (Cố lên!)"
+        }
+      ]
+    }
+  ]
+}
